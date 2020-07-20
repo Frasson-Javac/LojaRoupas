@@ -1,0 +1,3 @@
+Cod;nomeProduto;Descricao;tamanho;genero;quantidade;valor unitario;Valor total;Nome Fornecedor;Data;hora
+1;Short;;PP;Masculino;12;22.15;265.8;Americanas Ltda;19/07/2020;20:55:22
+2;Bermuda;;PP;Masculino;10;15.34;153.4;Lojas Mariza;19/07/2020;20:55:43

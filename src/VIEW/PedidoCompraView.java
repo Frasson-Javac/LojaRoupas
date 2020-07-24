@@ -166,6 +166,7 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(jPedidoCompra);
 
+        txt_valorUnitario.setText("0,00");
         txt_valorUnitario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_valorUnitarioKeyPressed(evt);

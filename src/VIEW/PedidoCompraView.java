@@ -166,7 +166,6 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(jPedidoCompra);
 
-        txt_valorUnitario.setText("0,00");
         txt_valorUnitario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_valorUnitarioKeyPressed(evt);
@@ -312,23 +311,21 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
         // TODO add your handling code here:
         PedidoCompra pd = new PedidoCompra();
-        utilitarios util = new utilitarios();
+       
 
         String tam = (String) jCombo_Tamnho.getSelectedItem();// combo box dos tamnhos dos uniformes
         String gen = (String) Jcombo_Genero.getSelectedItem();// combo box dos generos m/f
         int qtde = Integer.parseInt(txt_Quantidade.getText());//quantidade de uniformes
+       
 
-        String convertTotal = util.convertnumero(Double.parseDouble(txt_ValorTotal.getText()));//converte com duas casas decimais
-        double valortotal = Double.parseDouble(txt_valorUnitario.getText()) * qtde;
-
-        String fornecedo = (String) jcombo_Forn.getSelectedItem();
-
+        String fornecedor = (String) jcombo_Forn.getSelectedItem();
+        System.out.println(txt_ValorTotal.getText());
         PedidoCompra pedido = new PedidoCompra(Integer.parseInt(txt_cod.getText()), txt_Produto.getText(), jArea_Descricao.getText(), tam, gen,
-                qtde, Double.parseDouble(txt_valorUnitario.getText()), Double.parseDouble(convertTotal), jcombo_Forn.getSelectedItem().toString());
+                qtde, Double.parseDouble(txt_valorUnitario.getText()),Double.parseDouble( txt_ValorTotal.getText().replace("R$ ","").replace(",", ".")), jcombo_Forn.getSelectedItem().toString());
         pedido.gravar(pedido);
 
-        String[] dados = {txt_cod.getText(), txt_Produto.getText(), tam, gen, jArea_Descricao.getText(), fornecedo,
-            txt_Quantidade.getText(), txt_valorUnitario.getText(), convertTotal};
+        String[] dados = {txt_cod.getText(), txt_Produto.getText(), tam, gen, jArea_Descricao.getText(), fornecedor,
+            txt_Quantidade.getText(), txt_valorUnitario.getText(),"" +txt_ValorTotal.getText()};
 
         DefaultTableModel dtn = (DefaultTableModel) jPedidoCompra.getModel();
         dtn.addRow(dados);
@@ -365,23 +362,26 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcombo_FornMouseClicked
 
-    private void txt_valorUnitarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_valorUnitarioKeyPressed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_txt_valorUnitarioKeyPressed
-
     private void txt_valorUnitarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_valorUnitarioKeyReleased
         // TODO add your handling code here
- 
-   utilitarios util=new utilitarios();
-        double calc = Double.parseDouble(txt_Quantidade.getText()) * (Double.parseDouble(txt_valorUnitario.getText()));// calcula quantidade x valor unitario
+
+        utilitarios util=new utilitarios();
+
+        ;// calcula quantidade x valor unitario
+        util.convertnumero(Double.parseDouble(txt_valorUnitario.getText()));
+        String calculo=util.convertnumero( Double.parseDouble(txt_Quantidade.getText()) * (Double.parseDouble(txt_valorUnitario.getText())));
+        txt_ValorTotal.setText(calculo );
         
 
-        txt_ValorTotal.setText("" + util.convertnumero(calc));
-     double calc1=0;
-        calc1=calc1+Double.parseDouble(txt_ValorTotal.getText());
-        txt_Subtotal.setText("" +calc1 );
     }//GEN-LAST:event_txt_valorUnitarioKeyReleased
+
+    private void txt_valorUnitarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_valorUnitarioKeyPressed
+        // TODO add your handling code here:
+        txt_valorUnitario.getText();
+        
+        
+        
+    }//GEN-LAST:event_txt_valorUnitarioKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

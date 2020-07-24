@@ -1,3 +1,12 @@
 Cod;nomeProduto;Descricao;tamanho;genero;quantidade;valor unitario;Valor total;Nome Fornecedor;Data;hora
 1;Short;;PP;Masculino;12;22.15;265.8;Americanas Ltda;19/07/2020;20:55:22
 2;Bermuda;;PP;Masculino;10;15.34;153.4;Lojas Mariza;19/07/2020;20:55:43
+3;;;Selecione;Selecione;1;12.11;12.11;Selecione;23/07/2020;22:14:54
+4;;;Selecione;Selecione;2;2.0;4.0;Selecione;23/07/2020;22:27:53
+5;;;Selecione;Selecione;2;23.0;46.0;Selecione;23/07/2020;22:36:27
+6;;;Selecione;Selecione;2;0.1;0.2;Selecione;23/07/2020;22:38:42
+7;;;Selecione;Selecione;2;2.0;0.04;Selecione;23/07/2020;22:53:10
+8;;;Selecione;Selecione;2;12.12;24.0;Selecione;23/07/2020;22:55:31
+9;;;Selecione;Selecione;2;2.12;4.0;Selecione;23/07/2020;23:01:25
+10;;;Selecione;Selecione;2;2.12;4.0;Selecione;23/07/2020;23:03:41
+11;;;Selecione;Selecione;2;2.1;4.0;Selecione;23/07/2020;23:06:16

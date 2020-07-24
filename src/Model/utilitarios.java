@@ -10,6 +10,7 @@ import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,13 +38,20 @@ public class utilitarios {
 
     }
 
-    public String convertnumero(double numero) {
+    public  String convertnumero(double numero) {
+        
+        
+        try{
         Locale brazil=new Locale("pt", "BR");
         DecimalFormatSymbols real=new DecimalFormatSymbols(brazil);
-       DecimalFormat df=new DecimalFormat("¤ ###,###,##0.00",real);
+       DecimalFormat df=new DecimalFormat("¤ ######,##",real);
  
         String s = df.format(numero);
         return s;
 
+    }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, ex);
+    }
+        return "";
     }
 }

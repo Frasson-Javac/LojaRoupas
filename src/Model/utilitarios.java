@@ -38,9 +38,10 @@ public class utilitarios {
     }
 
     public String convertnumero(double numero) {
-
-        DecimalFormat df = (DecimalFormat) DecimalFormat.getInstance(new Locale("pt", "BR"));
-        DecimalFormatSymbols real = new DecimalFormatSymbols(BRAZIL);
+        Locale brazil=new Locale("pt", "BR");
+        DecimalFormatSymbols real=new DecimalFormatSymbols(brazil);
+       DecimalFormat df=new DecimalFormat("¤ ###,###,##0.00",real);
+ 
         String s = df.format(numero);
         return s;
 

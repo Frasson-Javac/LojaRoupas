@@ -416,6 +416,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
 
     private void jMenuItem_PedidoCompra_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_PedidoCompra_ConsultarActionPerformed
         // TODO add your handling code here:
+        InternalframeCentralizado.gerarcental(new ConsultarPedidoCompra(), desktopPrincipal);
     }//GEN-LAST:event_jMenuItem_PedidoCompra_ConsultarActionPerformed
 
     private void jMenuItem_Vendas_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Vendas_ConsultarActionPerformed

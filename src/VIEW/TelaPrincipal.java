@@ -5,32 +5,37 @@
  */
 package VIEW;
 
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.SimpleFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
-import javax.swing.plaf.DesktopPaneUI;
-import static sun.security.jgss.GSSUtil.login;
 
 /**
  *
  * @author vinic
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-GerarIntenalFrameCentralizado InternalframeCentralizado=new GerarIntenalFrameCentralizado();
-Login login=new Login();
-CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
+
+    GerarIntenalFrameCentralizado InternalframeCentralizado = new GerarIntenalFrameCentralizado();
+    Login login = new Login();
+    CadastarFornecedor cadastrofornecedor = new CadastarFornecedor();
+
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-       
+
     }
 
     /**
@@ -105,6 +110,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Loja de Roupa T-DRESS LTDA");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -178,7 +184,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
             }
         });
 
-        jMenuItem_Usuario_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Usuario_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Usuario_Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-adicionar-livro-36.png"))); // NOI18N
         jMenuItem_Usuario_Cadastrar.setText("Cadastrar");
         jMenuItem_Usuario_Cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -188,7 +194,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_Usuario.add(jMenuItem_Usuario_Cadastrar);
 
-        jMenu_Usuario_consultar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Usuario_consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu_Usuario_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-mais-36.png"))); // NOI18N
         jMenu_Usuario_consultar.setText("Consultar");
         jMenu_Usuario_consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +204,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_Usuario.add(jMenu_Usuario_consultar);
 
-        jMenu_Usuario_Listar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Usuario_Listar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu_Usuario_Listar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lista-de-tarefas-36.png"))); // NOI18N
         jMenu_Usuario_Listar.setText("Listar");
         jMenu_Usuario_Listar.addActionListener(new java.awt.event.ActionListener() {
@@ -208,11 +214,12 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_Usuario.add(jMenu_Usuario_Listar);
 
-        jMenuItem_Usuario_AlterarSenha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Usuario_AlterarSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Usuario_AlterarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-editar-conta-36.png"))); // NOI18N
         jMenuItem_Usuario_AlterarSenha.setText("Alterar senha");
         jMenu_Usuario.add(jMenuItem_Usuario_AlterarSenha);
 
+        jMenu_Usuario_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu_Usuario_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-excluir-36.png"))); // NOI18N
         jMenu_Usuario_Excluir.setText("Excluir");
         jMenu_Usuario.add(jMenu_Usuario_Excluir);
@@ -222,7 +229,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenu_Fornecedor.setText("Fornecedor");
         jMenu_Fornecedor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem_Fornecedor_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Fornecedor_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Fornecedor_Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-adicionar-livro-36.png"))); // NOI18N
         jMenuItem_Fornecedor_Cadastrar.setText("Cadastrar");
         jMenuItem_Fornecedor_Cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -232,7 +239,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_Fornecedor.add(jMenuItem_Fornecedor_Cadastrar);
 
-        jMenuItem_Fornecedor_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Fornecedor_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Fornecedor_Consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-mais-36.png"))); // NOI18N
         jMenuItem_Fornecedor_Consultar.setText("Consultar");
         jMenuItem_Fornecedor_Consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -242,7 +249,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_Fornecedor.add(jMenuItem_Fornecedor_Consultar);
 
-        jMenu_Fornecedo_Listar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Fornecedo_Listar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu_Fornecedo_Listar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lista-de-tarefas-36.png"))); // NOI18N
         jMenu_Fornecedo_Listar.setText("Listar");
         jMenu_Fornecedo_Listar.addActionListener(new java.awt.event.ActionListener() {
@@ -252,12 +259,12 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_Fornecedor.add(jMenu_Fornecedo_Listar);
 
-        jMenuItem_Fornecedor_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Fornecedor_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Fornecedor_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-editar-conta-36.png"))); // NOI18N
         jMenuItem_Fornecedor_Alterar.setText("Alterar");
         jMenu_Fornecedor.add(jMenuItem_Fornecedor_Alterar);
 
-        jMenuItem_Fornecedor_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Fornecedor_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Fornecedor_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-excluir-36.png"))); // NOI18N
         jMenuItem_Fornecedor_Excluir.setText("Excluir");
         jMenu_Fornecedor.add(jMenuItem_Fornecedor_Excluir);
@@ -267,7 +274,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenu_PedidoCompra.setText("Pedido de Compra");
         jMenu_PedidoCompra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem_PedidoCompra_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_PedidoCompra_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_PedidoCompra_Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-adicionar-livro-36.png"))); // NOI18N
         jMenuItem_PedidoCompra_Cadastrar.setText("Cadastrar");
         jMenuItem_PedidoCompra_Cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -277,7 +284,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_PedidoCompra.add(jMenuItem_PedidoCompra_Cadastrar);
 
-        jMenuItem_PedidoCompra_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_PedidoCompra_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_PedidoCompra_Consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-mais-36.png"))); // NOI18N
         jMenuItem_PedidoCompra_Consultar.setText("Consultar");
         jMenuItem_PedidoCompra_Consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -287,6 +294,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_PedidoCompra.add(jMenuItem_PedidoCompra_Consultar);
 
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lista-de-tarefas-36.png"))); // NOI18N
         jMenuItem2.setText("Listar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -296,12 +304,12 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_PedidoCompra.add(jMenuItem2);
 
-        jMenuItem_PedidoCompra_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_PedidoCompra_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_PedidoCompra_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-editar-conta-36.png"))); // NOI18N
         jMenuItem_PedidoCompra_Alterar.setText("Alterar");
         jMenu_PedidoCompra.add(jMenuItem_PedidoCompra_Alterar);
 
-        jMenuItem_PedidoCompra_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_PedidoCompra_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_PedidoCompra_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-excluir-36.png"))); // NOI18N
         jMenuItem_PedidoCompra_Excluir.setText("Excluir");
         jMenuItem_PedidoCompra_Excluir.addActionListener(new java.awt.event.ActionListener() {
@@ -316,7 +324,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenu_Estoque.setText("Estoque");
         jMenu_Estoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenu_Estoque_consultar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Estoque_consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu_Estoque_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-light-automation-30.png"))); // NOI18N
         jMenu_Estoque_consultar.setText("Controlar Estoque");
         jMenu_Estoque_consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -331,11 +339,11 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenu_Vendas.setText("Vendas");
         jMenu_Vendas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem_Vendas_Vender.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Vendas_Vender.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Vendas_Vender.setText("Vender");
         jMenu_Vendas.add(jMenuItem_Vendas_Vender);
 
-        jMenuItem_Vendas_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Vendas_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Vendas_Consultar.setText("Consultar");
         jMenuItem_Vendas_Consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,11 +352,11 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_Vendas.add(jMenuItem_Vendas_Consultar);
 
-        jMenuItem_Vendas_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Vendas_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Vendas_Alterar.setText("Alterar");
         jMenu_Vendas.add(jMenuItem_Vendas_Alterar);
 
-        jMenuItem_Vendas_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Vendas_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Vendas_Excluir.setText("Excluir");
         jMenu_Vendas.add(jMenuItem_Vendas_Excluir);
 
@@ -357,8 +365,13 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenu_Ajuda.setText("Ajuda");
         jMenu_Ajuda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem_Ajuda_Sobre.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Ajuda_Sobre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Ajuda_Sobre.setText("Sobre");
+        jMenuItem_Ajuda_Sobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Ajuda_SobreActionPerformed(evt);
+            }
+        });
         jMenu_Ajuda.add(jMenuItem_Ajuda_Sobre);
 
         Menu.add(jMenu_Ajuda);
@@ -375,19 +388,19 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenu_Cliente.setText("Cliente");
         jMenu_Cliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Cliente_Cadastrar.setText("Cadastrar");
         jMenu_Cliente.add(jMenuItem_Cliente_Cadastrar);
 
-        jMenuItem_Cliente_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Cliente_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Cliente_Consultar.setText("Consultar");
         jMenu_Cliente.add(jMenuItem_Cliente_Consultar);
 
-        jMenuItem_Cliente_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Cliente_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Cliente_Alterar.setText("Alterar");
         jMenu_Cliente.add(jMenuItem_Cliente_Alterar);
 
-        jMenuItem_Cliente_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Cliente_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem_Cliente_Excluir.setText("Excluir");
         jMenu_Cliente.add(jMenuItem_Cliente_Excluir);
 
@@ -413,11 +426,10 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
 
     private void jMenuItem_Usuario_CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Usuario_CadastrarActionPerformed
         // TODO add your handling code here:
-  
-     
-          InternalframeCentralizado.gerarcental(new CadastraUsuarios(), desktopPrincipal);
-       
-        
+
+        InternalframeCentralizado.gerarcental(new CadastraUsuarios(), desktopPrincipal);
+
+
     }//GEN-LAST:event_jMenuItem_Usuario_CadastrarActionPerformed
 
     private void jMenuItem_PedidoCompra_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_PedidoCompra_ConsultarActionPerformed
@@ -438,32 +450,33 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
     }//GEN-LAST:event_jMenuItem_PedidoCompra_ExcluirActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
-    // TODO add your handling code here:
-   
+        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_SairActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:       
-      Login log=new Login();
-      
-      lbl_user.setText(log.userperfil);
-      if(!log.userperfil.equals("Adminitrador")){
-          jMenu_Usuario.setEnabled(true);
-          jMenuItem_Fornecedor_Cadastrar.setEnabled(true);
-          jMenu_Fornecedo_Listar.setEnabled(true);
-           jMenu_PedidoCompra.setEnabled(true);
-          
-          
-      }
-       
-      
-        Date dt=new Date();
-       SimpleDateFormat ff=new SimpleDateFormat("dd/MM/yyyy");
-      lbl_data1.setText(ff.format(dt));
-      
-      Timer timer=new Timer(1000,new hora()) ;
-      timer.start();
-               
+        Login log = new Login();
+
+        lbl_user.setText(log.userperfil);
+        if (log.userperfil.equals("Funcionario")) {
+            jMenu_Usuario.setEnabled(false);
+            jMenuItem_Fornecedor_Cadastrar.setEnabled(false);
+            jMenu_Fornecedo_Listar.setEnabled(false);
+            jMenuItem_Fornecedor_Alterar.setEnabled(false);
+            jMenuItem_Fornecedor_Excluir.setEnabled(false);
+            jMenu_PedidoCompra.setEnabled(false);
+
+        }
+
+        Date dt = new Date();
+        SimpleDateFormat ff = new SimpleDateFormat("dd/MM/yyyy");
+        lbl_data1.setText(ff.format(dt));
+
+        Timer timer = new Timer(1000, new hora());
+        timer.start();
+
     }//GEN-LAST:event_formWindowOpened
 
     private void jMenuItem_Fornecedor_CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Fornecedor_CadastrarActionPerformed
@@ -473,7 +486,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
 
     private void jMenu_Usuario_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_Usuario_consultarActionPerformed
         // TODO add your handling code here:
-         InternalframeCentralizado.gerarcental(new consultausuario(), desktopPrincipal);
+        InternalframeCentralizado.gerarcental(new consultausuario(), desktopPrincipal);
     }//GEN-LAST:event_jMenu_Usuario_consultarActionPerformed
 
     private void jMenuItem_Fornecedor_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Fornecedor_ConsultarActionPerformed
@@ -483,7 +496,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
 
     private void jMenu_Fornecedo_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_Fornecedo_ListarActionPerformed
         // TODO add your handling code here:
-         InternalframeCentralizado.gerarcental(new ExibirFornecedor(), desktopPrincipal);
+        InternalframeCentralizado.gerarcental(new ExibirFornecedor(), desktopPrincipal);
     }//GEN-LAST:event_jMenu_Fornecedo_ListarActionPerformed
 
     private void jMenu_Usuario_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_Usuario_ListarActionPerformed
@@ -493,18 +506,28 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
 
     private void jMenuItem_PedidoCompra_CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_PedidoCompra_CadastrarActionPerformed
         // TODO add your handling code here:
-         InternalframeCentralizado.gerarcental(new PedidoCompraView(), desktopPrincipal);
+        InternalframeCentralizado.gerarcental(new PedidoCompraView(), desktopPrincipal);
     }//GEN-LAST:event_jMenuItem_PedidoCompra_CadastrarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-         InternalframeCentralizado.gerarcental(new ListarPedidosCompra(), desktopPrincipal);
+        InternalframeCentralizado.gerarcental(new ListarPedidosCompra(), desktopPrincipal);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenu_Estoque_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_Estoque_consultarActionPerformed
         // TODO add your handling code here:
-            InternalframeCentralizado.gerarcental(new ControlarEstoque(), desktopPrincipal);
+        InternalframeCentralizado.gerarcental(new ControlarEstoque(), desktopPrincipal);
     }//GEN-LAST:event_jMenu_Estoque_consultarActionPerformed
+
+    private void jMenuItem_Ajuda_SobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Ajuda_SobreActionPerformed
+        // TODO add your handling code here:
+        Desktop desktop = Desktop.getDesktop();
+        try {
+            desktop.open(new File("C:\\Users\\vinic\\OneDrive\\Área de Trabalho\\FAESA\\NetBeansProjects\\T-DRESS\\tdress.pdf"));
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_jMenuItem_Ajuda_SobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -589,17 +612,14 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
- class hora implements ActionListener{
+    class hora implements ActionListener {
 
-     @Override
-     public void actionPerformed(ActionEvent e){
-         Date dtt=new Date();
-         Calendar now=Calendar.getInstance();
-         lbl_hora.setText(String.format("%1$tH:%1$tM:%1$tS", now));
-         
-         
-         
-     }
-}
-}
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Date dtt = new Date();
+            Calendar now = Calendar.getInstance();
+            lbl_hora.setText(String.format("%1$tH:%1$tM:%1$tS", now));
 
+        }
+    }
+}

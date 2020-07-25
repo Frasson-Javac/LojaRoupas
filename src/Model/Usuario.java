@@ -27,6 +27,8 @@ public class Usuario {
     public String perfil;
     public String Email;
     public String cpf;
+    
+    
     public Usuario() {
         recuperaruser();
     }
@@ -124,7 +126,7 @@ public class Usuario {
             pw.print(nome+";"+login+";"+senha+";"+perfil+";"+email+";"+cpf+"\n");
             
             pw.close();
-            fw.close();
+           
            
             
             

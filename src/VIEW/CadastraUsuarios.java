@@ -12,14 +12,9 @@ import javax.swing.JOptionPane;
  *
  * @author vinic
  */
-
-
 public class CadastraUsuarios extends javax.swing.JInternalFrame {
-  
-    Usuario usuario=new Usuario();
-   
-    
 
+    Usuario usuario = new Usuario();
 
     /**
      * Creates new form cadastrausuaruio
@@ -214,67 +209,54 @@ public class CadastraUsuarios extends javax.swing.JInternalFrame {
     private void jText_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_LoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jText_LoginActionPerformed
-public String  perfil(String perfil){
-   for (int i=0;i<usuario.getUsers().size();i++){
-       if(usuario.getUsers().get(i).getPerfil().equals(perfil)){
-           return usuario.getUsers().get(i).getPerfil();
-       }
-           
-       
-   }
-   return"";
-}
-    
+    public String perfil(String perfil) {
+        for (int i = 0; i < usuario.getUsers().size(); i++) {
+            if (usuario.getUsers().get(i).getPerfil().equals(perfil)) {
+                return usuario.getUsers().get(i).getPerfil();
+            }
+
+        }
+        return "";
+    }
+
     private void btn_salvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCadastroActionPerformed
         // TODO add your handling code here:
-        
-     
 
         String item = "";
-        String senha="";
-        item=(String) jComboPerfil.getSelectedItem().toString();
-        String  var=perfil(item);
-        senha=new String (jPassword_Cadastro.getPassword());
-        String cpf1=jFormattedCpf.getText();
-        String Login =jText_Login.getText();
-        String Email=jText_Email_user.getText();
-        String cpf2=cpf1;
-        cpf2.replace(".","").replace("-","");
-        
-        if(var.equals("Administrador")){
-       
-       if(Login.equals("")||(Login==null)||Email.equals("")&&Email==null||cpf2.equals("")||senha.equals("")||senha==null){
-           JOptionPane.showMessageDialog(null,"Favor Preencher os campos");
-       }else{
-        String verifica=usuario.verificarusuario(cpf1);
-        System.out.println(verifica);
-        
-        if(verifica==null||cpf1.equals(verifica)){
-       usuario.gravarusuario(Jtxt_nome_Usuario.getText(),jText_Login.getText(),senha,item,jText_Email_user.getText(),jFormattedCpf.getText());
-       Jtxt_nome_Usuario.setText("");
-        jPassword_Cadastro.setText("");
-        jText_Email_user.setText("");
-        jText_Login.setText("");
-        jFormattedCpf.setText("");
-        JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso");
-        
-        }else{
-        Jtxt_nome_Usuario.setText("");
-        jPassword_Cadastro.setText("");
-        jText_Email_user.setText("");
-        jText_Login.setText("");
-        jFormattedCpf.setText("");
-       JOptionPane.showMessageDialog(null,"Usuário "+Jtxt_nome_Usuario.getText()+" Existe no Sistema");
-       
-            
+        String senha = "";
+        item = (String) jComboPerfil.getSelectedItem().toString();
+        senha = new String(jPassword_Cadastro.getPassword());
+        String cpf1 = jFormattedCpf.getText();
+        String Login = jText_Login.getText();
+        String Email = jText_Email_user.getText();
+        String cpf2 = cpf1;
+        cpf2.replace(".", "").replace("-", "");
+
+        if (Login.equals("") || (Login == null) || Email.equals("") && Email == null || cpf2.equals("") || senha.equals("") || senha == null) {
+            JOptionPane.showMessageDialog(null, "Favor Preencher os campos");
+        } else {
+            String verifica = usuario.verificarusuario(cpf1);
+            if (verifica == null || cpf1.equals(verifica)) {
+                usuario.gravarusuario(Jtxt_nome_Usuario.getText(), jText_Login.getText(), senha, item, jText_Email_user.getText(), jFormattedCpf.getText());
+                Jtxt_nome_Usuario.setText("");
+                jPassword_Cadastro.setText("");
+                jText_Email_user.setText("");
+                jText_Login.setText("");
+                jFormattedCpf.setText("");
+                JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso");
+
+            } else {
+                Jtxt_nome_Usuario.setText("");
+                jPassword_Cadastro.setText("");
+                jText_Email_user.setText("");
+                jText_Login.setText("");
+                jFormattedCpf.setText("");
+                JOptionPane.showMessageDialog(null, "Usuário " + Jtxt_nome_Usuario.getText() + " Existe no Sistema");
+
+            }
         }
-       }
-      }else if(var.equals("Funcionario")){
-           JOptionPane.showMessageDialog(null,"Vocé não nem perfil permitido para esse tipo de registro");
-     
-        }
-           
-    
+
+
     }//GEN-LAST:event_btn_salvarCadastroActionPerformed
 
     private void btb_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btb_CancelarActionPerformed
@@ -283,12 +265,12 @@ public String  perfil(String perfil){
         jPassword_Cadastro.setText("");
         jText_Email_user.setText("");
         jText_Login.setText("");
-         jFormattedCpf.setText("");
-        
+        jFormattedCpf.setText("");
+
     }//GEN-LAST:event_btb_CancelarActionPerformed
 
     private void btn_salvarCadastroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_salvarCadastroKeyPressed
-      // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_salvarCadastroKeyPressed
 
 

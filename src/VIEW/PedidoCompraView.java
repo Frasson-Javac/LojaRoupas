@@ -354,12 +354,10 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         String tam = (String) jCombo_Tamnho.getSelectedItem();// combo box dos tamnhos dos uniformes
         String gen = (String) Jcombo_Genero.getSelectedItem();// combo box dos generos m/f
         int qtde = Integer.parseInt(txt_Quantidade.getText());//quantidade de uniformes
-       
-
         String fornecedor = (String) jcombo_Forn.getSelectedItem();
-        System.out.println(txt_ValorTotal.getText());
         PedidoCompra pedido = new PedidoCompra(Integer.parseInt(txt_cod.getText()), txt_Produto.getText(), jArea_Descricao.getText(), tam, gen,
-                qtde,  Float.parseFloat(lbl_valueunit.getText().replace(",", ".")), Float.parseFloat( txt_ValorTotal.getText().replace(",", ".")), jcombo_Forn.getSelectedItem().toString());
+        qtde,  Float.parseFloat(lbl_valueunit.getText().replace(",", ".")), Float.parseFloat( txt_ValorTotal.getText().replace(",", ".")), 
+        jcombo_Forn.getSelectedItem().toString());
         pedido.gravar(pedido);
 
         String[] dados = {txt_cod.getText(), txt_Produto.getText(), tam, gen, jArea_Descricao.getText(), fornecedor,

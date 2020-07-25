@@ -11,14 +11,14 @@ import Model.PedidoCompra;
  *
  * @author vinic
  */
-public class ConsultarEstoque extends javax.swing.JInternalFrame {
+public class ControlarEstoque extends javax.swing.JInternalFrame {
 
     PedidoCompra pedidocompra = new PedidoCompra();
 
     /**
      * Creates new form ConsultarEstoque
      */
-    public ConsultarEstoque() {
+    public ControlarEstoque() {
         initComponents();
     }
 
@@ -211,7 +211,7 @@ public class ConsultarEstoque extends javax.swing.JInternalFrame {
                         .addComponent(combo_Produto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

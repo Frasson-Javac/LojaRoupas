@@ -73,12 +73,6 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenuItem_PedidoCompra_Excluir = new javax.swing.JMenuItem();
         jMenu_Estoque = new javax.swing.JMenu();
         jMenu_Estoque_consultar = new javax.swing.JMenuItem();
-        jMenuItem_Estoque_Relatorio = new javax.swing.JMenuItem();
-        jMenu_Cliente = new javax.swing.JMenu();
-        jMenuItem_Cliente_Cadastrar = new javax.swing.JMenuItem();
-        jMenuItem_Cliente_Consultar = new javax.swing.JMenuItem();
-        jMenuItem_Cliente_Alterar = new javax.swing.JMenuItem();
-        jMenuItem_Cliente_Excluir = new javax.swing.JMenuItem();
         jMenu_Vendas = new javax.swing.JMenu();
         jMenuItem_Vendas_Vender = new javax.swing.JMenuItem();
         jMenuItem_Vendas_Consultar = new javax.swing.JMenuItem();
@@ -87,6 +81,11 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenu_Ajuda = new javax.swing.JMenu();
         jMenuItem_Ajuda_Sobre = new javax.swing.JMenuItem();
         Sair = new javax.swing.JMenu();
+        jMenu_Cliente = new javax.swing.JMenu();
+        jMenuItem_Cliente_Cadastrar = new javax.swing.JMenuItem();
+        jMenuItem_Cliente_Consultar = new javax.swing.JMenuItem();
+        jMenuItem_Cliente_Alterar = new javax.swing.JMenuItem();
+        jMenuItem_Cliente_Excluir = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -318,7 +317,8 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenu_Estoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenu_Estoque_consultar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jMenu_Estoque_consultar.setText("Consultar ");
+        jMenu_Estoque_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-light-automation-30.png"))); // NOI18N
+        jMenu_Estoque_consultar.setText("Controlar Estoque");
         jMenu_Estoque_consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu_Estoque_consultarActionPerformed(evt);
@@ -326,32 +326,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         });
         jMenu_Estoque.add(jMenu_Estoque_consultar);
 
-        jMenuItem_Estoque_Relatorio.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jMenuItem_Estoque_Relatorio.setText("Relatório");
-        jMenu_Estoque.add(jMenuItem_Estoque_Relatorio);
-
         Menu.add(jMenu_Estoque);
-
-        jMenu_Cliente.setText("Cliente");
-        jMenu_Cliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jMenuItem_Cliente_Cadastrar.setText("Cadastrar");
-        jMenu_Cliente.add(jMenuItem_Cliente_Cadastrar);
-
-        jMenuItem_Cliente_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jMenuItem_Cliente_Consultar.setText("Consultar");
-        jMenu_Cliente.add(jMenuItem_Cliente_Consultar);
-
-        jMenuItem_Cliente_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jMenuItem_Cliente_Alterar.setText("Alterar");
-        jMenu_Cliente.add(jMenuItem_Cliente_Alterar);
-
-        jMenuItem_Cliente_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jMenuItem_Cliente_Excluir.setText("Excluir");
-        jMenu_Cliente.add(jMenuItem_Cliente_Excluir);
-
-        Menu.add(jMenu_Cliente);
 
         jMenu_Vendas.setText("Vendas");
         jMenu_Vendas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -396,6 +371,27 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
             }
         });
         Menu.add(Sair);
+
+        jMenu_Cliente.setText("Cliente");
+        jMenu_Cliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Cliente_Cadastrar.setText("Cadastrar");
+        jMenu_Cliente.add(jMenuItem_Cliente_Cadastrar);
+
+        jMenuItem_Cliente_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Cliente_Consultar.setText("Consultar");
+        jMenu_Cliente.add(jMenuItem_Cliente_Consultar);
+
+        jMenuItem_Cliente_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Cliente_Alterar.setText("Alterar");
+        jMenu_Cliente.add(jMenuItem_Cliente_Alterar);
+
+        jMenuItem_Cliente_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenuItem_Cliente_Excluir.setText("Excluir");
+        jMenu_Cliente.add(jMenuItem_Cliente_Excluir);
+
+        Menu.add(jMenu_Cliente);
 
         setJMenuBar(Menu);
 
@@ -450,7 +446,16 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         // TODO add your handling code here:       
       Login log=new Login();
       
-     //  log.perfil();
+      lbl_user.setText(log.userperfil);
+      if(!log.userperfil.equals("Adminitrador")){
+          jMenu_Usuario.setEnabled(true);
+          jMenuItem_Fornecedor_Cadastrar.setEnabled(true);
+          jMenu_Fornecedo_Listar.setEnabled(true);
+           jMenu_PedidoCompra.setEnabled(true);
+          
+          
+      }
+       
       
         Date dt=new Date();
        SimpleDateFormat ff=new SimpleDateFormat("dd/MM/yyyy");
@@ -498,7 +503,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
 
     private void jMenu_Estoque_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_Estoque_consultarActionPerformed
         // TODO add your handling code here:
-            InternalframeCentralizado.gerarcental(new ConsultarEstoque(), desktopPrincipal);
+            InternalframeCentralizado.gerarcental(new ControlarEstoque(), desktopPrincipal);
     }//GEN-LAST:event_jMenu_Estoque_consultarActionPerformed
 
     /**
@@ -550,7 +555,6 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
     private javax.swing.JMenuItem jMenuItem_Cliente_Cadastrar;
     private javax.swing.JMenuItem jMenuItem_Cliente_Consultar;
     private javax.swing.JMenuItem jMenuItem_Cliente_Excluir;
-    private javax.swing.JMenuItem jMenuItem_Estoque_Relatorio;
     private javax.swing.JMenuItem jMenuItem_Fornecedor_Alterar;
     private javax.swing.JMenuItem jMenuItem_Fornecedor_Cadastrar;
     private javax.swing.JMenuItem jMenuItem_Fornecedor_Consultar;

@@ -6,6 +6,7 @@
 package VIEW;
 
 import Model.PedidoCompra;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -84,18 +85,19 @@ public class ListarPedidosCompra extends javax.swing.JInternalFrame {
     private void btn_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ListarActionPerformed
         // TODO add your handling code here:
         DefaultTableModel dtn = (DefaultTableModel) tabela_Pedido_Compra.getModel();
-        for(int i=0;i<pedidocompra.getPedidos().size();i++){
+        if (!pedidocompra.getPedidos().isEmpty()) {
+            for (int i = 0; i < pedidocompra.getPedidos().size(); i++) {
 
-                
-                String []dados={""+pedidocompra.getPedidos().get(i).getCodPedido(),pedidocompra.getPedidos().get(i).getNome_Produto(),
-                    pedidocompra.getPedidos().get(i).getTamanho(),pedidocompra.getPedidos().get(i).getGenero(),
-                    pedidocompra.getPedidos().get(i).getDescricao(),pedidocompra.getPedidos().get(i).getNome_fornecedor(),
-                    ""+pedidocompra.getPedidos().get(i).getQtde(),""+pedidocompra.getPedidos().get(i).getValor_Unitario(),
-                ""+pedidocompra.getPedidos().get(i).getValor_Total()};
-                 dtn.addRow(dados);
-            
-            
-           
+                String[] dados = {"" + pedidocompra.getPedidos().get(i).getCodPedido(), pedidocompra.getPedidos().get(i).getNome_Produto(),
+                    pedidocompra.getPedidos().get(i).getTamanho(), pedidocompra.getPedidos().get(i).getGenero(),
+                    pedidocompra.getPedidos().get(i).getDescricao(), pedidocompra.getPedidos().get(i).getNome_fornecedor(),
+                    "" + pedidocompra.getPedidos().get(i).getQtde(), "" + pedidocompra.getPedidos().get(i).getValor_Unitario(),
+                    "" + pedidocompra.getPedidos().get(i).getValor_Total()};
+                dtn.addRow(dados);
+
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Não Existe dados cadastrados no sistema");
         }
 
     }//GEN-LAST:event_btn_ListarActionPerformed

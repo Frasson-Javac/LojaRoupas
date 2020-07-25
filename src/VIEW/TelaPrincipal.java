@@ -172,7 +172,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         );
 
         jMenu_Usuario.setText("Usuario");
-        jMenu_Usuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu_Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu_UsuarioActionPerformed(evt);
@@ -221,7 +221,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         Menu.add(jMenu_Usuario);
 
         jMenu_Fornecedor.setText("Fornecedor");
-        jMenu_Fornecedor.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Fornecedor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem_Fornecedor_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem_Fornecedor_Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-adicionar-livro-36.png"))); // NOI18N
@@ -266,7 +266,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         Menu.add(jMenu_Fornecedor);
 
         jMenu_PedidoCompra.setText("Pedido de Compra");
-        jMenu_PedidoCompra.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_PedidoCompra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem_PedidoCompra_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem_PedidoCompra_Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-adicionar-livro-36.png"))); // NOI18N
@@ -315,7 +315,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         Menu.add(jMenu_PedidoCompra);
 
         jMenu_Estoque.setText("Estoque");
-        jMenu_Estoque.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Estoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem31.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem31.setText("Consultar ");
@@ -328,7 +328,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         Menu.add(jMenu_Estoque);
 
         jMenu_Cliente.setText("Cliente");
-        jMenu_Cliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Cliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem_Cliente_Cadastrar.setText("Cadastrar");
@@ -349,7 +349,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         Menu.add(jMenu_Cliente);
 
         jMenu_Vendas.setText("Vendas");
-        jMenu_Vendas.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Vendas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem_Vendas_Vender.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem_Vendas_Vender.setText("Vender");
@@ -375,7 +375,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         Menu.add(jMenu_Vendas);
 
         jMenu_Ajuda.setText("Ajuda");
-        jMenu_Ajuda.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Ajuda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem_Ajuda_Sobre.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem_Ajuda_Sobre.setText("Sobre");
@@ -384,7 +384,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         Menu.add(jMenu_Ajuda);
 
         Sair.setText("Sair");
-        Sair.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Sair.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SairActionPerformed(evt);

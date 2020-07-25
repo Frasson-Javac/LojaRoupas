@@ -61,7 +61,7 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         txt_Subtotal = new javax.swing.JFormattedTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPedidoCompra = new javax.swing.JTable();
-        txt_valorUnitario = new javax.swing.JTextField();
+        lbl_valueunit = new javax.swing.JFormattedTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -144,7 +144,7 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Fornecedor");
 
-        jLabel11.setText("Valor Unitário");
+        jLabel11.setText("Valor Unitário R$");
 
         jLabel12.setText("Valor Total");
 
@@ -166,12 +166,10 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(jPedidoCompra);
 
-        txt_valorUnitario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_valorUnitarioKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_valorUnitarioKeyReleased(evt);
+        lbl_valueunit.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        lbl_valueunit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                lbl_valueunitFocusLost(evt);
             }
         });
 
@@ -213,10 +211,6 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
                                                 .addComponent(jLabel6)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(Jcombo_Genero, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jcombo_Forn, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(btbCancelar)
@@ -237,10 +231,14 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
                                                         .addComponent(jLabel11)
                                                         .addComponent(jLabel13))
                                                     .addGap(18, 18, 18)
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(txt_valorUnitario, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                                        .addComponent(txt_Subtotal))
-                                                    .addGap(3, 3, 3)))))))
+                                                    .addComponent(txt_Subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(3, 3, 3)))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(lbl_valueunit, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabel9)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(jcombo_Forn, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(38, 38, 38)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1213, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -255,7 +253,7 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))
+                        .addGap(63, 63, 63))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -276,12 +274,11 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
                                     .addComponent(jcombo_Forn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txt_valorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel4)
-                                        .addComponent(txt_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel11)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txt_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(lbl_valueunit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(26, 26, 26)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel12)
@@ -294,7 +291,7 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_salvar)
                             .addComponent(btbCancelar))
-                        .addGap(4, 4, 4)))
+                        .addGap(33, 33, 33)))
                 .addComponent(jLabel3)
                 .addGap(59, 59, 59)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -321,11 +318,11 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         String fornecedor = (String) jcombo_Forn.getSelectedItem();
         System.out.println(txt_ValorTotal.getText());
         PedidoCompra pedido = new PedidoCompra(Integer.parseInt(txt_cod.getText()), txt_Produto.getText(), jArea_Descricao.getText(), tam, gen,
-                qtde, Double.parseDouble(txt_valorUnitario.getText()),Double.parseDouble( txt_ValorTotal.getText().replace("R$ ","").replace(",", ".")), jcombo_Forn.getSelectedItem().toString());
+                qtde, Double.parseDouble(lbl_valueunit.getText()),Double.parseDouble( txt_ValorTotal.getText()), jcombo_Forn.getSelectedItem().toString());
         pedido.gravar(pedido);
 
         String[] dados = {txt_cod.getText(), txt_Produto.getText(), tam, gen, jArea_Descricao.getText(), fornecedor,
-            txt_Quantidade.getText(), txt_valorUnitario.getText(),"" +txt_ValorTotal.getText()};
+            txt_Quantidade.getText(), lbl_valueunit.getText(),"" +txt_ValorTotal.getText()};
 
         DefaultTableModel dtn = (DefaultTableModel) jPedidoCompra.getModel();
         dtn.addRow(dados);
@@ -337,7 +334,7 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
 
         //    txt_cod.setText(""+ cod++);
         txt_ValorTotal.setText("");
-        txt_valorUnitario.setText("");
+        lbl_valueunit.setText("");
         jArea_Descricao.setText("");
         int temp = Integer.parseInt(pd.obter_codigo()) + 1;
         txt_cod.setText("" + temp);
@@ -362,26 +359,12 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcombo_FornMouseClicked
 
-    private void txt_valorUnitarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_valorUnitarioKeyReleased
-        // TODO add your handling code here
-
-        utilitarios util=new utilitarios();
-
-        ;// calcula quantidade x valor unitario
-        util.convertnumero(Double.parseDouble(txt_valorUnitario.getText()));
-        String calculo=util.convertnumero( Double.parseDouble(txt_Quantidade.getText()) * (Double.parseDouble(txt_valorUnitario.getText())));
-        txt_ValorTotal.setText(calculo );
-        
-
-    }//GEN-LAST:event_txt_valorUnitarioKeyReleased
-
-    private void txt_valorUnitarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_valorUnitarioKeyPressed
+    private void lbl_valueunitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_valueunitFocusLost
         // TODO add your handling code here:
-        txt_valorUnitario.getText();
         
-        
-        
-    }//GEN-LAST:event_txt_valorUnitarioKeyPressed
+        double calc =Double.parseDouble(lbl_valueunit.getText())*Double.parseDouble(txt_Quantidade.getText());
+        txt_ValorTotal.setText(""+calc);
+    }//GEN-LAST:event_lbl_valueunitFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -409,11 +392,11 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> jcombo_Forn;
+    private javax.swing.JFormattedTextField lbl_valueunit;
     private javax.swing.JTextField txt_Produto;
     private javax.swing.JTextField txt_Quantidade;
     private javax.swing.JFormattedTextField txt_Subtotal;
     private javax.swing.JFormattedTextField txt_ValorTotal;
     private javax.swing.JTextField txt_cod;
-    private javax.swing.JTextField txt_valorUnitario;
     // End of variables declaration//GEN-END:variables
 }

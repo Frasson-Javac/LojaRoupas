@@ -72,7 +72,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenuItem_PedidoCompra_Alterar = new javax.swing.JMenuItem();
         jMenuItem_PedidoCompra_Excluir = new javax.swing.JMenuItem();
         jMenu_Estoque = new javax.swing.JMenu();
-        jMenuItem31 = new javax.swing.JMenuItem();
+        jMenu_Estoque_consultar = new javax.swing.JMenuItem();
         jMenuItem_Estoque_Relatorio = new javax.swing.JMenuItem();
         jMenu_Cliente = new javax.swing.JMenu();
         jMenuItem_Cliente_Cadastrar = new javax.swing.JMenuItem();
@@ -136,9 +136,9 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(lbl_user, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 246, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 364, Short.MAX_VALUE)
                 .add(lbl_data1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 114, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(30, 30, 30)
+                .add(18, 18, 18)
                 .add(lbl_hora, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 115, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,7 +148,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(lbl_data1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 41, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(lbl_hora, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(0, 0, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         desktopPrincipal.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -317,9 +317,14 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         jMenu_Estoque.setText("Estoque");
         jMenu_Estoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem31.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jMenuItem31.setText("Consultar ");
-        jMenu_Estoque.add(jMenuItem31);
+        jMenu_Estoque_consultar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu_Estoque_consultar.setText("Consultar ");
+        jMenu_Estoque_consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_Estoque_consultarActionPerformed(evt);
+            }
+        });
+        jMenu_Estoque.add(jMenu_Estoque_consultar);
 
         jMenuItem_Estoque_Relatorio.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem_Estoque_Relatorio.setText("Relatório");
@@ -491,6 +496,11 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
          InternalframeCentralizado.gerarcental(new ListarPedidosCompra(), desktopPrincipal);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenu_Estoque_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_Estoque_consultarActionPerformed
+        // TODO add your handling code here:
+            InternalframeCentralizado.gerarcental(new ConsultarEstoque(), desktopPrincipal);
+    }//GEN-LAST:event_jMenu_Estoque_consultarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -535,7 +545,6 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem31;
     private javax.swing.JMenuItem jMenuItem_Ajuda_Sobre;
     private javax.swing.JMenuItem jMenuItem_Cliente_Alterar;
     private javax.swing.JMenuItem jMenuItem_Cliente_Cadastrar;
@@ -559,6 +568,7 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
     private javax.swing.JMenu jMenu_Ajuda;
     private javax.swing.JMenu jMenu_Cliente;
     private javax.swing.JMenu jMenu_Estoque;
+    private javax.swing.JMenuItem jMenu_Estoque_consultar;
     private javax.swing.JMenuItem jMenu_Fornecedo_Listar;
     private javax.swing.JMenu jMenu_Fornecedor;
     private javax.swing.JMenu jMenu_PedidoCompra;

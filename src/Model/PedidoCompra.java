@@ -18,65 +18,58 @@ import javax.swing.JOptionPane;
  * @author vinic
  */
 public class PedidoCompra {
-   private File file=new File("Pedido_compra.txt");
-    
-   private int codPedido;
-   private String nome_Produto;
-   private String descricao;
-   private String tamanho;
-   private String genero;
-   private int qtde;
-   private double valor_Unitario;
-   private double valor_Total;
-   private String nome_fornecedor;
-   private String data;
-   private String hora;
-   
-   private ArrayList<PedidoCompra>pedidos=new ArrayList();
-   
-   
-   public PedidoCompra(){
-       recuperar();
-   }
-   
- 
- 
-     
-          public PedidoCompra(int cod,String nome,String desc,String tam,String genero,int qte,double valorUnit,double valortot,String fornecedor){
-       utilitarios util=new utilitarios();
-       this.codPedido=cod;
-       this.nome_Produto=nome;
-       this.descricao=desc;
-       this.tamanho=tam;
-       this.genero=genero;
-       this.qtde=qte;
-       this.valor_Unitario=valorUnit;
-       this.valor_Total=valortot;
-       this.nome_fornecedor=fornecedor;
-       this.data=util.obter_data();
-       this.hora=util.obter_hora();
-      
-     
-   }
-          
-           public PedidoCompra(int cod,String nome,String desc,String tam,String genero,int qte,double valorUnit,double valortot,String fornecedor,String dta,String hora){
-       utilitarios util=new utilitarios();
-       this.codPedido=cod;
-       this.nome_Produto=nome;
-       this.descricao=desc;
-       this.tamanho=tam;
-       this.genero=genero;
-       this.qtde=qte;
-       this.valor_Unitario=valorUnit;
-       this.valor_Total=valortot;
-       this.nome_fornecedor=fornecedor;
-       this.data=dta+util.obter_data();
-       this.hora=hora+util.obter_hora();
-      
-     
-   }
 
-    
+    private File file = new File("Pedido_compra.txt");
+
+    private int codPedido;
+    private String nome_Produto;
+    private String descricao;
+    private String tamanho;
+    private String genero;
+    private int qtde;
+    private float valor_Unitario;
+    private float valor_Total;
+    private String nome_fornecedor;
+    private String data;
+    private String hora;
+
+    private ArrayList<PedidoCompra> pedidos = new ArrayList();
+
+    public PedidoCompra() {
+        recuperar();
+    }
+
+    public PedidoCompra(int cod, String nome, String desc, String tam, String genero, int qte, float valorUnit, float valortot, String fornecedor) {
+        utilitarios util = new utilitarios();
+        this.codPedido = cod;
+        this.nome_Produto = nome;
+        this.descricao = desc;
+        this.tamanho = tam;
+        this.genero = genero;
+        this.qtde = qte;
+        this.valor_Unitario = valorUnit;
+        this.valor_Total = valortot;
+        this.nome_fornecedor = fornecedor;
+        this.data = util.obter_data();
+        this.hora = util.obter_hora();
+
+    }
+
+    public PedidoCompra(int cod, String nome, String desc, String tam, String genero, int qte, float valorUnit, float valortot, String fornecedor, String dta, String hora) {
+        utilitarios util = new utilitarios();
+        this.codPedido = cod;
+        this.nome_Produto = nome;
+        this.descricao = desc;
+        this.tamanho = tam;
+        this.genero = genero;
+        this.qtde = qte;
+        this.valor_Unitario = valorUnit;
+        this.valor_Total = valortot;
+        this.nome_fornecedor = fornecedor;
+        this.data = dta + util.obter_data();
+        this.hora = hora + util.obter_hora();
+
+    }
 
     public int getCodPedido() {
         return codPedido;
@@ -130,7 +123,7 @@ public class PedidoCompra {
         return valor_Unitario;
     }
 
-    public void setValor_Unitario(double valor_Unitario) {
+    public void setValor_Unitario(float valor_Unitario) {
         this.valor_Unitario = valor_Unitario;
     }
 
@@ -138,7 +131,7 @@ public class PedidoCompra {
         return valor_Total;
     }
 
-    public void setValor_Total(double valor_Total) {
+    public void setValor_Total(float valor_Total) {
         this.valor_Total = valor_Total;
     }
 
@@ -173,115 +166,89 @@ public class PedidoCompra {
     public void setHora(String hora) {
         this.hora = hora;
     }
-    
-    
-    
-   
-    
-    
-    public void gravar(PedidoCompra pd){
-        
-        
-        
-        
-        try{
-            
-            FileWriter fw=new FileWriter(file,true);
-            PrintWriter pw=new PrintWriter(fw);
+
+    public void gravar(PedidoCompra pd) {
+
+        try {
+
+            FileWriter fw = new FileWriter(file, true);
+            PrintWriter pw = new PrintWriter(fw);
             pw.println(pd.toString());
-            pw.flush();
             pw.close();
-            
-            
-        }catch(Exception e ){
-            JOptionPane.showMessageDialog(null,e.getMessage());
-            
-        }
-        
-        
-    }
-    
-    public void  recuperar(){
-        
-        
-        
-        try{
-            FileReader fr=new FileReader(file);
-            BufferedReader br=new BufferedReader(fr);
-            
-            
-            String linha;
-            linha=br.readLine();
-            while(br.ready()){
-               linha=br.readLine();
-                
-                String []vector=linha.split(";");
-                int cod=Integer.parseInt(vector[0]);
-                String produto=vector[1];
-                String desc=vector[2];
-                String tam=vector[3];
-                String genero=vector[4];
-               
-                int qtde=Integer.parseInt(vector[5]);
-                double valorunit=Double.parseDouble(vector[6]);
-                double valorTotal=Double.parseDouble(vector[7]);
-                String nomeFornecedor=vector[8];
-                String data=vector[9];
-                String hora=vector[10];
-                PedidoCompra pd=new PedidoCompra(cod, produto, desc, tam, genero, qtde, valorunit, valorTotal, nomeFornecedor,data,hora);
-                pedidos.add(pd);
-                
-                
-                 
-                
-            }
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-            
+
         }
-       
+
     }
-    public String obter_codigo(){
-     int maior = this.getPedidos().size();
-   
+
+    public void recuperar() {
+
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+
+            String linha;
+            linha = br.readLine();
+            while (br.ready()) {
+                linha = br.readLine();
+
+                String[] vector = linha.split(";");
+                int cod = Integer.parseInt(vector[0]);
+                String produto = vector[1];
+                String desc = vector[2];
+                String tam = vector[3];
+                String genero = vector[4];
+
+                int qtde = Integer.parseInt(vector[5]);
+                float valorunit = Float.parseFloat(vector[6]);
+                float valorTotal =  Float.parseFloat(vector[7]);
+                String nomeFornecedor = vector[8];
+                String data = vector[9];
+                String hora = vector[10];
+                PedidoCompra pd = new PedidoCompra(cod, produto, desc, tam, genero, qtde, valorunit, valorTotal, nomeFornecedor, data, hora);
+                pedidos.add(pd);
+
+            }
+
+        } catch (Exception e) {
+           JOptionPane.showMessageDialog(null, e.getMessage());
+
+        }
+
+    }
+
+    public String obter_codigo() {
+        int maior = this.getPedidos().size();
+
         if (this.getPedidos().size() == 0) {
-           return "1";
+            return "1";
 
         } else {
-           maior+=1;
-           String s=""+maior;
-           return  s;
-         
-        }
-  
-}
+            maior += 1;
+            String s = "" + maior;
+            return s;
 
-       
+        }
+
+    }
+
     @Override
     public String toString() {
-        String s="";
-        return  s+=
-                codPedido+";"+
-                nome_Produto+";"+
-                descricao+";"+
-                tamanho+";"+
-                genero+";"+
-                qtde+";"+
-                valor_Unitario+";"+
-                valor_Total+";"+
-                nome_fornecedor+";"+
-                data+";"+
-                hora;
+        String s;
+        return s
+                = codPedido + ";"
+                + nome_Produto + ";"
+                + descricao + ";"
+                + tamanho + ";"
+                + genero + ";"
+                + qtde + ";"
+                + valor_Unitario + ";"
+                + valor_Total + ";"
+                + nome_fornecedor + ";"
+                + data + ";"
+                + hora;
     }
-    
-    
-   
-   
- 
-   
-   
-   
-   
-    
+
 }

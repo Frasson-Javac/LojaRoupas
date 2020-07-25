@@ -5,11 +5,16 @@
  */
 package VIEW;
 
+import Model.PedidoCompra;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author vinic
  */
 public class ListarPedidosCompra extends javax.swing.JInternalFrame {
+
+    PedidoCompra pedidocompra = new PedidoCompra();
 
     /**
      * Creates new form ListarPedidosCompra
@@ -28,9 +33,10 @@ public class ListarPedidosCompra extends javax.swing.JInternalFrame {
 
         jScrollPane3 = new javax.swing.JScrollPane();
         tabela_Pedido_Compra = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btn_Listar = new javax.swing.JButton();
+
+        setClosable(true);
+        setTitle("Listagem de Pedidos de Compra");
 
         tabela_Pedido_Compra.setBackground(new java.awt.Color(255, 255, 204));
         tabela_Pedido_Compra.setModel(new javax.swing.table.DefaultTableModel(
@@ -43,13 +49,13 @@ public class ListarPedidosCompra extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(tabela_Pedido_Compra);
 
-        jLabel1.setText("Pesquisar");
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 204));
-        jTextField1.setText("Digite o nome do Produto");
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-30.png"))); // NOI18N
-        jButton1.setText("pesquisar");
+        btn_Listar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-30.png"))); // NOI18N
+        btn_Listar.setText("Listar");
+        btn_Listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ListarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,25 +63,17 @@ public class ListarPedidosCompra extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(42, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(31, 31, 31)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_Listar)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1213, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(39, 39, 39)
+                .addGap(36, 36, 36)
+                .addComponent(btn_Listar)
+                .addGap(41, 41, 41)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(82, Short.MAX_VALUE))
         );
@@ -83,12 +81,29 @@ public class ListarPedidosCompra extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ListarActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel dtn = (DefaultTableModel) tabela_Pedido_Compra.getModel();
+        for(int i=0;i<pedidocompra.getPedidos().size();i++){
+
+                
+                String []dados={""+pedidocompra.getPedidos().get(i).getCodPedido(),pedidocompra.getPedidos().get(i).getNome_Produto(),
+                    pedidocompra.getPedidos().get(i).getTamanho(),pedidocompra.getPedidos().get(i).getGenero(),
+                    pedidocompra.getPedidos().get(i).getDescricao(),pedidocompra.getPedidos().get(i).getNome_fornecedor(),
+                    ""+pedidocompra.getPedidos().get(i).getQtde(),""+pedidocompra.getPedidos().get(i).getValor_Unitario(),
+                ""+pedidocompra.getPedidos().get(i).getValor_Total()};
+                 dtn.addRow(dados);
+            
+            
+           
+        }
+
+    }//GEN-LAST:event_btn_ListarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_Listar;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tabela_Pedido_Compra;
     // End of variables declaration//GEN-END:variables
 }

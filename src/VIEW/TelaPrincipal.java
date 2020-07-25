@@ -290,6 +290,11 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
 
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lista-de-tarefas-36.png"))); // NOI18N
         jMenuItem2.setText("Listar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu_PedidoCompra.add(jMenuItem2);
 
         jMenuItem_PedidoCompra_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -480,6 +485,11 @@ CadastarFornecedor cadastrofornecedor=new CadastarFornecedor();
         // TODO add your handling code here:
          InternalframeCentralizado.gerarcental(new PedidoCompraView(), desktopPrincipal);
     }//GEN-LAST:event_jMenuItem_PedidoCompra_CadastrarActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+         InternalframeCentralizado.gerarcental(new ListarPedidosCompra(), desktopPrincipal);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

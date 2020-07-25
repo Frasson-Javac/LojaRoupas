@@ -11,18 +11,19 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author vinic
- */ 
+ */
 public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
-    PedidoCompra pedidocompra=new PedidoCompra();
-    static String value="";
+
+    PedidoCompra pedidocompra = new PedidoCompra();
+    static String value = "";
+
     /**
      * Creates new form ConsultarPedidoCompra
      */
     public ConsultarPedidoCompra() {
-     
+
         initComponents();
-        
-       
+
     }
 
     /**
@@ -201,65 +202,69 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
 
     private void lbl_pesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_pesquisaFocusGained
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_lbl_pesquisaFocusGained
 
     private void lbl_pesquisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_pesquisaFocusLost
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_lbl_pesquisaFocusLost
 
     private void lbl_pesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_pesquisaMouseClicked
         // TODO add your handling code here:
-        if(lbl_pesquisa.getText().equals("Digite o nome do Produto")){
+        if (lbl_pesquisa.getText().equals("Digite o nome do Produto")) {
             lbl_pesquisa.setText("");
         }
-        
-        
+
+
     }//GEN-LAST:event_lbl_pesquisaMouseClicked
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void btb_pesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btb_pesquisarActionPerformed
         // TODO add your handling code here:
-        
-        for(int i=0;i<pedidocompra.getPedidos().size();i++){
-            if (pedidocompra.getPedidos().get(i).getNome_Produto().equalsIgnoreCase(lbl_pesquisa.getText())){
-                
-                lbl_codigo.setText(""+pedidocompra.getPedidos().get(i).getCodPedido());
-                lbl_fornecedor.setText(pedidocompra.getPedidos().get(i).getNome_fornecedor());
-                lbl_descricao.setText(pedidocompra.getPedidos().get(i).getDescricao());
-                lbl_qtde.setText(""+pedidocompra.getPedidos().get(i).getQtde());
-                lbl_valortotal.setText(""+pedidocompra.getPedidos().get(i).getValor_Total());
-                value="achou";
-                
+
+        if (value != "achou") {
+            for (int i = 0; i < pedidocompra.getPedidos().size(); i++) {
+                if (pedidocompra.getPedidos().get(i).getNome_Produto().equalsIgnoreCase(lbl_pesquisa.getText())) {
+
+                    lbl_codigo.setText("" + pedidocompra.getPedidos().get(i).getCodPedido());
+                    lbl_fornecedor.setText(pedidocompra.getPedidos().get(i).getNome_fornecedor());
+                    lbl_descricao.setText(pedidocompra.getPedidos().get(i).getDescricao());
+                    lbl_qtde.setText("" + pedidocompra.getPedidos().get(i).getQtde());
+                    lbl_valortotal.setText("" + pedidocompra.getPedidos().get(i).getValor_Total());
+                    value = "achou";
+
+                }
             }
+
+        } else {
+            lbl_pesquisa.setText("Digite o nome do Produto");
+            JOptionPane.showMessageDialog(null, "Produto não Encontrado");
+
         }
-        
-  
-        
-        
-        
+
+
     }//GEN-LAST:event_btb_pesquisarActionPerformed
 
     private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
         // TODO add your handling code here:
-        
-        if(value.equals("achou")||value!=""){
-                lbl_pesquisa.setText("Digite o nome do Produto");
-                lbl_codigo.setText("");
-                lbl_fornecedor.setText("");
-                lbl_descricao.setText("");
-                lbl_qtde.setText("");
-                lbl_valortotal.setText("");
-                
-        }else{
-            JOptionPane.showMessageDialog(null,"Não Exite Valores para Limpar");
-            }
-        
+
+        if (value.equals("achou") || value != "") {
+            lbl_pesquisa.setText("Digite o nome do Produto");
+            lbl_codigo.setText("");
+            lbl_fornecedor.setText("");
+            lbl_descricao.setText("");
+            lbl_qtde.setText("");
+            lbl_valortotal.setText("");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Não Exite Valores para Limpar");
+        }
+
     }//GEN-LAST:event_btn_limparActionPerformed
 
 

@@ -8,6 +8,8 @@ package VIEW;
 import Model.Fornecedor;
 import Model.PedidoCompra;
 import Model.utilitarios;
+import java.util.Locale;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,6 +17,8 @@ import javax.swing.table.DefaultTableModel;
  * @author vinic
  */
 public class PedidoCompraView extends javax.swing.JInternalFrame {
+    static float soma=0;
+   
 
     /**
      * Creates new form PedidoCompraView
@@ -98,11 +102,23 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Produto");
 
+        txt_Produto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_ProdutoFocusLost(evt);
+            }
+        });
+
         jLabel2.setText("Codigo");
 
         txt_cod.setEditable(false);
 
         jLabel4.setText("Quantidade");
+
+        txt_Quantidade.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_QuantidadeFocusLost(evt);
+            }
+        });
 
         jArea_Descricao.setColumns(20);
         jArea_Descricao.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -114,10 +130,20 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         jLabel6.setText("Gênero");
 
         Jcombo_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Feminino" }));
+        Jcombo_Genero.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                Jcombo_GeneroFocusLost(evt);
+            }
+        });
 
         jLabel7.setText("Tamanho");
 
         jCombo_Tamnho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "PP", "P", "M", "G", "GG", "EXG", "36", "38", "40", "42", "44", "46", "48", "52", "54", "56" }));
+        jCombo_Tamnho.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jCombo_TamnhoFocusLost(evt);
+            }
+        });
         jCombo_Tamnho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCombo_TamnhoActionPerformed(evt);
@@ -136,6 +162,11 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         btbCancelar.setText("Cancelar");
 
         jcombo_Forn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        jcombo_Forn.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jcombo_FornFocusLost(evt);
+            }
+        });
         jcombo_Forn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jcombo_FornMouseClicked(evt);
@@ -151,7 +182,7 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         txt_ValorTotal.setEditable(false);
         txt_ValorTotal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
 
-        jLabel13.setText("SubTotal");
+        jLabel13.setText("SubTotal  R$");
 
         txt_Subtotal.setEditable(false);
         txt_Subtotal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
@@ -166,10 +197,20 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(jPedidoCompra);
 
-        lbl_valueunit.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        lbl_valueunit.setText("0.00");
         lbl_valueunit.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 lbl_valueunitFocusLost(evt);
+            }
+        });
+        lbl_valueunit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_valueunitMouseClicked(evt);
+            }
+        });
+        lbl_valueunit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lbl_valueunitKeyPressed(evt);
             }
         });
 
@@ -318,24 +359,30 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
         String fornecedor = (String) jcombo_Forn.getSelectedItem();
         System.out.println(txt_ValorTotal.getText());
         PedidoCompra pedido = new PedidoCompra(Integer.parseInt(txt_cod.getText()), txt_Produto.getText(), jArea_Descricao.getText(), tam, gen,
-                qtde, Double.parseDouble(lbl_valueunit.getText()),Double.parseDouble( txt_ValorTotal.getText()), jcombo_Forn.getSelectedItem().toString());
+                qtde,  Float.parseFloat(lbl_valueunit.getText().replace(",", ".")), Float.parseFloat( txt_ValorTotal.getText().replace(",", ".")), jcombo_Forn.getSelectedItem().toString());
         pedido.gravar(pedido);
 
         String[] dados = {txt_cod.getText(), txt_Produto.getText(), tam, gen, jArea_Descricao.getText(), fornecedor,
-            txt_Quantidade.getText(), lbl_valueunit.getText(),"" +txt_ValorTotal.getText()};
+            txt_Quantidade.getText(),"R$ "+ lbl_valueunit.getText().replace(".", ","),"R$ " +txt_ValorTotal.getText()};
 
         DefaultTableModel dtn = (DefaultTableModel) jPedidoCompra.getModel();
         dtn.addRow(dados);
         txt_Quantidade.setText("");
         txt_Produto.setText("");
         txt_Quantidade.setText("");
+       
 
-     //   txt_Subtotal.setText("" + util.convertnumero(subtotal));
-
-        //    txt_cod.setText(""+ cod++);
-        txt_ValorTotal.setText("");
-        lbl_valueunit.setText("");
+         soma =soma+Float.parseFloat(txt_ValorTotal.getText().replace(",", "."));
+        lbl_valueunit.setText("0.00");
+       
+        txt_Subtotal.setText(""+soma);
+        txt_ValorTotal.setText("0,00");
         jArea_Descricao.setText("");
+        Jcombo_Genero.setSelectedIndex(0);
+        jCombo_Tamnho.setSelectedIndex(0);
+        jcombo_Forn.setSelectedIndex(0);
+       
+        
         int temp = Integer.parseInt(pd.obter_codigo()) + 1;
         txt_cod.setText("" + temp);
 
@@ -361,10 +408,61 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
 
     private void lbl_valueunitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_valueunitFocusLost
         // TODO add your handling code here:
+        utilitarios util=new utilitarios();
         
-        double calc =Double.parseDouble(lbl_valueunit.getText())*Double.parseDouble(txt_Quantidade.getText());
-        txt_ValorTotal.setText(""+calc);
+        util.convertnumero(Float.parseFloat(lbl_valueunit.getText()));
+        float calc = Float.parseFloat(lbl_valueunit.getText())* Float.parseFloat(txt_Quantidade.getText());
+        
+        txt_ValorTotal.setText(""+util.convertnumero(calc));
     }//GEN-LAST:event_lbl_valueunitFocusLost
+
+    private void lbl_valueunitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbl_valueunitKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_lbl_valueunitKeyPressed
+
+    private void lbl_valueunitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_valueunitMouseClicked
+        // TODO add your handling code here:
+        if(lbl_valueunit.getText().equals("0.00")){
+        lbl_valueunit.setText("");
+            
+        }
+    }//GEN-LAST:event_lbl_valueunitMouseClicked
+
+    private void txt_ProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ProdutoFocusLost
+        // TODO add your handling code here:
+        if(txt_Produto.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "\nPreenchimento Obrigatório do Campo produto");
+        }
+    }//GEN-LAST:event_txt_ProdutoFocusLost
+
+    private void txt_QuantidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_QuantidadeFocusLost
+        // TODO add your handling code here:
+         if(txt_Quantidade.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "\nPreenchimento Obrigatório do campo Quantidade");
+        }
+    }//GEN-LAST:event_txt_QuantidadeFocusLost
+
+    private void jCombo_TamnhoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jCombo_TamnhoFocusLost
+        // TODO add your handling code here:
+         if(jCombo_Tamnho.getSelectedItem().equals("Selecione")){
+            JOptionPane.showMessageDialog(null, "\nPreenchimento Obrigatório do campo Tamanho");
+        }
+    }//GEN-LAST:event_jCombo_TamnhoFocusLost
+
+    private void Jcombo_GeneroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Jcombo_GeneroFocusLost
+        // TODO add your handling code here:
+         if(Jcombo_Genero.getSelectedItem().equals("Selecione")){
+            JOptionPane.showMessageDialog(null, "\nPreenchimento Obrigatório do campo Gênero");
+        }
+    }//GEN-LAST:event_Jcombo_GeneroFocusLost
+
+    private void jcombo_FornFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jcombo_FornFocusLost
+        // TODO add your handling code here:
+         if(jcombo_Forn.getSelectedItem().equals("Selecione")){
+            JOptionPane.showMessageDialog(null, "\nPreenchimento Obrigatório do campo Fornecedor");
+        }
+    }//GEN-LAST:event_jcombo_FornFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

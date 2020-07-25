@@ -3,3 +3,26 @@ Cod;nomeProduto;Descricao;tamanho;genero;quantidade;valor unitario;Valor total;N
 1;short;;PP;Masculino;25;23.12;5.78;Americanas Ltda;25/07/2020;16:32:42
 3;calça;;40;Masculino;24;12.12;2.91;Americanas Ltda;25/07/2020;16:34:51
 4;cueca;;40;Masculino;12;21.0;2.52;Americanas Ltda;25/07/2020;16:35:10
+5;;;Selecione;Selecione;2;1.0;2.0;Selecione;25/07/2020;16:58:49
+6;;;Selecione;Selecione;2;2.12;4.0;Selecione;25/07/2020;17:28:30
+7;;;Selecione;Selecione;2;2.0;4.0;Selecione;25/07/2020;17:30:21
+8;;;Selecione;Selecione;2;12.21;24.42;Selecione;25/07/2020;17:36:01
+9;;;Selecione;Selecione;2;12.21;24.42;Selecione;25/07/2020;17:37:23
+10;;;PP;Masculino;2;2.0;4.0;Selecione;25/07/2020;17:40:16
+11;;;PP;Masculino;2;15.34;30.68;Americanas Ltda;25/07/2020;17:42:31
+12;;;Selecione;Selecione;2;2.0;4.0;Selecione;25/07/2020;17:48:55
+12;;;Selecione;Selecione;2;1.0;2.0;Selecione;25/07/2020;17:49:04
+14;;;Selecione;Selecione;2;2.0;4.0;Selecione;25/07/2020;17:50:21
+15;;;Selecione;Selecione;2;2.0;4.0;Selecione;25/07/2020;17:52:13
+16;;;Selecione;Selecione;2;2.12;4.24;Selecione;25/07/2020;17:54:23
+17;;;Selecione;Selecione;2;2.12;4.24;Selecione;25/07/2020;17:56:45
+18;;;Selecione;Selecione;2;2.0;4.0;Selecione;25/07/2020;18:01:50
+19;;;Selecione;Selecione;2;2.0;4.0;Selecione;25/07/2020;18:01:59
+20;;;Selecione;Selecione;2;2.0;4.0;Selecione;25/07/2020;18:03:17
+21;;;Selecione;Selecione;2;2.0;4.0;Selecione;25/07/2020;18:03:25
+22;;;Selecione;Selecione;2;2.0;4.0;Selecione;25/07/2020;18:07:13
+23;;;Selecione;Selecione;2;3.0;6.0;Selecione;25/07/2020;18:07:19
+24;;;Selecione;Selecione;24;23.12;554.88;Selecione;25/07/2020;18:07:30
+25;;;Selecione;Selecione;2;2.0;4.0;Selecione;25/07/2020;18:12:11
+26;;;Selecione;Selecione;22;22.0;484.0;Selecione;25/07/2020;18:12:26
+27;222;22;PP;Masculino;2;22.21;44.42;Americanas Ltda;25/07/2020;18:26:09

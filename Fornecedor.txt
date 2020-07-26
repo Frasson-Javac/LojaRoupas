@@ -1,3 +1,4 @@
 nome da empresa;cnpj;telefone;email
 Americanas Ltda;33.014.556/0001-56;(27) 3333-3333;atendimento.acom@americanas.com;RUA, Av. Luciano das Neves, 2418 - Centro de Vila Velha, Vila Velha - ES, 29100-200
 Lojas Mariza;61.189.288/0001-89;(11) 3383-7222;sac@lojasmarisa.com.br; Av. Princesa Isabel, 511 - Centro, Vitória - ES, 29010-365
+Maria João;000.000.000-00;(27) 1111-1111;mariajoao@gmailcom;exemplo@gmail.com

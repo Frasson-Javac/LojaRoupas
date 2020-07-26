@@ -8,14 +8,20 @@ package VIEW;
 import Model.Usuario;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
- import Model.Fornecedor;
+import Model.Fornecedor;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
  * @author vinic
  */
 public class ConsultarFornecedor extends javax.swing.JInternalFrame {
- 
+
+    static int contador = 0;
 
     /**
      * Creates new form ConsultarUsuario
@@ -34,17 +40,20 @@ public class ConsultarFornecedor extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         btnpesquisar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jFormattedCNPJ = new javax.swing.JFormattedTextField();
+        campoformatado = new javax.swing.JFormattedTextField();
         lbltelefone = new javax.swing.JTextField();
         lblnome = new javax.swing.JTextField();
-        lblcnpj = new javax.swing.JTextField();
         lblemail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Label_cnpj = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        comboBoxDocumento = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setTitle("Pesquisar Fornecedor");
 
@@ -55,92 +64,131 @@ public class ConsultarFornecedor extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisa-propriedade-48.png"))); // NOI18N
-
+        campoformatado.setBackground(new java.awt.Color(255, 255, 204));
         try {
-            jFormattedCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+            campoformatado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
         lbltelefone.setEditable(false);
+        lbltelefone.setBackground(new java.awt.Color(255, 255, 204));
 
         lblnome.setEditable(false);
+        lblnome.setBackground(new java.awt.Color(255, 255, 204));
         lblnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lblnomeActionPerformed(evt);
             }
         });
 
-        lblcnpj.setEditable(false);
-
         lblemail.setEditable(false);
+        lblemail.setBackground(new java.awt.Color(255, 255, 204));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         jLabel2.setText("Nome da Empesa");
 
-        jLabel3.setText("CNPJ");
+        Label_cnpj.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
+        Label_cnpj.setText("CNPJ");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         jLabel4.setText("Telefone");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         jLabel5.setText("Email");
+
+        jLabel21.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel21.setText("Pesquisar Fornecedor");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        comboBoxDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "CPF", "CNPJ" }));
+        comboBoxDocumento.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxDocumentoItemStateChanged(evt);
+            }
+        });
+        comboBoxDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxDocumentoActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
+        jLabel6.setText("Tipo de Documento");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jFormattedCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnpesquisar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
                     .addComponent(jLabel2)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblnome, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblcnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbltelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblnome)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel4)
+                            .addGap(336, 336, 336))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(comboBoxDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(29, 29, 29)
+                            .addComponent(Label_cnpj)
+                            .addGap(18, 18, 18)
+                            .addComponent(campoformatado, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(19, 19, 19)
+                            .addComponent(btnpesquisar)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lbltelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoformatado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnpesquisar)
+                    .addComponent(jLabel6)
+                    .addComponent(comboBoxDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Label_cnpj))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblnome, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(lbltelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnpesquisar)
-                            .addComponent(jFormattedCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel5))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1)))
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbltelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(lblnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblcnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addContainerGap(53, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -148,72 +196,117 @@ public class ConsultarFornecedor extends javax.swing.JInternalFrame {
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
         // TODO add your handling code here:
-      
-        Fornecedor forn=new Fornecedor();
+
+        Fornecedor forn = new Fornecedor();
+        String combodoc=(String)comboBoxDocumento.getSelectedItem();
         
-      
-        String CNPJ=jFormattedCNPJ.getText();
-       int i=pesquisa(CNPJ);
+        if(combodoc!="Selecione"){
         
-        if(i!=-1){
-            
-         
-        String nome_empres = forn.getFornecedor().get(i).getNome_da_empresa();
-        String cnpj = forn.getFornecedor().get(i).getCnpj();
-        String telefone = forn.getFornecedor().get(i).getTelefone();
-        String email =forn.getFornecedor().get(i).getEmail();
-        
- 
-       lblnome.setText(nome_empres);
-       lblcnpj.setText(cnpj);
-       lbltelefone.setText(telefone);
-       lblemail.setText(email);
-               
-            
-      
-        jFormattedCNPJ.setText("");
+
+        contador=pesquisa(campoformatado.getText());
        
-        }else{
-             jFormattedCNPJ.setText("");
-              lblnome.setText("");
-       lblcnpj.setText("");
-       lbltelefone.setText("");
-       lblemail.setText("");
-            JOptionPane.showMessageDialog(null,"Não Exite usuário com esse CNPJ"+CNPJ);
-        }
         
+        int i = contador;
+        if (i != -1) {
+
+            String nome_empres = forn.getFornecedor().get(i).getNome_da_empresa();
+            
+            String telefone = forn.getFornecedor().get(i).getTelefone();
+            String email = forn.getFornecedor().get(i).getEmail();
+
+            lblnome.setText(nome_empres);
+            
+            lbltelefone.setText(telefone);
+            lblemail.setText(email);
+
+            campoformatado.setText("");
+            comboBoxDocumento.setSelectedIndex(0);
+
+        } else {
+            campoformatado.setText("");
+            lblnome.setText("");
+            
+            lbltelefone.setText("");
+            lblemail.setText("");
+             comboBoxDocumento.setSelectedIndex(0);
+            JOptionPane.showMessageDialog(null, "Não Exite usuário com esse CNPJ" + campoformatado.getText());
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Favor selecionar um Tipo de Documento");
+        }
+
     }//GEN-LAST:event_btnpesquisarActionPerformed
 
     private void lblnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblnomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lblnomeActionPerformed
-public int pesquisa (String pram ){
-      Fornecedor forn=new Fornecedor();
-   if(!forn.getFornecedor().isEmpty()){
-    for(int i=0;i<forn.getFornecedor().size();i++)    {
-      if(forn.getFornecedor().get(i).getCnpj().equals(pram)){
-            return i;
-      }
-           
-         
-         
-        }
-            
-    
-   }
-   JOptionPane.showMessageDialog(null,"Não existe registro no sistema");
-   return -1;
-}
 
+    private void comboBoxDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDocumentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxDocumentoActionPerformed
+
+    private void comboBoxDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxDocumentoItemStateChanged
+        // TODO add your handling code here:
+        String comboDocumento=(String)comboBoxDocumento.getSelectedItem();
+         String documento_Campo_Format = campoformatado.getText();
+
+        if (comboDocumento.equals("CPF")) {
+
+            try {
+                MaskFormatter mskdocumento = new MaskFormatter("###.###.###-##");
+                 Label_cnpj.setText("CPF");
+                campoformatado.setFormatterFactory(new DefaultFormatterFactory(mskdocumento));
+               
+
+                
+
+            } catch (Exception ex) {
+
+            }
+
+        } else {
+            try {
+                MaskFormatter mskdocumento = new MaskFormatter("##.###.###/####-##");
+                Label_cnpj.setText("CNPJ");
+                campoformatado.setFormatterFactory(new DefaultFormatterFactory(mskdocumento));
+                
+
+            } catch (Exception ex) {
+
+            }
+        }
+
+    }//GEN-LAST:event_comboBoxDocumentoItemStateChanged
+    public int pesquisa(String pram) {
+        Fornecedor forn = new Fornecedor();
+
+       
+      
+            if (!forn.getFornecedor().isEmpty()) {
+
+                for (int i = 0; i < forn.getFornecedor().size(); i++) {
+                        if (forn.getFornecedor().get(i).getCnpj().equals(pram)) {
+                            return i;
+                        }
+                    }
+                }
+            
+
+       
+
+        return -1;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Label_cnpj;
     private javax.swing.JButton btnpesquisar;
-    private javax.swing.JFormattedTextField jFormattedCNPJ;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JFormattedTextField campoformatado;
+    private javax.swing.JComboBox<String> comboBoxDocumento;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField lblcnpj;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lblemail;
     private javax.swing.JTextField lblnome;
     private javax.swing.JTextField lbltelefone;

@@ -42,23 +42,23 @@ public class CadastraUsuarios extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jComboPerfil = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         btb_Cancelar = new javax.swing.JButton();
         btn_salvarCadastro = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jPassword_Cadastro = new javax.swing.JPasswordField();
         jLabel13 = new javax.swing.JLabel();
         jFormattedCpf = new javax.swing.JFormattedTextField();
-        jPassword_Cadastro1 = new javax.swing.JPasswordField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -80,58 +80,58 @@ public class CadastraUsuarios extends javax.swing.JInternalFrame {
         label1.setText("label1");
         getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, -20, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         jLabel3.setText("Nome");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         jLabel4.setText("E-mail");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         jLabel5.setText("Login");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
+        jText_Login.setBackground(new java.awt.Color(255, 255, 204));
         jText_Login.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jText_Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jText_LoginActionPerformed(evt);
             }
         });
-        getContentPane().add(jText_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 210, 30));
+        getContentPane().add(jText_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 180, 30));
 
+        jText_Email_user.setBackground(new java.awt.Color(255, 255, 204));
         jText_Email_user.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        getContentPane().add(jText_Email_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 400, 31));
+        getContentPane().add(jText_Email_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 410, 31));
 
+        Jtxt_nome_Usuario.setBackground(new java.awt.Color(255, 255, 204));
         Jtxt_nome_Usuario.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        getContentPane().add(Jtxt_nome_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 360, 31));
+        getContentPane().add(Jtxt_nome_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 340, 31));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         jLabel7.setText("Perfil");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, -1, -1));
 
         jComboPerfil.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jComboPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Funcionario" }));
-        getContentPane().add(jComboPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 130, 32));
+        getContentPane().add(jComboPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 130, 32));
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         jLabel6.setText("Senha");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-male-user-64.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, -10, 80, 110));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
         btb_Cancelar.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        btb_Cancelar.setText("Cancelar");
+        btb_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/vassoura.png"))); // NOI18N
         btb_Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btb_CancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btb_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, -1, -1));
+        getContentPane().add(btb_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, -1, -1));
 
         btn_salvarCadastro.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        btn_salvarCadastro.setText("Salvar");
+        btn_salvarCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar (1).png"))); // NOI18N
         btn_salvarCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvarCadastroActionPerformed(evt);
@@ -142,54 +142,52 @@ public class CadastraUsuarios extends javax.swing.JInternalFrame {
                 btn_salvarCadastroKeyPressed(evt);
             }
         });
-        getContentPane().add(btn_salvarCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, -1, -1));
+        getContentPane().add(btn_salvarCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("*");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 10, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 10, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 120, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel11.setText("*");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
-
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("*");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 0, 0));
         jLabel12.setText("*");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 0, 0));
         jLabel14.setText("*");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
-        getContentPane().add(jPassword_Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 130, 30));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jPassword_Cadastro.setBackground(new java.awt.Color(255, 255, 204));
+        getContentPane().add(jPassword_Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 110, 30));
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         jLabel13.setText("CPF");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, -1));
 
+        jFormattedCpf.setBackground(new java.awt.Color(255, 255, 204));
         try {
             jFormattedCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        getContentPane().add(jFormattedCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 160, 30));
-        getContentPane().add(jPassword_Cadastro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 130, 30));
+        jFormattedCpf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(jFormattedCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 160, 30));
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 0, 0));
         jLabel15.setText("*");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, -1, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 0, 0));
@@ -201,7 +199,33 @@ public class CadastraUsuarios extends javax.swing.JInternalFrame {
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, 20, 40));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 20, 40));
+
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel20.setText("*");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 10, -1));
+
+        jLabel21.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel21.setText("Cadastro de Usuário");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel21)
+                .addContainerGap(475, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -282,7 +306,6 @@ public class CadastraUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JFormattedTextField jFormattedCpf;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -290,7 +313,8 @@ public class CadastraUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -298,8 +322,8 @@ public class CadastraUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPassword_Cadastro;
-    private javax.swing.JPasswordField jPassword_Cadastro1;
     private javax.swing.JTextField jText_Email_user;
     private javax.swing.JTextField jText_Login;
     private java.awt.Label label1;

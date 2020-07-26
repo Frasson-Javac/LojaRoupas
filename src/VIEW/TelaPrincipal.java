@@ -130,7 +130,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lbl_data1.setFont(new java.awt.Font("News701 BT", 0, 17)); // NOI18N
         lbl_data1.setForeground(new java.awt.Color(0, 0, 153));
 
-        lbl_user.setFont(new java.awt.Font("News701 BT", 0, 20)); // NOI18N
+        lbl_user.setFont(new java.awt.Font("News701 BT", 0, 17)); // NOI18N
         lbl_user.setForeground(new java.awt.Color(0, 0, 153));
         lbl_user.setText("jLabel1");
 
@@ -177,14 +177,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         jMenu_Usuario.setText("Usuario");
-        jMenu_Usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Usuario.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenu_Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu_UsuarioActionPerformed(evt);
             }
         });
 
-        jMenuItem_Usuario_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Usuario_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Usuario_Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-adicionar-livro-36.png"))); // NOI18N
         jMenuItem_Usuario_Cadastrar.setText("Cadastrar");
         jMenuItem_Usuario_Cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +194,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_Usuario.add(jMenuItem_Usuario_Cadastrar);
 
-        jMenu_Usuario_consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Usuario_consultar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenu_Usuario_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-mais-36.png"))); // NOI18N
         jMenu_Usuario_consultar.setText("Consultar");
         jMenu_Usuario_consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +204,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_Usuario.add(jMenu_Usuario_consultar);
 
-        jMenu_Usuario_Listar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Usuario_Listar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenu_Usuario_Listar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lista-de-tarefas-36.png"))); // NOI18N
         jMenu_Usuario_Listar.setText("Listar");
         jMenu_Usuario_Listar.addActionListener(new java.awt.event.ActionListener() {
@@ -214,12 +214,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_Usuario.add(jMenu_Usuario_Listar);
 
-        jMenuItem_Usuario_AlterarSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Usuario_AlterarSenha.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Usuario_AlterarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-editar-conta-36.png"))); // NOI18N
         jMenuItem_Usuario_AlterarSenha.setText("Alterar senha");
         jMenu_Usuario.add(jMenuItem_Usuario_AlterarSenha);
 
-        jMenu_Usuario_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Usuario_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenu_Usuario_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-excluir-36.png"))); // NOI18N
         jMenu_Usuario_Excluir.setText("Excluir");
         jMenu_Usuario.add(jMenu_Usuario_Excluir);
@@ -227,9 +227,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu.add(jMenu_Usuario);
 
         jMenu_Fornecedor.setText("Fornecedor");
-        jMenu_Fornecedor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Fornecedor.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
 
-        jMenuItem_Fornecedor_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Fornecedor_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Fornecedor_Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-adicionar-livro-36.png"))); // NOI18N
         jMenuItem_Fornecedor_Cadastrar.setText("Cadastrar");
         jMenuItem_Fornecedor_Cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +239,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_Fornecedor.add(jMenuItem_Fornecedor_Cadastrar);
 
-        jMenuItem_Fornecedor_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Fornecedor_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Fornecedor_Consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-mais-36.png"))); // NOI18N
         jMenuItem_Fornecedor_Consultar.setText("Consultar");
         jMenuItem_Fornecedor_Consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -249,7 +249,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_Fornecedor.add(jMenuItem_Fornecedor_Consultar);
 
-        jMenu_Fornecedo_Listar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Fornecedo_Listar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenu_Fornecedo_Listar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lista-de-tarefas-36.png"))); // NOI18N
         jMenu_Fornecedo_Listar.setText("Listar");
         jMenu_Fornecedo_Listar.addActionListener(new java.awt.event.ActionListener() {
@@ -259,12 +259,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_Fornecedor.add(jMenu_Fornecedo_Listar);
 
-        jMenuItem_Fornecedor_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Fornecedor_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Fornecedor_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-editar-conta-36.png"))); // NOI18N
         jMenuItem_Fornecedor_Alterar.setText("Alterar");
         jMenu_Fornecedor.add(jMenuItem_Fornecedor_Alterar);
 
-        jMenuItem_Fornecedor_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Fornecedor_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Fornecedor_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-excluir-36.png"))); // NOI18N
         jMenuItem_Fornecedor_Excluir.setText("Excluir");
         jMenu_Fornecedor.add(jMenuItem_Fornecedor_Excluir);
@@ -272,9 +272,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu.add(jMenu_Fornecedor);
 
         jMenu_PedidoCompra.setText("Pedido de Compra");
-        jMenu_PedidoCompra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_PedidoCompra.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
 
-        jMenuItem_PedidoCompra_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_PedidoCompra_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_PedidoCompra_Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-adicionar-livro-36.png"))); // NOI18N
         jMenuItem_PedidoCompra_Cadastrar.setText("Cadastrar");
         jMenuItem_PedidoCompra_Cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -284,7 +284,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_PedidoCompra.add(jMenuItem_PedidoCompra_Cadastrar);
 
-        jMenuItem_PedidoCompra_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_PedidoCompra_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_PedidoCompra_Consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-mais-36.png"))); // NOI18N
         jMenuItem_PedidoCompra_Consultar.setText("Consultar");
         jMenuItem_PedidoCompra_Consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -294,7 +294,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_PedidoCompra.add(jMenuItem_PedidoCompra_Consultar);
 
-        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lista-de-tarefas-36.png"))); // NOI18N
         jMenuItem2.setText("Listar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -304,12 +304,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_PedidoCompra.add(jMenuItem2);
 
-        jMenuItem_PedidoCompra_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_PedidoCompra_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_PedidoCompra_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-editar-conta-36.png"))); // NOI18N
         jMenuItem_PedidoCompra_Alterar.setText("Alterar");
         jMenu_PedidoCompra.add(jMenuItem_PedidoCompra_Alterar);
 
-        jMenuItem_PedidoCompra_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_PedidoCompra_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_PedidoCompra_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-excluir-36.png"))); // NOI18N
         jMenuItem_PedidoCompra_Excluir.setText("Excluir");
         jMenuItem_PedidoCompra_Excluir.addActionListener(new java.awt.event.ActionListener() {
@@ -322,9 +322,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu.add(jMenu_PedidoCompra);
 
         jMenu_Estoque.setText("Estoque");
-        jMenu_Estoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Estoque.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
 
-        jMenu_Estoque_consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Estoque_consultar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenu_Estoque_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-light-automation-30.png"))); // NOI18N
         jMenu_Estoque_consultar.setText("Controlar Estoque");
         jMenu_Estoque_consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -337,13 +337,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu.add(jMenu_Estoque);
 
         jMenu_Vendas.setText("Vendas");
-        jMenu_Vendas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Vendas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
 
-        jMenuItem_Vendas_Vender.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Vendas_Vender.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Vendas_Vender.setText("Vender");
         jMenu_Vendas.add(jMenuItem_Vendas_Vender);
 
-        jMenuItem_Vendas_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Vendas_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Vendas_Consultar.setText("Consultar");
         jMenuItem_Vendas_Consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,20 +352,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_Vendas.add(jMenuItem_Vendas_Consultar);
 
-        jMenuItem_Vendas_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Vendas_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Vendas_Alterar.setText("Alterar");
         jMenu_Vendas.add(jMenuItem_Vendas_Alterar);
 
-        jMenuItem_Vendas_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Vendas_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Vendas_Excluir.setText("Excluir");
         jMenu_Vendas.add(jMenuItem_Vendas_Excluir);
 
         Menu.add(jMenu_Vendas);
 
         jMenu_Ajuda.setText("Ajuda");
-        jMenu_Ajuda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Ajuda.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
 
-        jMenuItem_Ajuda_Sobre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Ajuda_Sobre.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Ajuda_Sobre.setText("Sobre");
         jMenuItem_Ajuda_Sobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -377,7 +377,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu.add(jMenu_Ajuda);
 
         Sair.setText("Sair");
-        Sair.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Sair.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SairActionPerformed(evt);
@@ -386,21 +386,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu.add(Sair);
 
         jMenu_Cliente.setText("Cliente");
-        jMenu_Cliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu_Cliente.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
 
-        jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Cliente_Cadastrar.setText("Cadastrar");
         jMenu_Cliente.add(jMenuItem_Cliente_Cadastrar);
 
-        jMenuItem_Cliente_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Cliente_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Cliente_Consultar.setText("Consultar");
         jMenu_Cliente.add(jMenuItem_Cliente_Consultar);
 
-        jMenuItem_Cliente_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Cliente_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Cliente_Alterar.setText("Alterar");
         jMenu_Cliente.add(jMenuItem_Cliente_Alterar);
 
-        jMenuItem_Cliente_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem_Cliente_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Cliente_Excluir.setText("Excluir");
         jMenu_Cliente.add(jMenuItem_Cliente_Excluir);
 

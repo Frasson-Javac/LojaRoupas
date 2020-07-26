@@ -8,19 +8,17 @@ package VIEW;
 import Model.Fornecedor;
 import Model.Usuario;
 import javax.swing.JOptionPane;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
  * @author vinic
  */
-
-
 public class CadastarFornecedor extends javax.swing.JInternalFrame {
-    Login log=new Login();
-    Fornecedor Fornecedor=new Fornecedor();
-   
-    
 
+    Login log = new Login();
+    Fornecedor Fornecedor = new Fornecedor();
 
     /**
      * Creates new form cadastrausuaruio
@@ -60,6 +58,10 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
         txt_endereco_fornecedor = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        comboDocumento = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -78,38 +80,40 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
         setTitle("Cadastro de Fornecedor");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_nome_daempresa.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        lbl_nome_daempresa.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         lbl_nome_daempresa.setText("Nome da Empresa");
-        getContentPane().add(lbl_nome_daempresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        getContentPane().add(lbl_nome_daempresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        lbl_email.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        lbl_email.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         lbl_email.setText("E-mail");
-        getContentPane().add(lbl_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        getContentPane().add(lbl_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
-        lbl_telefone.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        lbl_telefone.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         lbl_telefone.setText("Telefone");
-        getContentPane().add(lbl_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        getContentPane().add(lbl_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
+        jText_Email_Fornecedor.setBackground(new java.awt.Color(255, 255, 204));
         jText_Email_Fornecedor.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        getContentPane().add(jText_Email_Fornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 420, 31));
+        getContentPane().add(jText_Email_Fornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 410, 31));
 
+        Jtxt_nome_Empresa.setBackground(new java.awt.Color(255, 255, 204));
         Jtxt_nome_Empresa.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        getContentPane().add(Jtxt_nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 420, 31));
+        getContentPane().add(Jtxt_nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 410, 31));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-fornecedor-64_1.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 70, 90));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 70, 90));
 
         btb_Cancelar.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        btb_Cancelar.setText("Cancelar");
+        btb_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/vassoura.png"))); // NOI18N
         btb_Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btb_CancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btb_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, -1));
+        getContentPane().add(btb_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, -1, -1));
 
         btn_salvarCadastro.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        btn_salvarCadastro.setText("Salvar");
+        btn_salvarCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar (1).png"))); // NOI18N
         btn_salvarCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvarCadastroActionPerformed(evt);
@@ -120,11 +124,11 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
                 btn_salvarCadastroKeyPressed(evt);
             }
         });
-        getContentPane().add(btn_salvarCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, -1, -1));
+        getContentPane().add(btn_salvarCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 20, 10));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 20, 10));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
@@ -133,91 +137,170 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("*");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 0, 0));
         jLabel12.setText("*");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 0, 0));
         jLabel14.setText("*");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
 
-        lblCNPJ.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        lblCNPJ.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         lblCNPJ.setText("CNPJ");
-        getContentPane().add(lblCNPJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, -1, -1));
+        getContentPane().add(lblCNPJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, -1, -1));
 
+        jFormattedCNPJ.setBackground(new java.awt.Color(255, 255, 204));
         try {
             jFormattedCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        getContentPane().add(jFormattedCNPJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 160, 30));
+        jFormattedCNPJ.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(jFormattedCNPJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 160, 30));
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 0, 0));
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, -1, -1));
 
+        jFormattedTextField1.setBackground(new java.awt.Color(255, 255, 204));
         try {
             jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        getContentPane().add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 180, 30));
+        jFormattedTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        getContentPane().add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 170, 30));
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 60, 0));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         jLabel1.setText("Endereço");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
-        getContentPane().add(txt_endereco_fornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 420, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+
+        txt_endereco_fornecedor.setBackground(new java.awt.Color(255, 255, 204));
+        getContentPane().add(txt_endereco_fornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 410, 30));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 0, 0));
         jLabel16.setText("*");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 210, 10, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 10, -1));
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 0, 0));
         jLabel17.setText("*");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, -1));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel3.setText("Cadastro de Fornecedores");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(293, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 80));
+
+        comboDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "CPF", "CNPJ" }));
+        comboDocumento.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboDocumentoItemStateChanged(evt);
+            }
+        });
+        getContentPane().add(comboDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 410, 30));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
+        jLabel4.setText("Tipo de Documento");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_salvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCadastroActionPerformed
         // TODO add your handling code here:
-       
-       Fornecedor.cadatrarfonnecedor(Jtxt_nome_Empresa.getText(), jFormattedCNPJ.getText(), jFormattedTextField1.getText(), jText_Email_Fornecedor.getText(),txt_endereco_fornecedor.getText());
-       JOptionPane.showMessageDialog(null,"Dados salvos com sucesso! ");
-       Jtxt_nome_Empresa.setText("");
-       jFormattedTextField1.setText("");
-       jText_Email_Fornecedor.setText("");
-       jFormattedCNPJ.setText("");
-       txt_endereco_fornecedor.setText("");
-       
-       
-      
+       String combo=(String)comboDocumento.getSelectedItem();
+        if(combo!="Selecione"){
+        Fornecedor.cadatrarfonnecedor(Jtxt_nome_Empresa.getText(), jFormattedCNPJ.getText(), jFormattedTextField1.getText(), jText_Email_Fornecedor.getText(), txt_endereco_fornecedor.getText());
+        JOptionPane.showMessageDialog(null, "Dados salvos com sucesso! ");
+        Jtxt_nome_Empresa.setText("");
+        jFormattedTextField1.setText("");
+        jText_Email_Fornecedor.setText("");
+        jFormattedCNPJ.setText("");
+        txt_endereco_fornecedor.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "Favor selecionar um tipo de Documento");
+        }
     
+
+
     }//GEN-LAST:event_btn_salvarCadastroActionPerformed
 
     private void btb_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btb_CancelarActionPerformed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_btb_CancelarActionPerformed
 
     private void btn_salvarCadastroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_salvarCadastroKeyPressed
-      // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_salvarCadastroKeyPressed
+
+    private void comboDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboDocumentoItemStateChanged
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        String comboDocumentos = (String) comboDocumento.getSelectedItem();
+       
+
+      
+
+            if (comboDocumentos.equals("CPF")) {
+
+                try {
+                    MaskFormatter mskdocumento = new MaskFormatter("###.###.###-##");
+                    lblCNPJ.setText("CPF");
+                    jFormattedCNPJ.setFormatterFactory(new DefaultFormatterFactory(mskdocumento));
+                    
+
+                } catch (Exception ex) {
+
+                }
+
+            } else {
+                try {
+                    MaskFormatter mskdocumento = new MaskFormatter("##.###.###/####-##");
+                      lblCNPJ.setText("CNPJ");
+                    jFormattedCNPJ.setFormatterFactory(new DefaultFormatterFactory(mskdocumento));
+
+                } catch (Exception ex) {
+
+                }
+        
+
+        }
+    }//GEN-LAST:event_comboDocumentoItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Jtxt_nome_Empresa;
     private javax.swing.JButton btb_Cancelar;
     private javax.swing.JButton btn_salvarCadastro;
+    private javax.swing.JComboBox<String> comboDocumento;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JFormattedTextField jFormattedCNPJ;
     private javax.swing.JFormattedTextField jFormattedTextField1;
@@ -231,7 +314,10 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jText_Email_Fornecedor;
     private javax.swing.JLabel lblCNPJ;
     private javax.swing.JLabel lbl_email;

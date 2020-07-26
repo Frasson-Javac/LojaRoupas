@@ -52,6 +52,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("T-DRESS SYSTEM");
         setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -106,22 +107,24 @@ public class Login extends javax.swing.JFrame {
 
         lbl_login.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lbl_login.setText("Login");
-        getContentPane().add(lbl_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 20));
+        getContentPane().add(lbl_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 20));
 
+        jtxt_loginentarsistema.setBackground(new java.awt.Color(255, 255, 204));
         jtxt_loginentarsistema.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        getContentPane().add(jtxt_loginentarsistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 310, 30));
+        getContentPane().add(jtxt_loginentarsistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 310, 30));
 
         lblsenha.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblsenha.setText("Senha");
-        getContentPane().add(lblsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, 20));
+        getContentPane().add(lblsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, 20));
 
+        jtxt_senha_entrarsistema.setBackground(new java.awt.Color(255, 255, 204));
         jtxt_senha_entrarsistema.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jtxt_senha_entrarsistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_senha_entrarsistemaActionPerformed(evt);
             }
         });
-        getContentPane().add(jtxt_senha_entrarsistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 310, 30));
+        getContentPane().add(jtxt_senha_entrarsistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 310, 30));
 
         btn_entrarsistema.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btn_entrarsistema.setText("Entrar");
@@ -130,12 +133,12 @@ public class Login extends javax.swing.JFrame {
                 btn_entrarsistemaActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_entrarsistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, -1, -1));
+        getContentPane().add(btn_entrarsistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
 
         btn_limpratxtentrarsistema.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btn_limpratxtentrarsistema.setText("Limpar");
-        getContentPane().add(btn_limpratxtentrarsistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 180, 10));
+        getContentPane().add(btn_limpratxtentrarsistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 180, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

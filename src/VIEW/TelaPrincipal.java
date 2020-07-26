@@ -141,6 +141,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${size.height}"), desktopPrincipal, org.jdesktop.beansbinding.BeanProperty.create("minimumSize"));
         bindingGroup.addBinding(binding);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         lbl_hora.setFont(new java.awt.Font("News701 BT", 0, 17)); // NOI18N
         lbl_hora.setForeground(new java.awt.Color(0, 0, 153));
 
@@ -177,6 +179,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_CadastrarUsuario.setBackground(new java.awt.Color(255, 255, 255));
         btn_CadastrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btn_CadastrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/equipe (1).png"))); // NOI18N
+        btn_CadastrarUsuario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btn_CadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CadastrarUsuarioActionPerformed(evt);
@@ -198,10 +201,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_alterarSenhaUser.setBackground(new java.awt.Color(255, 255, 255));
         btn_alterarSenhaUser.setForeground(new java.awt.Color(255, 255, 255));
         btn_alterarSenhaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/seguranca.png"))); // NOI18N
+        btn_alterarSenhaUser.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btn_cadastrarForn.setBackground(new java.awt.Color(255, 255, 255));
         btn_cadastrarForn.setForeground(new java.awt.Color(255, 255, 255));
         btn_cadastrarForn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fornecedor.png"))); // NOI18N
+        btn_cadastrarForn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Cadastrar Fornecedor");
@@ -210,6 +215,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_ConsultarFornecedor.setBackground(new java.awt.Color(255, 255, 255));
         btn_ConsultarFornecedor.setForeground(new java.awt.Color(255, 255, 255));
         btn_ConsultarFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ceo.png"))); // NOI18N
+        btn_ConsultarFornecedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Consultar Fornecedor");
@@ -218,6 +224,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_CadastrarPedido.setBackground(new java.awt.Color(255, 255, 255));
         btn_CadastrarPedido.setForeground(new java.awt.Color(255, 255, 255));
         btn_CadastrarPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/comprar.png"))); // NOI18N
+        btn_CadastrarPedido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Cadastrar Pedido ");
@@ -226,6 +233,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_ConsultarPedido.setBackground(new java.awt.Color(255, 255, 255));
         btn_ConsultarPedido.setForeground(new java.awt.Color(255, 255, 255));
         btn_ConsultarPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/consultar.png"))); // NOI18N
+        btn_ConsultarPedido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btn_ConsultarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ConsultarPedidoActionPerformed(evt);
@@ -239,6 +247,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_ListarPedido.setBackground(new java.awt.Color(255, 255, 255));
         btn_ListarPedido.setForeground(new java.awt.Color(255, 255, 255));
         btn_ListarPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ordem.png"))); // NOI18N
+        btn_ListarPedido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Listar Pedidos");
@@ -265,9 +274,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .add(jLabel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(btn_ConsultarFornecedor, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .add(18, 18, 18)
-                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel6)
-                    .add(btn_CadastrarPedido))
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jLabel6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(btn_CadastrarPedido, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(jLabel8, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

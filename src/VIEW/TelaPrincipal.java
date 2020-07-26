@@ -5,6 +5,7 @@
  */
 package VIEW;
 
+import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 /**
@@ -57,6 +59,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lbl_data1 = new javax.swing.JLabel();
         lbl_user = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        btn_CadastrarUsuario = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btn_alterarSenhaUser = new javax.swing.JButton();
+        btn_cadastrarForn = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btn_ConsultarFornecedor = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        btn_CadastrarPedido = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        btn_ConsultarPedido = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        btn_ListarPedido = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         jMenu_Usuario = new javax.swing.JMenu();
         jMenuItem_Usuario_Cadastrar = new javax.swing.JMenuItem();
@@ -117,7 +134,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        desktopPrincipal.setBackground(new java.awt.Color(241, 241, 241));
+        desktopPrincipal.setBackground(new java.awt.Color(242, 242, 255));
         desktopPrincipal.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         desktopPrincipal.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
@@ -132,7 +149,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         lbl_user.setFont(new java.awt.Font("News701 BT", 0, 17)); // NOI18N
         lbl_user.setForeground(new java.awt.Color(0, 0, 153));
-        lbl_user.setText("jLabel1");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -141,7 +157,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(lbl_user, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 246, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 364, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(lbl_data1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 114, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(lbl_hora, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 115, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -156,8 +172,137 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        btn_CadastrarUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        btn_CadastrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CadastrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/equipe (1).png"))); // NOI18N
+        btn_CadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastrarUsuarioActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setText("Cadastrar Usuário");
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Alterar Senha");
+        jLabel3.setToolTipText("");
+        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel3.setFocusable(false);
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        btn_alterarSenhaUser.setBackground(new java.awt.Color(255, 255, 255));
+        btn_alterarSenhaUser.setForeground(new java.awt.Color(255, 255, 255));
+        btn_alterarSenhaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/seguranca.png"))); // NOI18N
+
+        btn_cadastrarForn.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cadastrarForn.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cadastrarForn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fornecedor.png"))); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("Cadastrar Fornecedor");
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btn_ConsultarFornecedor.setBackground(new java.awt.Color(255, 255, 255));
+        btn_ConsultarFornecedor.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ConsultarFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ceo.png"))); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setText("Consultar Fornecedor");
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btn_CadastrarPedido.setBackground(new java.awt.Color(255, 255, 255));
+        btn_CadastrarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CadastrarPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/comprar.png"))); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setText("Cadastrar Pedido ");
+        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btn_ConsultarPedido.setBackground(new java.awt.Color(255, 255, 255));
+        btn_ConsultarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ConsultarPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/consultar.png"))); // NOI18N
+        btn_ConsultarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ConsultarPedidoActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setText("Consultar Pedido");
+        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btn_ListarPedido.setBackground(new java.awt.Color(255, 255, 255));
+        btn_ListarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ListarPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ordem.png"))); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setText("Listar Pedidos");
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanel3Layout.createSequentialGroup()
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(btn_CadastrarUsuario, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(btn_alterarSenhaUser, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 90, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jLabel4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(btn_cadastrarForn, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(18, 18, 18)
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jLabel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(btn_ConsultarFornecedor, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(18, 18, 18)
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabel6)
+                    .add(btn_CadastrarPedido))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jLabel8, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(btn_ConsultarPedido, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(18, 18, 18)
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabel7)
+                    .add(btn_ListarPedido, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 84, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(934, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanel3Layout.createSequentialGroup()
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(btn_CadastrarUsuario)
+                    .add(btn_cadastrarForn)
+                    .add(btn_ConsultarFornecedor)
+                    .add(btn_CadastrarPedido)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, btn_ConsultarPedido)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, btn_ListarPedido))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel2)
+                    .add(jLabel3)
+                    .add(jLabel4)
+                    .add(jLabel5)
+                    .add(jLabel6)
+                    .add(jLabel8)
+                    .add(jLabel7)))
+            .add(btn_alterarSenhaUser)
+        );
+
         desktopPrincipal.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPrincipal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPrincipal.setLayer(jPanel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         org.jdesktop.layout.GroupLayout desktopPrincipalLayout = new org.jdesktop.layout.GroupLayout(desktopPrincipal);
         desktopPrincipal.setLayout(desktopPrincipalLayout);
@@ -166,12 +311,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .add(desktopPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .add(jLabel1)
+            .add(desktopPrincipalLayout.createSequentialGroup()
+                .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jLabel1)
+                .add(0, 0, Short.MAX_VALUE))
         );
         desktopPrincipalLayout.setVerticalGroup(
             desktopPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, desktopPrincipalLayout.createSequentialGroup()
-                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 705, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(desktopPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 705, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, Short.MAX_VALUE)
                 .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
@@ -456,8 +607,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_SairActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:       
+        // TODO add your handling code here:     
+
         Login log = new Login();
+        btn_CadastrarUsuario.setContentAreaFilled(false);
+        btn_CadastrarUsuario.setOpaque(true);
+        btn_CadastrarUsuario.setBackground(Color.WHITE);
+        btn_alterarSenhaUser.setContentAreaFilled(false);
+        btn_alterarSenhaUser.setOpaque(true);
+        btn_alterarSenhaUser.setBackground(Color.WHITE);
+
+        btn_cadastrarForn.setContentAreaFilled(false);
+        btn_cadastrarForn.setOpaque(true);
+        btn_cadastrarForn.setBackground(Color.WHITE);
+        
+        btn_CadastrarPedido.setContentAreaFilled(false);
+        btn_CadastrarPedido.setOpaque(true);
+        btn_CadastrarPedido.setBackground(Color.WHITE);
+        
+        btn_ConsultarPedido.setContentAreaFilled(false);
+        btn_ConsultarPedido.setOpaque(true);
+        btn_ConsultarPedido.setBackground(Color.WHITE);
+        
+         btn_ConsultarFornecedor.setContentAreaFilled(false);
+        btn_ConsultarFornecedor.setOpaque(true);
+        btn_ConsultarFornecedor.setBackground(Color.WHITE);
+        
+         btn_ListarPedido.setContentAreaFilled(false);
+        btn_ListarPedido.setOpaque(true);
+        btn_ListarPedido.setBackground(Color.WHITE);
+        
 
         lbl_user.setText(log.userperfil);
         if (log.userperfil.equals("Funcionario")) {
@@ -529,6 +708,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem_Ajuda_SobreActionPerformed
 
+    private void btn_ConsultarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultarPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ConsultarPedidoActionPerformed
+
+    private void btn_CadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CadastrarUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -567,8 +754,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar Menu;
     private javax.swing.JMenu Sair;
+    private javax.swing.JButton btn_CadastrarPedido;
+    private javax.swing.JButton btn_CadastrarUsuario;
+    private javax.swing.JButton btn_ConsultarFornecedor;
+    private javax.swing.JButton btn_ConsultarPedido;
+    private javax.swing.JButton btn_ListarPedido;
+    private javax.swing.JButton btn_alterarSenhaUser;
+    private javax.swing.JButton btn_cadastrarForn;
     private javax.swing.JDesktopPane desktopPrincipal;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem15;
@@ -606,6 +807,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu_Vendas;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lbl_data1;
     private javax.swing.JLabel lbl_hora;
     private javax.swing.JLabel lbl_user;

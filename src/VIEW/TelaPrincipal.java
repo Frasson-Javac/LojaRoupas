@@ -124,13 +124,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${size.height}"), desktopPrincipal, org.jdesktop.beansbinding.BeanProperty.create("minimumSize"));
         bindingGroup.addBinding(binding);
 
-        lbl_hora.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbl_hora.setFont(new java.awt.Font("News701 BT", 0, 17)); // NOI18N
         lbl_hora.setForeground(new java.awt.Color(0, 0, 153));
 
-        lbl_data1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbl_data1.setFont(new java.awt.Font("News701 BT", 0, 17)); // NOI18N
         lbl_data1.setForeground(new java.awt.Color(0, 0, 153));
 
-        lbl_user.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lbl_user.setFont(new java.awt.Font("News701 BT", 0, 20)); // NOI18N
         lbl_user.setForeground(new java.awt.Color(0, 0, 153));
         lbl_user.setText("jLabel1");
 

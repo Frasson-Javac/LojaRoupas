@@ -586,8 +586,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem_Usuario_CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Usuario_CadastrarActionPerformed
         // TODO add your handling code here:
+        
+     
+        
+        
 
+       
         InternalframeCentralizado.gerarcental(new CadastraUsuarios(), desktopPrincipal);
+        
+        
+       
 
 
     }//GEN-LAST:event_jMenuItem_Usuario_CadastrarActionPerformed

@@ -3,3 +3,4 @@ Adm;adm;adm;Administrador;@gmail.com;000.000.000-00
 Adm;Adm;Adm;Administrador;@exemple;111.111.111-11
 vinicius frasson;vinif;vinif;Administrador;vinicius.sesa.saude@gmail.com;144.654.827-95
 guilherme;root;root;Funcionario;root@gmail.com;999.999.999-99
+example;eee;e;Administrador;e;555.555.555-55

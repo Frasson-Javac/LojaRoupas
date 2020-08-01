@@ -21,7 +21,9 @@ public class TDRESS {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        local();
+  
+        
+       
     
         try {
               UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
@@ -29,8 +31,8 @@ public class TDRESS {
             e.printStackTrace();
           }
         
-        Login login=new Login();
-       login.setVisible(true);
+     //   Login login=new Login();
+      // login.setVisible(true);
     }
     
     public static void local(){

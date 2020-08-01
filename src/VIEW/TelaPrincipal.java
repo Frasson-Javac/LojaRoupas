@@ -95,6 +95,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem_PedidoCompra_Excluir = new javax.swing.JMenuItem();
         jMenu_Estoque = new javax.swing.JMenu();
         jMenu_Estoque_consultar = new javax.swing.JMenuItem();
+        jMenu_Cliente = new javax.swing.JMenu();
+        jMenuItem_Cliente_Cadastrar = new javax.swing.JMenuItem();
+        jMenuItem_Cliente_Consultar = new javax.swing.JMenuItem();
+        jMenuItem_Cliente_Alterar = new javax.swing.JMenuItem();
+        jMenuItem_Cliente_Excluir = new javax.swing.JMenuItem();
         jMenu_Vendas = new javax.swing.JMenu();
         jMenuItem_Vendas_Vender = new javax.swing.JMenuItem();
         jMenuItem_Vendas_Consultar = new javax.swing.JMenuItem();
@@ -103,11 +108,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu_Ajuda = new javax.swing.JMenu();
         jMenuItem_Ajuda_Sobre = new javax.swing.JMenuItem();
         Sair = new javax.swing.JMenu();
-        jMenu_Cliente = new javax.swing.JMenu();
-        jMenuItem_Cliente_Cadastrar = new javax.swing.JMenuItem();
-        jMenuItem_Cliente_Consultar = new javax.swing.JMenuItem();
-        jMenuItem_Cliente_Alterar = new javax.swing.JMenuItem();
-        jMenuItem_Cliente_Excluir = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -496,6 +496,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(jMenu_Estoque);
 
+        jMenu_Cliente.setText("Cliente");
+        jMenu_Cliente.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+
+        jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItem_Cliente_Cadastrar.setText("Cadastrar");
+        jMenu_Cliente.add(jMenuItem_Cliente_Cadastrar);
+
+        jMenuItem_Cliente_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItem_Cliente_Consultar.setText("Consultar");
+        jMenu_Cliente.add(jMenuItem_Cliente_Consultar);
+
+        jMenuItem_Cliente_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItem_Cliente_Alterar.setText("Alterar");
+        jMenu_Cliente.add(jMenuItem_Cliente_Alterar);
+
+        jMenuItem_Cliente_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItem_Cliente_Excluir.setText("Excluir");
+        jMenu_Cliente.add(jMenuItem_Cliente_Excluir);
+
+        Menu.add(jMenu_Cliente);
+
         jMenu_Vendas.setText("Vendas");
         jMenu_Vendas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
 
@@ -544,27 +565,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         Menu.add(Sair);
-
-        jMenu_Cliente.setText("Cliente");
-        jMenu_Cliente.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-
-        jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        jMenuItem_Cliente_Cadastrar.setText("Cadastrar");
-        jMenu_Cliente.add(jMenuItem_Cliente_Cadastrar);
-
-        jMenuItem_Cliente_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        jMenuItem_Cliente_Consultar.setText("Consultar");
-        jMenu_Cliente.add(jMenuItem_Cliente_Consultar);
-
-        jMenuItem_Cliente_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        jMenuItem_Cliente_Alterar.setText("Alterar");
-        jMenu_Cliente.add(jMenuItem_Cliente_Alterar);
-
-        jMenuItem_Cliente_Excluir.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        jMenuItem_Cliente_Excluir.setText("Excluir");
-        jMenu_Cliente.add(jMenuItem_Cliente_Excluir);
-
-        Menu.add(jMenu_Cliente);
 
         setJMenuBar(Menu);
 

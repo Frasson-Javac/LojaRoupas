@@ -5,7 +5,6 @@
  */
 package Model;
 
-import DAO.Arquivo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -93,9 +92,9 @@ public class Fornecedor {
     
     public void cadatrarfonnecedor(String nome_empresa,String cnpj,String telefone,String Email,String endereco){
     
-        
-        Arquivo arquivo=new Arquivo();
-        arquivo.gravar_no_arquivo(file, nome_empresa,cnpj,telefone,Email,endereco);
+      //  
+       /// Arquivo arquivo=new Arquivo();
+     //   arquivo.gravar_no_arquivo(file, nome_empresa,cnpj,telefone,Email,endereco);
         
     }
 

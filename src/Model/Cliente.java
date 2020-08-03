@@ -5,8 +5,10 @@
  */
 package Model;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -47,15 +49,17 @@ public class Cliente extends Pessoa{
     
     
 
-    public Cliente(String cpf, String nome, char sexo, FileWriter fr, PrintWriter pw, BufferedWriter br) {
-        super(fr, pw, br);
+    public Cliente(String cpf, String nome, char sexo, FileWriter fw, PrintWriter pw, BufferedReader br,FileReader fr) {
+        super(fw, pw, br,fr);
         this.cpf = cpf;
         this.nome = nome;
         this.sexo = sexo;
+        
+        
     }
 
-    public Cliente(String cpf, String nome, char sexo, String email, String endereco, String telefone, FileWriter fr, PrintWriter pw, BufferedWriter br) {
-        super(email, endereco, telefone, fr, pw, br);
+    public Cliente(String cpf, String nome, char sexo, String email, String endereco, String telefone, FileWriter fw, PrintWriter pw, BufferedReader br,FileReader fr) {
+        super(email, endereco, telefone, fw, pw, br,fr);
         this.cpf = cpf;
         this.nome = nome;
         this.sexo = sexo;
@@ -104,11 +108,11 @@ public class Cliente extends Pessoa{
     
 
     @Override
-    public void gravarArquivo(Cliente cliente) {
+    public void gravarArquivo(Object cliente) {
        
         try{
-           super.fr=new FileWriter(file,true);
-           super.pw =new PrintWriter(fr);
+           super.fw=new FileWriter(file,true);
+           super.pw =new PrintWriter(fw);
            super.pw.print(cliente+"\n");
            pw.close();
         
@@ -127,7 +131,28 @@ public class Cliente extends Pessoa{
 
     @Override
     public void recuperar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       try{
+           super.fr=new FileReader(file);
+           super.br=new BufferedReader(fr);
+           String linha="";
+           while(br.ready()){
+               linha=br.readLine();
+               String [] dados=linha.split(";");
+               String nome=dados[0];
+               String cpf=dados[1];
+                        char sexo=dados[2].charAt(0);
+                       String email=dados[3];
+                String emdreco=dados[4];
+                        String telefone=dados[5];
+                        
+                        
+               
+               
+           }
+           
+       }catch(Exception e){
+           
+       }
     }
     
     

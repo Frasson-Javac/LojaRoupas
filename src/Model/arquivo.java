@@ -5,8 +5,9 @@
  */
 package Model;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
@@ -16,27 +17,29 @@ import java.io.PrintWriter;
  */
 public abstract class arquivo {
     
-    FileWriter fr;
+    FileWriter fw;
     PrintWriter pw;
-    private BufferedWriter br;
+     BufferedReader br;
+     FileReader fr;
     
     
     public arquivo(){
         
     }
 
-    public arquivo(FileWriter fr, PrintWriter pw, BufferedWriter br) {
-        this.fr = fr;
+    public arquivo(FileWriter fw, PrintWriter pw, BufferedReader br, FileReader fr) {
+        this.fw = fw;
         this.pw = pw;
         this.br = br;
+        this.fr=fr;
     }
 
     public FileWriter getFr() {
-        return fr;
+        return fw;
     }
 
     public void setFr(FileWriter fr) {
-        this.fr = fr;
+        this.fw = fw;
     }
 
     public PrintWriter getPw() {
@@ -47,11 +50,11 @@ public abstract class arquivo {
         this.pw = pw;
     }
 
-    public BufferedWriter getBr() {
+    public BufferedReader getBr() {
         return br;
     }
 
-    public void setBr(BufferedWriter br) {
+    public void setBr(BufferedReader br) {
         this.br = br;
     }
     
@@ -59,7 +62,8 @@ public abstract class arquivo {
     
     
     
-    public abstract void gravarArquivo(Cliente cliente);
+    
+    public abstract void gravarArquivo(Object obj);
         
     
     

@@ -5,7 +5,9 @@
  */
 package Model;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
@@ -34,15 +36,15 @@ public abstract class Pessoa extends arquivo {
     
     
     
-    public Pessoa(String email, String endereco, String telefone, FileWriter fr, PrintWriter pw, BufferedWriter br) {
-        super(fr, pw, br);
+    public Pessoa(String email, String endereco, String telefone, FileWriter fw, PrintWriter pw, BufferedReader br, FileReader fr) {
+        super(fw, pw, br, fr);
         this.email = email;
         this.endereco = endereco;
         this.telefone = telefone;
     }
 
-    public Pessoa(FileWriter fr, PrintWriter pw, BufferedWriter br) {
-        super(fr, pw, br);
+    public Pessoa( FileWriter fw, PrintWriter pw, BufferedReader br, FileReader fr) {
+        super(fw, pw, br,fr);
     }
 
     

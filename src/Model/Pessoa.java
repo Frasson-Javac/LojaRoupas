@@ -76,8 +76,8 @@ public abstract class Pessoa extends arquivo {
     public String toString() {
         
         String s="";
-        return s+=this.email+"\n"+
-                this.endereco+"\n"+
+        return s+=this.email+";"+
+                this.endereco+";"+
                 this.telefone;
     }
     

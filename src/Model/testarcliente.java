@@ -18,14 +18,14 @@ public class testarcliente {
         String telefone="111111111";
         char sexo='m';
         
-        Cliente cli=new Cliente(cpf, nome, sexo, email, end, telefone);
+        Cliente cli = new Cliente();
         
-        cli.cadastrarcliente(cli);
+        cli.cadastrarcliente(nome, cpf, email, telefone, end, sexo);
        
     
         
      //  cli.getListagemClientes().add(cli);
          
-        System.out.println(cli.getListagemClientes().toString());
+        System.out.println(cli.getListagemClientes());
     }
 }

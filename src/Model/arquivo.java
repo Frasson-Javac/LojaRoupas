@@ -6,6 +6,7 @@
 package Model;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
@@ -58,7 +59,7 @@ public abstract class arquivo {
     
     
     
-    public abstract void gravarArquivo();
+    public abstract void gravarArquivo(Cliente cliente);
         
     
     

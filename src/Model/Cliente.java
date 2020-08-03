@@ -22,7 +22,7 @@ public class Cliente extends Pessoa{
     private String cpf;
     private String nome;
     private char sexo;
-    private ArrayList<Cliente>listagemClientes=new ArrayList();
+    private ArrayList<Cliente>listagemClientes=new ArrayList<>();
 
     public Cliente() {
         super();
@@ -104,12 +104,12 @@ public class Cliente extends Pessoa{
     
 
     @Override
-    public void gravarArquivo() {
+    public void gravarArquivo(Cliente cliente) {
        
         try{
-           super.fr=new FileWriter(file);
+           super.fr=new FileWriter(file,true);
            super.pw =new PrintWriter(fr);
-           super.pw.print(this.getListagemClientes().toString());
+           super.pw.print(cliente+"\n");
            pw.close();
         
             
@@ -131,23 +131,29 @@ public class Cliente extends Pessoa{
     }
     
     
-    public void cadastrarcliente(Cliente cliente){
+    public void cadastrarcliente(String nome,String cpf, String email,String telefone,String endereco, char sexo ){
         
-   cliente=new Cliente();
-        for(int i=0;i<listagemClientes.size();i++){
+
+ 
             
-            listagemClientes.add( cliente);
             
+            Cliente cliente= new Cliente(cpf, nome, sexo, email, endereco, telefone);
+            this.gravarArquivo(cliente);
+            
+       
+        
         }
-        gravarArquivo();
+    
+       
      
-}
+
 
     @Override
     public String toString() {
         String s="";
-        return s+=this.nome+"\n"+
-                this.cpf+"\n"+
+        return s+=this.nome+";"+
+                this.cpf+";"+
+                this.sexo+";"+
                 super.toString();
         
         

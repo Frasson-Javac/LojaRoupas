@@ -501,6 +501,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Cliente_Cadastrar.setText("Cadastrar");
+        jMenuItem_Cliente_Cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Cliente_CadastrarActionPerformed(evt);
+            }
+        });
         jMenu_Cliente.add(jMenuItem_Cliente_Cadastrar);
 
         jMenuItem_Cliente_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
@@ -732,6 +737,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btn_CadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_CadastrarUsuarioActionPerformed
+
+    private void jMenuItem_Cliente_CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Cliente_CadastrarActionPerformed
+        // TODO add your handling code here:
+          InternalframeCentralizado.gerarcental(new CadastrarCliente(), desktopPrincipal);
+    }//GEN-LAST:event_jMenuItem_Cliente_CadastrarActionPerformed
 
     /**
      * @param args the command line arguments

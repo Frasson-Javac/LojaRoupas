@@ -22,7 +22,7 @@ public class TDRESS {
      */
     public static void main(String[] args) {
   
-        
+        local();
        
     
         try {
@@ -31,8 +31,8 @@ public class TDRESS {
             e.printStackTrace();
           }
         
-     //   Login login=new Login();
-      // login.setVisible(true);
+        Login login=new Login();
+      login.setVisible(true);
     }
     
     public static void local(){

@@ -74,6 +74,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btn_ListarPedido = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        btn_cadastrarclientes = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         jMenu_Usuario = new javax.swing.JMenu();
         jMenuItem_Usuario_Cadastrar = new javax.swing.JMenuItem();
@@ -250,8 +252,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_ListarPedido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setText("Listar Pedidos");
+        jLabel7.setText("Cadastrar Cliente");
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btn_cadastrarclientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cliente.png"))); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setText("Listar Pedidos");
+        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -283,20 +291,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .add(btn_ConsultarPedido, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .add(18, 18, 18)
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(btn_ListarPedido, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 84, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel9))
+                .add(18, 18, 18)
+                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jLabel7)
-                    .add(btn_ListarPedido, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 84, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(934, Short.MAX_VALUE))
+                    .add(btn_cadastrarclientes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 82, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(835, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                .add(btn_cadastrarForn, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(btn_ConsultarFornecedor, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(btn_CadastrarPedido, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(btn_ConsultarPedido, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(btn_ListarPedido, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(btn_cadastrarclientes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+            .add(btn_alterarSenhaUser)
             .add(jPanel3Layout.createSequentialGroup()
-                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(btn_CadastrarUsuario)
-                    .add(btn_cadastrarForn)
-                    .add(btn_ConsultarFornecedor)
-                    .add(btn_CadastrarPedido)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, btn_ConsultarPedido)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, btn_ListarPedido))
+                .add(btn_CadastrarUsuario)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel2)
@@ -305,8 +319,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .add(jLabel5)
                     .add(jLabel6)
                     .add(jLabel8)
+                    .add(jLabel9)
                     .add(jLabel7)))
-            .add(btn_alterarSenhaUser)
         );
 
         desktopPrincipal.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -500,6 +514,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu_Cliente.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
 
         jMenuItem_Cliente_Cadastrar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItem_Cliente_Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-adicionar-livro-36.png"))); // NOI18N
         jMenuItem_Cliente_Cadastrar.setText("Cadastrar");
         jMenuItem_Cliente_Cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -659,6 +674,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_ListarPedido.setOpaque(true);
         btn_ListarPedido.setBackground(Color.WHITE);
         
+        btn_cadastrarclientes.setContentAreaFilled(false);
+        btn_cadastrarclientes.setOpaque(true);
+        btn_cadastrarclientes.setBackground(Color.WHITE);
+        
 
         lbl_user.setText(log.userperfil);
         if (log.userperfil.equals("Funcionario")) {
@@ -788,6 +807,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_ListarPedido;
     private javax.swing.JButton btn_alterarSenhaUser;
     private javax.swing.JButton btn_cadastrarForn;
+    private javax.swing.JButton btn_cadastrarclientes;
     private javax.swing.JDesktopPane desktopPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -797,6 +817,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem15;

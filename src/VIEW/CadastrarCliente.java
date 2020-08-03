@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 
@@ -21,7 +22,7 @@ import javax.swing.text.MaskFormatter;
 public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     Cliente cliente = new Cliente();
-    static char sexo=0;
+    static char sexo = 0;
 
     /**
      * Creates new form CadastrarCliente
@@ -273,80 +274,84 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String cpf = (String) campoformatado_cpf.getText();
         char sex = 0;
-        
-        int campos=camposObrigatorios();
-         if(campos==1){
-         
-        if (jRadioButton1.isSelected()) {
 
-            sex = 'm';
-            
-            
-        } else if (jRadioButton2.isSelected()) {
-            sex = 'f';
+        int campos = camposObrigatorios();
+        if (campos == 1) {
 
-            
-         
+            if (jRadioButton1.isSelected()) {
 
+                sex = 'm';
+
+            } else if (jRadioButton2.isSelected()) {
+                sex = 'f';
+
+            }
+            String telefone = (String) CampoFormatado_Telefone.getText();
+
+            cliente.cadastrarcliente(txt_nomeCliente.getText(), cpf, txt_email.getText(), telefone, txt_Endereco.getText(), sex);
+
+            String[] dados = {txt_nomeCliente.getText(), cpf, txt_email.getText(), telefone, txt_Endereco.getText(), String.valueOf(sex)};
+
+            DefaultTableModel dtn = (DefaultTableModel) jtable_clientes.getModel();
+
+            dtn.addRow(dados);
+
+            JOptionPane.showMessageDialog(null, "Cliente Salvo com Sucesso !!!");
+            limparCampos();
+        } else {
+            JOptionPane.showMessageDialog(null, "Favor preencher todos os Campos !!!");
         }
-        String telefone = (String) CampoFormatado_Telefone.getText();
 
-        cliente.cadastrarcliente(txt_nomeCliente.getText(), cpf, txt_email.getText(), telefone, txt_Endereco.getText(), sex);
-        JOptionPane.showMessageDialog(null, "Cliente Salvo com Sucesso !!!");
-        limparCampos();
-         }else{
-             JOptionPane.showMessageDialog(null, "Favor preencher todos os Campos !!!");
-         }
-         
 
     }//GEN-LAST:event_btn_cadastrarClienteActionPerformed
 
     private void jRadioButton1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton1ItemStateChanged
         // TODO add your handling code here:
-          
+
     }//GEN-LAST:event_jRadioButton1ItemStateChanged
 
     private void jRadioButton2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton2ItemStateChanged
         // TODO add your handling code here:
-       
-       
+
+
     }//GEN-LAST:event_jRadioButton2ItemStateChanged
 
     private void jRadioButton1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jRadioButton1FocusGained
         // TODO add your handling code here:
-        if (jRadioButton1.isSelected()){
-        jRadioButton1.setSelected(true);
-        sexo='m';
-            
-        }else if(jRadioButton2.isSelected()){
+        if (jRadioButton1.isSelected()) {
+            jRadioButton1.setSelected(true);
+            sexo = 'm';
+
+        } else if (jRadioButton2.isSelected()) {
             jRadioButton2.setSelected(false);
-        
+
         }
     }//GEN-LAST:event_jRadioButton1FocusGained
 
     private void jRadioButton2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jRadioButton2FocusGained
         // TODO add your handling code here:
-        if (jRadioButton1.isSelected()){
-        jRadioButton1.setSelected(false);
-            
-        }else if(jRadioButton2.isSelected()){
+        if (jRadioButton1.isSelected()) {
+            jRadioButton1.setSelected(false);
+
+        } else if (jRadioButton2.isSelected()) {
             jRadioButton2.setSelected(true);
         }
     }//GEN-LAST:event_jRadioButton2FocusGained
 
     private void jRadioButton1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jRadioButton1FocusLost
         // TODO add your handling code here:
-         if (jRadioButton1.isSelected()){
-        jRadioButton2.setSelected(false);}
-            
-        
-                                           
+        if (jRadioButton1.isSelected()) {
+            jRadioButton2.setSelected(false);
+        }
+
+
     }//GEN-LAST:event_jRadioButton1FocusLost
 
     private void jRadioButton2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jRadioButton2FocusLost
         // TODO add your handling code here:
-        if (jRadioButton2.isSelected()){
-        jRadioButton1.setSelected(false);}
+        if (jRadioButton2.isSelected()) {
+            jRadioButton1.setSelected(false);
+        }
     }//GEN-LAST:event_jRadioButton2FocusLost
 
     private void btn_limparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparCamposActionPerformed
@@ -355,67 +360,77 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_limparCamposActionPerformed
 
     private void comboBox_TipoDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBox_TipoDocumentoItemStateChanged
-        // TODO add your handling code here:
-            utilitarios util=new utilitarios();
-            MaskFormatter msk=new MaskFormatter();
-        
-        if(comboBox_TipoDocumento.getSelectedItem()=="CPF"){
-            String patter="###.###.###-##";
+        // TODO add your handling code here:// verificar a logica aqui , comflito na seleçaõ campo ficando em branco 
+        utilitarios util = new utilitarios();
+        MaskFormatter msk = null;
+
+        if (!comboBox_TipoDocumento.getSelectedItem().equals("Selecione")) {
+
+            if (comboBox_TipoDocumento.getSelectedItem() == "CPF") {
+
+                campoformatado_cpf.setText("");
+
                 try {
-                    msk.setMask(patter);
+
+                    msk = new MaskFormatter("###.###.###-##");
+
+                    lbltipodocumento.setText("CPF");
+                    campoformatado_cpf.setText("");
                     campoformatado_cpf.setFormatterFactory(new DefaultFormatterFactory(msk));
                 } catch (ParseException ex) {
-                    
+
                 }
-            
-            
-            
-        }else{
-            lbltipodocumento.setText("CNPJ");
-             String patter="##.###.###/####-##";
+                lbltipodocumento.setText("CPF");
+
+            } else if (comboBox_TipoDocumento.getSelectedItem().equals("CNPJ")) {
+
                 try {
-                    msk.setMask(patter);
-                     campoformatado_cpf.setFormatterFactory(new DefaultFormatterFactory(msk));
+
+                    msk = new MaskFormatter("##.###.###/####-##");
+                    lbltipodocumento.setText("CNPJ");
+
+                    campoformatado_cpf.setFormatterFactory(new DefaultFormatterFactory(msk));
+
                 } catch (ParseException ex) {
                     Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            
-            
-        
-    }
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione o tipo de documento");
+        }
     }//GEN-LAST:event_comboBox_TipoDocumentoItemStateChanged
     public void limparCampos() {
-        
-        
-        
+
         txt_nomeCliente.setText("");
         txt_Endereco.setText("");
         txt_email.setText("");
         campoformatado_cpf.setText("");
+        lbltipodocumento.setText("CPF");
         CampoFormatado_Telefone.setText("");
         comboBox_TipoDocumento.setSelectedIndex(0);
-        
-        if (jRadioButton1.isSelected()){
-        jRadioButton1.setSelected(false);
-           
-        }else if(jRadioButton2.isSelected()){
+
+        if (jRadioButton1.isSelected()) {
+            jRadioButton1.setSelected(false);
+
+        } else if (jRadioButton2.isSelected()) {
             jRadioButton2.setSelected(false);
-            
+
         }
-        
-        
+
     }
-    
-    public int  camposObrigatorios(){
-        
-        
-        if(txt_nomeCliente.getText()!=""&&txt_Endereco.getText()!=""&&txt_email.getText()!=""&&campoformatado_cpf.getSelectedText()!="   .   .   .-  "&&CampoFormatado_Telefone.getText()!="(  )    -    "&&comboBox_TipoDocumento.getSelectedItem()!="Selecione"){
-            
-           
+
+    public int camposObrigatorios() {
+
+        // falta colocar o padão do cnpj no if
+        if (txt_nomeCliente.getText() != "" && txt_Endereco.getText() != "" && txt_email.getText() != "" && campoformatado_cpf.getSelectedText() != "   .   .   .-  " && CampoFormatado_Telefone.getText() != "(  )    -    " && comboBox_TipoDocumento.getSelectedItem() != "Selecione") {
+
             return 1;// se retorar 1 foi preenchido todos os campos
         }
         return 0;// se retornar 0 não foi preenchido todos os campos
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField CampoFormatado_Telefone;

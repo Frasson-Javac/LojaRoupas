@@ -5,7 +5,8 @@
 
 Lista de Tarefas
 
-- [ ] Cadastro de Usuários criado
+- [x] Cadastro de Usuários criado
+- [ ] Criar consulta dos Usuarios Cadastrados
 - [ ] Criar Cadastro de Fornecedores
 
 

@@ -42,13 +42,13 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        lblicon = new javax.swing.JLabel();
-        lbl_txtareadeacesso = new javax.swing.JLabel();
-        lbl_login = new javax.swing.JLabel();
-        lblsenha = new javax.swing.JLabel();
-        jtxt_senha_entrarsistema = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
         jtxt_loginentarsistema = new javax.swing.JTextField();
+        lblicon = new javax.swing.JLabel();
+        lbl_txtareadeacesso = new javax.swing.JLabel();
+        lblsenha = new javax.swing.JLabel();
+        jtxt_senha_entrarsistema = new javax.swing.JPasswordField();
+        lbl_login = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btn_limpratxtentrarsistema = new javax.swing.JButton();
@@ -94,9 +94,9 @@ public class Login extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
+                .addContainerGap(121, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +106,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 440, 40));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 540, 40));
 
         jPanel4.setBackground(new java.awt.Color(255, 102, 0));
         jPanel4.setPreferredSize(new java.awt.Dimension(1, 7));
@@ -115,29 +115,27 @@ public class Login extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 440, 20));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 540, 20));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jtxt_loginentarsistema.setBackground(new java.awt.Color(255, 255, 204));
+        jtxt_loginentarsistema.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         lblicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/multiplos-usuarios 64.png"))); // NOI18N
-        getContentPane().add(lblicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, 70));
 
         lbl_txtareadeacesso.setFont(new java.awt.Font("Times New Roman", 3, 20)); // NOI18N
         lbl_txtareadeacesso.setText("Area de Acesso");
-        getContentPane().add(lbl_txtareadeacesso, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, 20));
-
-        lbl_login.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lbl_login.setText("Login");
-        getContentPane().add(lbl_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, 20));
 
         lblsenha.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblsenha.setText("Senha");
-        getContentPane().add(lblsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
 
         jtxt_senha_entrarsistema.setBackground(new java.awt.Color(255, 255, 204));
         jtxt_senha_entrarsistema.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -146,31 +144,60 @@ public class Login extends javax.swing.JFrame {
                 jtxt_senha_entrarsistemaActionPerformed(evt);
             }
         });
-        getContentPane().add(jtxt_senha_entrarsistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 310, 30));
+        jtxt_senha_entrarsistema.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxt_senha_entrarsistemaKeyReleased(evt);
+            }
+        });
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        jtxt_loginentarsistema.setBackground(new java.awt.Color(255, 255, 204));
-        jtxt_loginentarsistema.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lbl_login.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lbl_login.setText("Login");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(109, Short.MAX_VALUE)
-                .addComponent(jtxt_loginentarsistema, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblsenha)
+                            .addComponent(lbl_login))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxt_senha_entrarsistema, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_loginentarsistema, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(51, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblicon)
+                                .addGap(214, 214, 214))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(lbl_txtareadeacesso)
+                                .addGap(195, 195, 195))))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jtxt_loginentarsistema, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_txtareadeacesso, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxt_loginentarsistema, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_login, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_senha_entrarsistema, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 440, 250));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 540, 250));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -204,6 +231,11 @@ public class Login extends javax.swing.JFrame {
                 btn_entrarsistemaActionPerformed(evt);
             }
         });
+        btn_entrarsistema.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btn_entrarsistemaKeyReleased(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Limpar");
@@ -219,7 +251,7 @@ public class Login extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
+                .addContainerGap(175, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,7 +285,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 440, 80));
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 540, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -325,6 +357,54 @@ public class Login extends javax.swing.JFrame {
             jtxt_senha_entrarsistema.setText("");
         }
     }//GEN-LAST:event_btn_limpratxtentrarsistemaActionPerformed
+
+    private void jtxt_senha_entrarsistemaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_senha_entrarsistemaKeyReleased
+            // TODO add your handling code here:
+             if(evt.getKeyCode()==evt.VK_ENTER){
+            String senha = new String(jtxt_senha_entrarsistema.getPassword());
+        String entrar = usuario.verificarus(jtxt_loginentarsistema.getText().trim(), senha.trim());
+        String verificauser=perfil(jtxt_loginentarsistema.getText());
+
+        if (entrar.equals("encontrado")) {
+            jtxt_loginentarsistema.setText("");
+            jtxt_senha_entrarsistema.setText("");
+            this.setVisible(false);
+            TelaPrincipal telaprincipal = new TelaPrincipal();
+            telaprincipal.setVisible(true);
+
+        } else {
+
+            jtxt_loginentarsistema.setText("");
+            jtxt_senha_entrarsistema.setText("");
+            JOptionPane.showMessageDialog(null, "Usúario Incorreto !!!");
+        }
+             }
+            
+    }//GEN-LAST:event_jtxt_senha_entrarsistemaKeyReleased
+
+    private void btn_entrarsistemaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_entrarsistemaKeyReleased
+        // TODO add your handling code here:
+        
+            String senha = new String(jtxt_senha_entrarsistema.getPassword());
+        String entrar = usuario.verificarus(jtxt_loginentarsistema.getText().trim(), senha.trim());
+        String verificauser=perfil(jtxt_loginentarsistema.getText());
+
+        if (entrar.equals("encontrado")) {
+            jtxt_loginentarsistema.setText("");
+            jtxt_senha_entrarsistema.setText("");
+            this.setVisible(false);
+            TelaPrincipal telaprincipal = new TelaPrincipal();
+            telaprincipal.setVisible(true);
+
+        } else {
+
+            jtxt_loginentarsistema.setText("");
+            jtxt_senha_entrarsistema.setText("");
+            JOptionPane.showMessageDialog(null, "Usúario Incorreto !!!");
+        }
+        
+        
+    }//GEN-LAST:event_btn_entrarsistemaKeyReleased
 
     /**
      * @param args the command line arguments

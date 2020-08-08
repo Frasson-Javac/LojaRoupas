@@ -5,6 +5,7 @@
  */
 package VIEW;
 
+import Model.Usuario;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
@@ -772,6 +773,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btn_CadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarUsuarioActionPerformed
         // TODO add your handling code here:
+         InternalframeCentralizado.gerarcental(new consultausuario(), desktopPrincipal);
+        
     }//GEN-LAST:event_btn_CadastrarUsuarioActionPerformed
 
     private void jMenuItem_Cliente_CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Cliente_CadastrarActionPerformed
@@ -825,7 +828,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_alterarSenhaUser;
     private javax.swing.JButton btn_cadastrarForn;
     private javax.swing.JButton btn_cadastrarclientes;
-    private javax.swing.JDesktopPane desktopPrincipal;
+    public static javax.swing.JDesktopPane desktopPrincipal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

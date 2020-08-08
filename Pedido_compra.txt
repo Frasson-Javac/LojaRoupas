@@ -3,3 +3,4 @@ Cod;nomeProduto;Descricao;tamanho;genero;quantidade;valor unitario;Valor total;N
 1;short;;PP;Masculino;25;23.12;5.78;Americanas Ltda;25/07/2020;16:32:42
 3;calça;;40;Masculino;24;12.12;2.91;Americanas Ltda;25/07/2020;16:34:51
 4;cueca;;40;Masculino;12;21.0;2.52;Americanas Ltda;25/07/2020;16:35:10
+5;Camiseta;;P;Masculino;20;17.0;340.0;Americanas Ltda;06/08/2020;21:01:40

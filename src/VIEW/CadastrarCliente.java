@@ -24,6 +24,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     Cliente cliente = new Cliente();
     static char sexo = 0;
+    static String documento =null;
 
     /**
      * Creates new form CadastrarCliente
@@ -44,24 +45,31 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txt_nomeCliente = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        comboBox_TipoDocumento = new javax.swing.JComboBox<>();
-        lbltipodocumento = new javax.swing.JLabel();
-        campoformatado_cpf = new javax.swing.JFormattedTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        CampoFormatado_Telefone = new javax.swing.JFormattedTextField();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txt_Endereco = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtable_clientes = new javax.swing.JTable();
         btn_cadastrarCliente = new javax.swing.JButton();
         btn_limparCampos = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        comboBox_TipoDocumento = new javax.swing.JComboBox<>();
         campoformatadoCnpj = new javax.swing.JFormattedTextField();
+        lbltipodocumento = new javax.swing.JLabel();
+        campoformatado_cpf = new javax.swing.JFormattedTextField();
+        jLabel6 = new javax.swing.JLabel();
         txt_email = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        CampoFormatado_Telefone = new javax.swing.JFormattedTextField();
+        JRatioTipoFixo = new javax.swing.JRadioButton();
+        JRatioTipoMovel = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jPanel3 = new javax.swing.JPanel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -108,6 +116,42 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
         txt_nomeCliente.setBackground(new java.awt.Color(255, 255, 204));
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7.setText("Endereço");
+
+        txt_Endereco.setBackground(new java.awt.Color(255, 255, 204));
+        txt_Endereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_EnderecoActionPerformed(evt);
+            }
+        });
+
+        jtable_clientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "CPF/CNPJ", "Telefone", "Email"
+            }
+        ));
+        jScrollPane1.setViewportView(jtable_clientes);
+
+        btn_cadastrarCliente.setText("Cadastrar");
+        btn_cadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastrarClienteActionPerformed(evt);
+            }
+        });
+
+        btn_limparCampos.setText("Limpar");
+        btn_limparCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limparCamposActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Tipo documento");
 
@@ -123,6 +167,14 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        campoformatadoCnpj.setBackground(new java.awt.Color(255, 255, 204));
+        try {
+            campoformatadoCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        campoformatadoCnpj.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         lbltipodocumento.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbltipodocumento.setText("CPF");
 
@@ -133,6 +185,114 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
         campoformatado_cpf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addGap(31, 31, 31)
+                .addComponent(comboBox_TipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbltipodocumento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoformatado_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(campoformatadoCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBox_TipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbltipodocumento)
+                    .addComponent(campoformatado_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoformatadoCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setText("Email");
+
+        txt_email.setBackground(new java.awt.Color(255, 255, 204));
+        txt_email.setText("example@gmail.com");
+        txt_email.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_emailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_emailFocusLost(evt);
+            }
+        });
+        txt_email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_emailKeyPressed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setText("Telefone");
+
+        CampoFormatado_Telefone.setBackground(new java.awt.Color(255, 255, 204));
+        try {
+            CampoFormatado_Telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        CampoFormatado_Telefone.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CampoFormatado_TelefoneFocusGained(evt);
+            }
+        });
+
+        JRatioTipoFixo.setText("FIXO");
+        JRatioTipoFixo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                JRatioTipoFixoItemStateChanged(evt);
+            }
+        });
+        JRatioTipoFixo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JRatioTipoFixoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JRatioTipoFixoFocusLost(evt);
+            }
+        });
+        JRatioTipoFixo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JRatioTipoFixoMouseClicked(evt);
+            }
+        });
+
+        JRatioTipoMovel.setText("MOVEL");
+        JRatioTipoMovel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JRatioTipoMovelFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JRatioTipoMovelFocusLost(evt);
+            }
+        });
+        JRatioTipoMovel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JRatioTipoMovelMouseClicked(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("Data de Nascimento");
+
+        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jFormattedTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextField1.setText("01/01/2001");
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setText("Sexo");
 
         jRadioButton1.setText("Masculino");
         jRadioButton1.addItemListener(new java.awt.event.ItemListener() {
@@ -164,60 +324,29 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel4.setText("Sexo");
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel5.setText("Telefone");
-
-        CampoFormatado_Telefone.setBackground(new java.awt.Color(255, 255, 204));
-        try {
-            CampoFormatado_Telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setText("Email");
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setText("Endereço");
-
-        txt_Endereco.setBackground(new java.awt.Color(255, 255, 204));
-
-        jtable_clientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nome", "CPF/CNPJ", "Telefone", "Email", "Endereço"
-            }
-        ));
-        jScrollPane1.setViewportView(jtable_clientes);
-
-        btn_cadastrarCliente.setText("Cadastrar");
-        btn_cadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastrarClienteActionPerformed(evt);
-            }
-        });
-
-        btn_limparCampos.setText("Limpar");
-        btn_limparCampos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_limparCamposActionPerformed(evt);
-            }
-        });
-
-        campoformatadoCnpj.setBackground(new java.awt.Color(255, 255, 204));
-        try {
-            campoformatadoCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        campoformatadoCnpj.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txt_email.setBackground(new java.awt.Color(255, 255, 204));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,99 +354,98 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel2)
-                        .addGap(5, 5, 5)
-                        .addComponent(comboBox_TipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(lbltipodocumento)
-                        .addGap(5, 5, 5)
-                        .addComponent(campoformatado_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(campoformatadoCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_email))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
-                            .addComponent(txt_nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(8, 8, 8)
-                            .addComponent(jLabel4)
-                            .addGap(18, 18, 18)
-                            .addComponent(jRadioButton1)
-                            .addGap(14, 14, 14)
-                            .addComponent(jRadioButton2)
-                            .addGap(8, 8, 8)
-                            .addComponent(jLabel5)
-                            .addGap(18, 18, 18)
-                            .addComponent(CampoFormatado_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(jLabel7)
-                            .addGap(22, 22, 22)
-                            .addComponent(txt_Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 883, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(793, 793, 793)
-                            .addComponent(btn_limparCampos)
-                            .addGap(18, 18, 18)
-                            .addComponent(btn_cadastrarCliente))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 22, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(38, 38, 38)
+                                .addComponent(txt_nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btn_limparCampos)
+                                .addGap(42, 42, 42)
+                                .addComponent(btn_cadastrarCliente))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(31, 31, 31)
+                                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txt_Endereco))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel5)
+                                    .addGap(40, 40, 40)
+                                    .addComponent(JRatioTipoFixo)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(JRatioTipoMovel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(CampoFormatado_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(40, 40, 40)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 330, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(txt_nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel4))
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(CampoFormatado_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboBox_TipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoformatado_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoformatadoCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txt_nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jRadioButton2))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(lbltipodocumento)
-                            .addComponent(jLabel6))))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JRatioTipoMovel)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel5)
+                                        .addComponent(JRatioTipoFixo)
+                                        .addComponent(CampoFormatado_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(38, 38, 38))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(txt_Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_limparCampos)
-                    .addComponent(btn_cadastrarCliente))
-                .addGap(31, 31, 31)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cadastrarCliente)
+                    .addComponent(btn_limparCampos))
+                .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         pack();
@@ -325,7 +453,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     private void btn_cadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarClienteActionPerformed
         // TODO add your handling code here:
-        String documento =null;
+        
         char sex = 0;
 
         int campos = camposObrigatorios();
@@ -340,12 +468,13 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
             }
             String telefone = (String) CampoFormatado_Telefone.getText();
+            String formatar=campoformatado_cpf.getFormatter().toString();
             
-            if (!campoformatado_cpf.equals("   .   .   -  ")||(!campoformatadoCnpj.equals("  .   .   /    -  "))){
+            if (comboBox_TipoDocumento.getSelectedItem().equals("CPF")){
                 
                  documento=(String)campoformatado_cpf.getText();
                 
-            } else if(!campoformatadoCnpj.equals("  .   .   /    -  ")){
+            } else if(comboBox_TipoDocumento.getSelectedItem().equals("CNPJ")){
                        documento=(String)campoformatadoCnpj.getText();
             }
 
@@ -356,9 +485,9 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             DefaultTableModel dtn = (DefaultTableModel) jtable_clientes.getModel();
 
             dtn.addRow(dados);
-        
-            JOptionPane.showMessageDialog(null, "Cliente Salvo com Sucesso !!!");
             limparCampos();
+            JOptionPane.showMessageDialog(null, "Cliente Salvo com Sucesso !!!");
+            
         
        
         }else{
@@ -457,6 +586,10 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         
         
       comboBox_TipoDocumento.setEnabled(true);
+          campoformatado_cpf.setEditable(true);
+          campoformatado_cpf.setEnabled(true);
+                  
+                  
             
          if (comboBox_TipoDocumento.getSelectedItem().equals("CPF")) {
           lbltipodocumento.setText("CPF");
@@ -489,7 +622,104 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         campoformatado_cpf.setEnabled(false);
         campoformatadoCnpj.setVisible(false);
+         txt_email.setForeground(Color.gray);
     }//GEN-LAST:event_formInternalFrameOpened
+
+    private void txt_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusGained
+        // TODO add your handling code here:
+       txt_email.setForeground(Color.black);
+       txt_email.setText("");
+       
+    }//GEN-LAST:event_txt_emailFocusGained
+
+    private void txt_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusLost
+        // TODO add your handling code here:
+     
+    }//GEN-LAST:event_txt_emailFocusLost
+
+    private void txt_EnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_EnderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_EnderecoActionPerformed
+
+    private void txt_emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_emailKeyPressed
+        // TODO add your handling code here:
+        String txtoexemplo=txt_email.getText();
+        System.out.println(txtoexemplo);
+        if(txt_email.equals(txtoexemplo)){
+            txt_email.setText(""); 
+            
+        }
+    }//GEN-LAST:event_txt_emailKeyPressed
+
+    private void JRatioTipoFixoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JRatioTipoFixoItemStateChanged
+        // TODO add your handling code here:
+              
+             
+     
+        
+        
+    }//GEN-LAST:event_JRatioTipoFixoItemStateChanged
+
+    private void JRatioTipoFixoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JRatioTipoFixoFocusGained
+        // TODO add your handling code here:
+       
+            
+        
+    }//GEN-LAST:event_JRatioTipoFixoFocusGained
+
+    private void JRatioTipoMovelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JRatioTipoMovelFocusGained
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_JRatioTipoMovelFocusGained
+
+    private void JRatioTipoFixoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JRatioTipoFixoFocusLost
+       
+        
+    }//GEN-LAST:event_JRatioTipoFixoFocusLost
+
+    private void JRatioTipoMovelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JRatioTipoMovelFocusLost
+        // TODO add your handling code here:
+      
+         
+    }//GEN-LAST:event_JRatioTipoMovelFocusLost
+
+    private void JRatioTipoFixoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JRatioTipoFixoMouseClicked
+        // TODO add your handling code here:
+          JRatioTipoMovel.setSelected(false);
+        if(JRatioTipoFixo.isSelected()){
+        JRatioTipoFixo.setSelected(true);
+         JRatioTipoMovel.setSelected(false);
+          
+          
+      }
+    }//GEN-LAST:event_JRatioTipoFixoMouseClicked
+
+    private void JRatioTipoMovelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JRatioTipoMovelMouseClicked
+        // TODO add your handling code here:
+         JRatioTipoFixo.setSelected(false);
+        if(!JRatioTipoMovel.isSelected()){
+          JRatioTipoFixo.setSelected(false);
+          JRatioTipoMovel.setSelected(true);
+          
+      }
+    }//GEN-LAST:event_JRatioTipoMovelMouseClicked
+
+    private void CampoFormatado_TelefoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoFormatado_TelefoneFocusGained
+        // TODO add your handling code here:
+     
+        if(JRatioTipoMovel.isSelected()){
+            EscolherTelefone sct=new EscolherTelefone();
+            jDesktopPane1.add(sct);
+            sct.setVisible(true);
+           ;//jPanel3.add(sct);
+            
+        }
+           
+        else {
+        }
+            
+    }//GEN-LAST:event_CampoFormatado_TelefoneFocusGained
     public void limparCampos() {
 
         txt_nomeCliente.setText("");
@@ -501,7 +731,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         comboBox_TipoDocumento.setSelectedIndex(0);
         comboBox_TipoDocumento.setEnabled(true);
         campoformatadoCnpj.setText("");
-        campoformatadoCnpj.setText("");
+        campoformatado_cpf.setText("");
 
         if (jRadioButton1.isSelected()) {
             jRadioButton1.setSelected(false);
@@ -526,19 +756,26 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField CampoFormatado_Telefone;
+    private javax.swing.JRadioButton JRatioTipoFixo;
+    private javax.swing.JRadioButton JRatioTipoMovel;
     private javax.swing.JButton btn_cadastrarCliente;
     private javax.swing.JButton btn_limparCampos;
     private javax.swing.JFormattedTextField campoformatadoCnpj;
     private javax.swing.JFormattedTextField campoformatado_cpf;
     private javax.swing.JComboBox<String> comboBox_TipoDocumento;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;

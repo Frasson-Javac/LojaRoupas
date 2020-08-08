@@ -472,6 +472,9 @@
       <BindingProperties>
         <BindingProperty name="minimumSize" source="Form" sourcePath="${size.height}" target="desktopPrincipal" targetPath="minimumSize" updateStrategy="0" immediately="false"/>
       </BindingProperties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

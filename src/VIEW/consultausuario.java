@@ -6,6 +6,7 @@
 package VIEW;
 
 import Model.Usuario;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,13 +15,13 @@ import javax.swing.table.DefaultTableModel;
  * @author vinic
  */
 public class consultausuario extends javax.swing.JInternalFrame {
- 
+ Usuario user=new Usuario();
 
     /**
      * Creates new form ConsultarUsuario
      */
     public consultausuario() {
-        Usuario user = new Usuario();
+     
         initComponents();
     }
 
@@ -34,18 +35,30 @@ public class consultausuario extends javax.swing.JInternalFrame {
 
         btnpesquisar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jFormattedcpf = new javax.swing.JFormattedTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblnome = new javax.swing.JTextField();
-        lbllogin = new javax.swing.JTextField();
-        lblperfil = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        lblemail = new javax.swing.JTextField();
+        NomePesquisar = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TabelaPesquisarUsuarios = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setTitle("Pesquisar Usuário");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         btnpesquisar.setText("Pesquisar");
         btnpesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -56,92 +69,62 @@ public class consultausuario extends javax.swing.JInternalFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisa-propriedade-48.png"))); // NOI18N
 
-        try {
-            jFormattedcpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        jLabel2.setText("Nome");
-
-        jLabel3.setText("Login");
-
-        jLabel4.setText("Perfil");
-
-        lblnome.setEditable(false);
-        lblnome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblnomeActionPerformed(evt);
+        NomePesquisar.setText("Digite o Nome do Usuario");
+        NomePesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NomePesquisarMouseClicked(evt);
+            }
+        });
+        NomePesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                NomePesquisarKeyPressed(evt);
             }
         });
 
-        lbllogin.setEditable(false);
+        TabelaPesquisarUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        lblperfil.setEditable(false);
-
-        jLabel5.setText("Email");
-
-        lblemail.setEditable(false);
+            },
+            new String [] {
+                "Nome", "CPF", "Login", "Perfil", "Email"
+            }
+        ));
+        TabelaPesquisarUsuarios.setGridColor(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setViewportView(TabelaPesquisarUsuarios);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jFormattedcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnpesquisar))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblnome, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblperfil))
-                            .addComponent(lbllogin, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NomePesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnpesquisar)
+                        .addGap(36, 36, 36))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnpesquisar)
-                            .addComponent(jFormattedcpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1)))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(lblnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbllogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(lblperfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NomePesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnpesquisar))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,11 +132,11 @@ public class consultausuario extends javax.swing.JInternalFrame {
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
         // TODO add your handling code here:
-        Usuario user=new Usuario();
+        
         
        
-        String cpf=jFormattedcpf.getText();
-        int i=pesquisa(cpf);
+        String nomePesquisa=NomePesquisar.getText();
+        int i=pesquisa(nomePesquisa);
         
         if(i!=-1){
         String nome = user.getUsers().get(i).getNome();;
@@ -161,31 +144,77 @@ public class consultausuario extends javax.swing.JInternalFrame {
         String perfil = user.getUsers().get(i).getPerfil();
         String email = user.getUsers().get(i).getEmail();
         Object[]date={nome,login,perfil,email};
+       DefaultTableModel dtn=(DefaultTableModel)TabelaPesquisarUsuarios.getModel();
+       dtn.removeTableModelListener(TabelaPesquisarUsuarios);
+        dtn.addRow(date);
        
-       lblnome.setText(nome);
-       lbllogin.setText(login);
-       lblperfil.setText(perfil);
-       lblemail.setText(email);
-       jFormattedcpf.setText("");
+      
         }else{
-             jFormattedcpf.setText("");
-             lblnome.setText("");
-       lbllogin.setText("");
-       lblperfil.setText("");
-       lblemail.setText("");
-      ;
-            JOptionPane.showMessageDialog(null,"Não Exite usuário com esse CPF"+cpf);
+            
+                  JOptionPane.showMessageDialog(null,"Não Exite usuário com esse CPF"+nomePesquisa);
         }
         
     }//GEN-LAST:event_btnpesquisarActionPerformed
 
-    private void lblnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblnomeActionPerformed
+    private void NomePesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NomePesquisarKeyPressed
+        // TODO add your handling code here:   /// Estudar aqui
+          String nomePesquisa=NomePesquisar.getText();
+          int quat=nomePesquisa.length();
+          String aux[] = null;
+         DefaultTableModel dtn=(DefaultTableModel)TabelaPesquisarUsuarios.getModel();
+         dtn.setRowCount(0);
+        
+       for(int i=0;i<user.getUsers().size();i++)    {
+          
+        if(user.getUsers().get(i).getNome().length()>=nomePesquisa.length()){
+            String list=user.getUsers().get(i).getNome().substring(0,quat);
+           
+            if(nomePesquisa.equalsIgnoreCase(list)){
+                 
+                  String []table={user.getUsers().get(i).getNome(),user.getUsers().get(i).getCpf(),user.getUsers().get(i).getLogin(),
+            user.getUsers().get(i).getPerfil(),user.getUsers().get(i).getEmail()
+               
+            
+        };
+                  dtn.addRow(table);
+        
+        
+           
+            }
+           
+        }
+      
+       }
+        
+        
+    }//GEN-LAST:event_NomePesquisarKeyPressed
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblnomeActionPerformed
-public int pesquisa (String pramCPF){
+       NomePesquisar.setForeground(Color.gray);
+        DefaultTableModel dtn=(DefaultTableModel)TabelaPesquisarUsuarios.getModel();
+        
+     
+        for(int i=0;i<user.getUsers().size();i++){
+          
+        String dados []={user.getUsers().get(i).getNome(),user.getUsers().get(i).getCpf(),user.getUsers().get(i).getLogin(),
+            user.getUsers().get(i).getPerfil(),user.getUsers().get(i).getEmail()};
+            //dtn.addRow(dados);
+        }
+        
+        
+    }//GEN-LAST:event_formInternalFrameOpened
+
+    private void NomePesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NomePesquisarMouseClicked
+        // TODO add your handling code here:
+            NomePesquisar.setForeground(Color.BLACK);
+            NomePesquisar.setText("");
+        
+    }//GEN-LAST:event_NomePesquisarMouseClicked
+public int pesquisa (String pramNome){
     Usuario user=new Usuario();
     for(int i=0;i<user.getUsers().size();i++)    {
-        if(user.getUsers().get(i).getCpf().equals(pramCPF)){
+        if(user.getUsers().get(i).getNome().equals(pramNome)){
            
          
            return i;
@@ -195,17 +224,15 @@ public int pesquisa (String pramCPF){
     return -1;
 }
 
+
+
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField NomePesquisar;
+    private javax.swing.JTable TabelaPesquisarUsuarios;
     private javax.swing.JButton btnpesquisar;
-    private javax.swing.JFormattedTextField jFormattedcpf;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField lblemail;
-    private javax.swing.JTextField lbllogin;
-    private javax.swing.JTextField lblnome;
-    private javax.swing.JTextField lblperfil;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

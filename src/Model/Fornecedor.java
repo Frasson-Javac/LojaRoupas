@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -16,28 +17,26 @@ import javax.swing.JOptionPane;
  *
  * @author vinic
  */
-public class Fornecedor {
+public class Fornecedor extends Pessoa {
     
     private File file=new File("Fornecedor.txt");
     private String nome_da_empresa;
     private String cnpj;
-    public String telefone;
-    private String email;
-    private String Endereco;
     public ArrayList<Fornecedor>fornecedor=new ArrayList<>();
+  
 
     
 
     public Fornecedor() {
+    
         recuperar();
     }
 
-    public Fornecedor(String nome_da_empresa, String cnpj, String telefone, String email,String endereco) {
-        this.nome_da_empresa = nome_da_empresa;
+    public Fornecedor(String nome, String cnpj, String telefone, String email,String endereco) {
+        super(email,endereco,telefone);
+        this.nome_da_empresa = nome;
         this.cnpj = cnpj;
-        this.telefone = telefone;
-        this.email = email;
-        this.Endereco=endereco;
+      
     }
 
     public ArrayList<Fornecedor> getFornecedor() {
@@ -47,15 +46,7 @@ public class Fornecedor {
     public void setFornecedor(ArrayList<Fornecedor> fornecedor) {
         this.fornecedor = fornecedor;
     }
-
-    public String getEndereco() {
-        return Endereco;
-    }
-
-    public void setEndereco(String Endereco) {
-        this.Endereco = Endereco;
-    }
-    
+  
     
 
     public String getNome_da_empresa() {
@@ -74,27 +65,14 @@ public class Fornecedor {
         this.cnpj = cnpj;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
     
-    public void cadatrarfonnecedor(String nome_empresa,String cnpj,String telefone,String Email,String endereco){
+
+   
     
-      //  
-       /// Arquivo arquivo=new Arquivo();
-     //   arquivo.gravar_no_arquivo(file, nome_empresa,cnpj,telefone,Email,endereco);
+    public void cadatrarfonnecedor(String nome,String cnpj,String telefone,String Email,String endereco){
+    
+      Fornecedor forn=new Fornecedor(nome, cnpj, telefone, Email, endereco);
+      forn.gravarArquivo(forn);
         
     }
 
@@ -134,6 +112,25 @@ public class Fornecedor {
         
         
         
+    }
+
+    @Override
+    public void gravarArquivo(Object forn) {
+        
+        try{
+            super.fw=new FileWriter(file,true);
+            super.pw=new PrintWriter(fw);
+            pw.println(forn);
+            pw.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+  
+    }
+
+    @Override
+    public void lerarquivo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
  

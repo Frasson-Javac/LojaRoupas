@@ -8,6 +8,7 @@ package VIEW;
 import Model.Fornecedor;
 import Model.Usuario;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 
@@ -19,8 +20,10 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
 
     Login log = new Login();
     Fornecedor Fornecedor = new Fornecedor();
-    TelaPrincipal telaPrinc=new TelaPrincipal();
-    Telfone tel=new Telfone();
+     GerarIntenalFrameCentralizado gerar=new GerarIntenalFrameCentralizado();
+   // TelaPrincipal telaPrinc=new TelaPrincipal();
+    TELEFONE tel=new TELEFONE();
+  
     
 
     /**
@@ -63,7 +66,7 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
         RatioCelular = new javax.swing.JRadioButton();
         RatioFixo = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableFornecedores = new javax.swing.JTable();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -235,7 +238,7 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
         });
         getContentPane().add(RatioFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableFornecedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -243,7 +246,7 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
                 "Empresa", "CNPJ", "TELEFONE"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TableFornecedores);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 960, 200));
 
@@ -253,19 +256,16 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
     private void btn_salvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCadastroActionPerformed
         // TODO add your handling code here:
         String telefone = null;
-      
-        if(RatioCelular.isSelected()){
-            tel.CampoFormatado_Telefone.setVisible(false);
-                tel.CampoFormatado_Celular.setVisible(true);
+        DefaultTableModel dtn=(DefaultTableModel)TableFornecedores.getModel();
+         
             telefone=tel.CampoFormatado_Telefone.getText();
+            String nome=Jtxt_nome_Empresa.getText();
         
-        }else if(RatioFixo.isSelected()){
-                tel.CampoFormatado_Celular.setVisible(false);
-              tel.CampoFormatado_Telefone.setVisible(true);
-            telefone=tel.CampoFormatado_Telefone.getText();
-        }
-        Fornecedor.cadatrarfonnecedor(Jtxt_nome_Empresa.getText(), jFormattedCNPJ.getText(), telefone, jText_Email_Fornecedor.getText(), txt_endereco_fornecedor.getText());
+        Fornecedor.cadatrarfonnecedor(nome, jFormattedCNPJ.getText(), telefone, jText_Email_Fornecedor.getText(), txt_endereco_fornecedor.getText());
         JOptionPane.showMessageDialog(null, "Dados salvos com sucesso! ");
+        
+        dtn.addRow(new String []{
+            Jtxt_nome_Empresa.getText(), jFormattedCNPJ.getText(), telefone, jText_Email_Fornecedor.getText(), txt_endereco_fornecedor.getText()});
         Jtxt_nome_Empresa.setText("");
         tel.CampoFormatado_Celular.setText("");
         jText_Email_Fornecedor.setText("");
@@ -316,19 +316,38 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_RatioCelularFocusLost
 
     private void RatioFixoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RatioFixoMouseClicked
-        // TODO add your handling code here:
        
+     
+         
+             
         if(RatioFixo.isSelected()){
         RatioFixo.setSelected(true);
+      
+        tel.CampoFormatado_Telefone.setVisible(true);
+        tel.CampoFormatado_Celular.setVisible(false);
+       
+        gerar.gerarcental(tel, TelaPrincipal.desktopPrincipal);
+         //   tel.setVisible(true);
+              
+               
         RatioCelular.setSelected(false);
+           
+        
         }
     }//GEN-LAST:event_RatioFixoMouseClicked
 
     private void RatioCelularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RatioCelularMouseClicked
         // TODO add your handling code here:
+          
         if(RatioCelular.isSelected()){
         RatioCelular.setSelected(true);
+        tel.CampoFormatado_Celular.setVisible(true);
+         tel.CampoFormatado_Telefone.setVisible(false);
+       
+        gerar.gerarcental(tel, TelaPrincipal.desktopPrincipal);
          RatioFixo.setSelected(false);
+         
+             
         }
     }//GEN-LAST:event_RatioCelularMouseClicked
 
@@ -337,6 +356,7 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Jtxt_nome_Empresa;
     private javax.swing.JRadioButton RatioCelular;
     private javax.swing.JRadioButton RatioFixo;
+    private javax.swing.JTable TableFornecedores;
     private javax.swing.JButton btb_Cancelar;
     private javax.swing.JButton btn_salvarCadastro;
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -353,7 +373,6 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jText_Email_Fornecedor;
     private javax.swing.JLabel lblCNPJ;
     private javax.swing.JLabel lbl_email;

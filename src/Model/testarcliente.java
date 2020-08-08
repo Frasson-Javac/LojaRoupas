@@ -20,7 +20,7 @@ public class testarcliente {
         
         Cliente cli = new Cliente();
         
-        cli.cadastrarcliente(nome, cpf, email, telefone, end, sexo);
+    
        
     
         

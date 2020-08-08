@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,49 +25,36 @@ public class Cliente extends Pessoa{
     private String cpf;
     private String nome;
     private char sexo;
+    private Date nascimento;
     private ArrayList<Cliente>listagemClientes=new ArrayList<>();
 
     public Cliente() {
         super();
     }
 
-    public Cliente(String cpf, String nome, char sexo, String email, String endereco, String telefone) {
+    public Cliente(String cpf, String nome, char sexo, String email, String endereco, String telefone, Date data) {
         super(email, endereco, telefone);
         this.cpf = cpf;
         this.nome = nome;
         this.sexo = sexo;
+        this.nascimento=data;
     }
 
     
     
-    public Cliente(String cpf, String nome, char sexo) {
+    public Cliente(String cpf, String nome, char sexo, Date data) {
         this.cpf = cpf;
         this.nome = nome;
         this.sexo = sexo;
+        this.nascimento=data;
     }
     
     
     
     
 
-    public Cliente(String cpf, String nome, char sexo, FileWriter fw, PrintWriter pw, BufferedReader br,FileReader fr) {
-        super(fw, pw, br,fr);
-        this.cpf = cpf;
-        this.nome = nome;
-        this.sexo = sexo;
-        
-        
-    }
 
-    public Cliente(String cpf, String nome, char sexo, String email, String endereco, String telefone, FileWriter fw, PrintWriter pw, BufferedReader br,FileReader fr) {
-        super(email, endereco, telefone, fw, pw, br,fr);
-        this.cpf = cpf;
-        this.nome = nome;
-        this.sexo = sexo;
-        
-        
-        
-    }
+  
 
     public String getCpf() {
         return cpf;
@@ -99,6 +87,15 @@ public class Cliente extends Pessoa{
     public void setListagemClientes(ArrayList<Cliente> listagemClientes) {
         this.listagemClientes = listagemClientes;
     }
+
+    public Date getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
+    }
+    
     
     
     
@@ -156,13 +153,13 @@ public class Cliente extends Pessoa{
     }
     
     
-    public void cadastrarcliente(String nome,String cpf, String email,String telefone,String endereco, char sexo ){
+    public void cadastrarcliente(String nome,String cpf, String email,String telefone,String endereco, char sexo, Date date ){
         
 
  
             
             
-            Cliente cliente= new Cliente(cpf, nome, sexo, email, endereco, telefone);
+            Cliente cliente= new Cliente(cpf, nome, sexo, email, endereco, telefone, date);
             this.gravarArquivo(cliente);
             
        

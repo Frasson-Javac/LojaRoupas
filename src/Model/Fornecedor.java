@@ -32,6 +32,12 @@ public class Fornecedor extends Pessoa {
         recuperar();
     }
 
+    public Fornecedor(String nome_da_empresa, String cnpj) {
+        this.nome_da_empresa = nome_da_empresa;
+        this.cnpj = cnpj;
+    }
+
+    
     public Fornecedor(String nome, String cnpj, String telefone, String email,String endereco) {
         super(email,endereco,telefone);
         this.nome_da_empresa = nome;
@@ -120,7 +126,8 @@ public class Fornecedor extends Pessoa {
         try{
             super.fw=new FileWriter(file,true);
             super.pw=new PrintWriter(fw);
-            pw.println(forn);
+            super.pw.print(forn+"\n");
+          
             pw.close();
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -132,10 +139,17 @@ public class Fornecedor extends Pessoa {
     public void lerarquivo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
- 
+@Override
+ public String toString(){
+     String s="";
+     s= this.nome_da_empresa+";"
+             +this.cnpj+";"
+             +super.toString();
+     return s;
+ }
     
     }
+
         
     
     

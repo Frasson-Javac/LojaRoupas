@@ -171,7 +171,7 @@ public class Usuario {
         
     }
     
-    public String verificarusuario(String login,String senha){
+    public String verificarUsuario(String login,String senha){
         if(!users.isEmpty()){
         for(int i=0;i<users.size();i++){
            

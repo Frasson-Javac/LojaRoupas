@@ -376,7 +376,7 @@ public class Login extends javax.swing.JFrame {
 
             jtxt_loginentarsistema.setText("");
             jtxt_senha_entrarsistema.setText("");
-            JOptionPane.showMessageDialog(null, "Usúario Incorreto !!!");
+            JOptionPane.showMessageDialog(null, "\n       Usúario Incorreto    "+"\n" +"  Aperte ESC para sair da Mensagem  !");
         }
              }
             
@@ -385,23 +385,7 @@ public class Login extends javax.swing.JFrame {
     private void btn_entrarsistemaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_entrarsistemaKeyReleased
         // TODO add your handling code here:
         
-            String senha = new String(jtxt_senha_entrarsistema.getPassword());
-        String entrar = usuario.verificarus(jtxt_loginentarsistema.getText().trim(), senha.trim());
-        String verificauser=perfil(jtxt_loginentarsistema.getText());
-
-        if (entrar.equals("encontrado")) {
-            jtxt_loginentarsistema.setText("");
-            jtxt_senha_entrarsistema.setText("");
-            this.setVisible(false);
-            TelaPrincipal telaprincipal = new TelaPrincipal();
-            telaprincipal.setVisible(true);
-
-        } else {
-
-            jtxt_loginentarsistema.setText("");
-            jtxt_senha_entrarsistema.setText("");
-            JOptionPane.showMessageDialog(null, "Usúario Incorreto !!!");
-        }
+       
         
         
     }//GEN-LAST:event_btn_entrarsistemaKeyReleased

@@ -10,7 +10,8 @@ package VIEW;
  * @author vinic
  */
 public class TELEFONE extends javax.swing.JInternalFrame {
-
+static String numeroTel=null;
+  
     /**
      * Creates new form TELEFONE
      */
@@ -31,6 +32,25 @@ public class TELEFONE extends javax.swing.JInternalFrame {
         CampoFormatado_Celular = new javax.swing.JFormattedTextField();
         btnFECHAR = new javax.swing.JButton();
 
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
+
         jLabel1.setText("TELEFONE");
 
         CampoFormatado_Telefone.setBackground(new java.awt.Color(255, 255, 204));
@@ -39,6 +59,7 @@ public class TELEFONE extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        CampoFormatado_Telefone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         CampoFormatado_Telefone.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 CampoFormatado_TelefoneFocusGained(evt);
@@ -71,14 +92,16 @@ public class TELEFONE extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnFECHAR)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnFECHAR))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CampoFormatado_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CampoFormatado_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CampoFormatado_Celular, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(CampoFormatado_Celular, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,9 +111,9 @@ public class TELEFONE extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(CampoFormatado_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CampoFormatado_Celular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnFECHAR)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -106,14 +129,39 @@ public class TELEFONE extends javax.swing.JInternalFrame {
 
     private void btnFECHARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFECHARActionPerformed
         // TODO add your handling code here:
+     
+        if(this.CampoFormatado_Celular.isVisible()){
+            numeroTel=CampoFormatado_Celular.getText();
+         
+            
+            this.dispose(); 
+        }else if(this.CampoFormatado_Telefone.isVisible()){
+            numeroTel=CampoFormatado_Telefone.getText();
         this.dispose();
+        }
+        System.out.println(numeroTel);
     }//GEN-LAST:event_btnFECHARActionPerformed
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        // TODO add your handling code here:
+        CadastrarCliente.JRatioTipoFixo.setEnabled(false);
+             CadastrarCliente.JRatioTipoMovel.setEnabled(false);
+            
+    }//GEN-LAST:event_formInternalFrameOpened
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+        // TODO add your handling code here:
+          
+          
+             CadastrarCliente.JRatioTipoFixo.setEnabled(true);
+             CadastrarCliente.JRatioTipoMovel.setEnabled(true);
+    }//GEN-LAST:event_formInternalFrameClosed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JFormattedTextField CampoFormatado_Celular;
     public javax.swing.JFormattedTextField CampoFormatado_Telefone;
-    private javax.swing.JButton btnFECHAR;
+    public javax.swing.JButton btnFECHAR;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

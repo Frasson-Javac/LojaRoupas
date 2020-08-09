@@ -5,14 +5,21 @@
  */
 package Model;
 
+import com.sun.org.apache.xerces.internal.impl.io.UTF8Reader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,14 +32,16 @@ public class Cliente extends Pessoa{
     private String cpf;
     private String nome;
     private char sexo;
-    private Date nascimento;
+    private String nascimento;
     private ArrayList<Cliente>listagemClientes=new ArrayList<>();
 
     public Cliente() {
         super();
+        
+        this.recuperar();
     }
 
-    public Cliente(String cpf, String nome, char sexo, String email, String endereco, String telefone, Date data) {
+    public Cliente(String cpf, String nome, char sexo, String email, String endereco, String telefone, String data) {
         super(email, endereco, telefone);
         this.cpf = cpf;
         this.nome = nome;
@@ -42,7 +51,7 @@ public class Cliente extends Pessoa{
 
     
     
-    public Cliente(String cpf, String nome, char sexo, Date data) {
+    public Cliente(String cpf, String nome, char sexo, String data) {
         this.cpf = cpf;
         this.nome = nome;
         this.sexo = sexo;
@@ -88,11 +97,11 @@ public class Cliente extends Pessoa{
         this.listagemClientes = listagemClientes;
     }
 
-    public Date getNascimento() {
+    public String getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(Date nascimento) {
+    public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
     
@@ -123,7 +132,23 @@ public class Cliente extends Pessoa{
 
     @Override
     public void lerarquivo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            super.fr=new  FileReader(file);
+            super.br=new BufferedReader(fr);
+            
+            while(br.ready()){
+                br.read();
+                br.close();
+                
+                
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
 
     @Override
@@ -153,7 +178,7 @@ public class Cliente extends Pessoa{
     }
     
     
-    public void cadastrarcliente(String nome,String cpf, String email,String telefone,String endereco, char sexo, Date date ){
+    public void cadastrarcliente(String nome,String cpf, String email,String telefone,String endereco, char sexo, String date ){
         
 
  
@@ -176,6 +201,7 @@ public class Cliente extends Pessoa{
         return s+=this.nome+";"+
                 this.cpf+";"+
                 this.sexo+";"+
+                this.nascimento+";"+
                 super.toString();
         
         

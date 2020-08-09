@@ -543,6 +543,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuItem_Cliente_Consultar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_Cliente_Consultar.setText("Consultar");
+        jMenuItem_Cliente_Consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Cliente_ConsultarActionPerformed(evt);
+            }
+        });
         jMenu_Cliente.add(jMenuItem_Cliente_Consultar);
 
         jMenuItem_Cliente_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
@@ -781,6 +786,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
           InternalframeCentralizado.gerarcental(new CadastrarCliente(), desktopPrincipal);
     }//GEN-LAST:event_jMenuItem_Cliente_CadastrarActionPerformed
+
+    private void jMenuItem_Cliente_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Cliente_ConsultarActionPerformed
+        // TODO add your handling code here:
+           InternalframeCentralizado.gerarcental(new ConsultarCliente(), desktopPrincipal);
+    }//GEN-LAST:event_jMenuItem_Cliente_ConsultarActionPerformed
 
     /**
      * @param args the command line arguments

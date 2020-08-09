@@ -28,7 +28,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
     Cliente cliente = new Cliente();
     static char sexo = 0;
     static String documento =null;
-    static String telefone=null;
+   
     TELEFONE tel=new TELEFONE();
     GerarIntenalFrameCentralizado gerar=new GerarIntenalFrameCentralizado();
     
@@ -123,6 +123,16 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
         txt_nomeCliente.setBackground(new java.awt.Color(255, 255, 204));
         txt_nomeCliente.setText("Digite o nome do Cliente");
+        txt_nomeCliente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nomeClienteFocusGained(evt);
+            }
+        });
+        txt_nomeCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_nomeClienteMouseClicked(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Endereço");
@@ -471,16 +481,8 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
             }
            
-            String formatar=txt_data.getText();
-            SimpleDateFormat sf=new SimpleDateFormat("dd/MM/yyyy");
-          
-            Date data=new Date();
-            try {
-                data=sf.parse(formatar);
-                cliente.setNascimento(data);
-            } catch (ParseException ex) {
-                Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
+           
            
             
             
@@ -492,9 +494,9 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                        documento=(String)campoformatadoCnpj.getText();
             }
 
-            cliente.cadastrarcliente(txt_nomeCliente.getText(),documento , txt_email.getText(), telefone, txt_Endereco.getText(), sex,cliente.getNascimento());
+            cliente.cadastrarcliente(txt_nomeCliente.getText(),documento , txt_email.getText(), tel.numeroTel, txt_Endereco.getText(), sex,txt_data.getText());
 
-            String[] dados = {txt_nomeCliente.getText(), documento, txt_email.getText(), telefone, txt_Endereco.getText(), String.valueOf(sex),cliente.getNascimento().toString()};
+            String[] dados = {txt_nomeCliente.getText(), documento, tel.numeroTel ,txt_email.getText()};
 
             DefaultTableModel dtn = (DefaultTableModel) jtable_clientes.getModel();
 
@@ -637,6 +639,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         campoformatado_cpf.setEnabled(false);
         campoformatadoCnpj.setVisible(false);
          txt_email.setForeground(Color.gray);
+         txt_nomeCliente.setForeground(Color.gray);
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void txt_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusGained
@@ -657,12 +660,10 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     private void txt_emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_emailKeyPressed
         // TODO add your handling code here:
-        String txtoexemplo=txt_email.getText();
-        System.out.println(txtoexemplo);
-        if(txt_email.equals(txtoexemplo)){
-            txt_email.setText(""); 
-            
-        }
+      
+           
+        
+       
     }//GEN-LAST:event_txt_emailKeyPressed
 
     private void JRatioTipoFixoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JRatioTipoFixoItemStateChanged
@@ -694,7 +695,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
          JRatioTipoMovel.setSelected(false);
          tel.CampoFormatado_Telefone.setVisible(true);
          tel.CampoFormatado_Celular.setVisible(false);
-             gerar.gerarcentalPaineis(tel,  TelaPrincipal.jLayeredPane1);
+             gerar.gerarcentalPaineis(tel,  TelaPrincipal.desktopPrincipal);
           
         
           
@@ -713,7 +714,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
           JRatioTipoFixo.setSelected(false);
          tel.CampoFormatado_Celular.setVisible(true);
           tel.CampoFormatado_Telefone.setVisible(false);
-          gerar.gerarcentalPaineis(tel,  TelaPrincipal.jLayeredPane1);
+          gerar.gerarcentalPaineis(tel,  TelaPrincipal.desktopPrincipal);
         
         
              
@@ -726,7 +727,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     private void txt_dataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dataKeyPressed
         // TODO add your handling code here:
-        txt_data.setText("");
+      /*  txt_data.setText("");
         String tam=txt_data.getText();
         int tamanho=tam.length();
          String subs=tam;
@@ -737,13 +738,8 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                        subs.substring(0,tamanho);
             System.out.println(subs);
            }
-
-          
-           
-            
-        }
            txt_data.setText(subs.substring(0)+subs.substring(1)+"/"+subs.substring(2)+"/"+subs.substring(3)+subs.substring(4)+subs.substring(5)+subs.substring(6));
-      /*  while(tam.length()>=0){
+*//*  while(tam.length()>=0){
         txt_data.setText(" 1/12/2011");
         txt_data.setText("  / 2/2011");
         txt_data.setText("  / /2011");
@@ -752,10 +748,27 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         txt_data.setText("  / /   1");
         txt_data.setText("  / /   ");
         } 
-        */    
+           
         }
+        */ 
+
+          
+           
+            
         
+      
     }//GEN-LAST:event_txt_dataKeyPressed
+
+    private void txt_nomeClienteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomeClienteFocusGained
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_txt_nomeClienteFocusGained
+
+    private void txt_nomeClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nomeClienteMouseClicked
+        // TODO add your handling code here:
+         txt_nomeCliente.setForeground(Color.BLACK);
+        txt_nomeCliente.setText("");
+    }//GEN-LAST:event_txt_nomeClienteMouseClicked
     public void limparCampos() {
 
         txt_nomeCliente.setText("");
@@ -782,7 +795,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
     public int camposObrigatorios() {
 
         // falta colocar o padão do cnpj no if
-        if (txt_nomeCliente.getText() != "" && txt_Endereco.getText() != "" && txt_email.getText() != "" && telefone.length()!=0 && comboBox_TipoDocumento.getSelectedItem() != "Selecione") {
+        if (txt_nomeCliente.getText() != "" && txt_Endereco.getText() != "" && txt_email.getText() != ""  && comboBox_TipoDocumento.getSelectedItem() != "Selecione") {
 
             return 1;// se retorar 1 foi preenchido todos os campos
         }

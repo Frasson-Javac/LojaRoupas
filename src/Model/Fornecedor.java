@@ -30,6 +30,7 @@ public class Fornecedor extends Pessoa {
     public Fornecedor() {
     
         recuperar();
+        
     }
 
     public Fornecedor(String nome_da_empresa, String cnpj) {
@@ -106,7 +107,8 @@ public class Fornecedor extends Pessoa {
                 
                 
             }
-            
+            br.close();
+            fr.close();
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
             

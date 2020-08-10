@@ -5,21 +5,12 @@
  */
 package Model;
 
-import com.sun.org.apache.xerces.internal.impl.io.UTF8Reader;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,9 +27,11 @@ public class Cliente extends Pessoa{
     private ArrayList<Cliente>listagemClientes=new ArrayList<>();
 
     public Cliente() {
-        super();
+       
         
-        this.recuperar();
+       
+       recuperar();
+      
     }
 
     public Cliente(String cpf, String nome, char sexo, String email, String endereco, String telefone, String data) {
@@ -47,6 +40,7 @@ public class Cliente extends Pessoa{
         this.nome = nome;
         this.sexo = sexo;
         this.nascimento=data;
+        
     }
 
     
@@ -121,6 +115,8 @@ public class Cliente extends Pessoa{
            super.pw =new PrintWriter(fw);
            super.pw.print(cliente+"\n");
            pw.close();
+           fw.close();
+           
         
             
         }catch(Exception e){
@@ -132,45 +128,41 @@ public class Cliente extends Pessoa{
 
     @Override
     public void lerarquivo() {
-        try {
-            super.fr=new  FileReader(file);
-            super.br=new BufferedReader(fr);
-            
-            while(br.ready()){
-                br.read();
-                br.close();
-                
-                
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         
         
     }
 
-    @Override
+   
+
     public void recuperar() {
+        
        try{
            super.fr=new FileReader(file);
-           super.br=new BufferedReader(fr);
-           String linha="";
-           while(br.ready()){
-               linha=br.readLine();
+            super.br=new BufferedReader(fr);
+           String linha;
+           while(super.br.ready()){
+               linha=super.br.readLine();
                String [] dados=linha.split(";");
                String nome=dados[0];
-               String cpf=dados[1];
+               String cpfs=dados[1];
                         char sexo=dados[2].charAt(0);
-                       String email=dados[3];
-                String emdreco=dados[4];
-                        String telefone=dados[5];
+                        String nascimentos=dados[3];
+                       String email=dados[4];
+                String emdreco=dados[5];
+                        String telefone=dados[6];
+                        Cliente cliente=new Cliente(cpfs, nome, sexo, email, emdreco, telefone, email);
+                        listagemClientes.add(cliente);
                         
                         
                
                
            }
+           
+           
+          
+          
+         
            
        }catch(Exception e){
            

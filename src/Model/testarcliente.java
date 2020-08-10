@@ -11,21 +11,7 @@ package Model;
  */
 public class testarcliente {
     public static void main(String[] args) {
-        String nome="vinicius";
-        String email=".com";
-        String cpf = "111";
-        String end="rua ";
-        String telefone="111111111";
-        char sexo='m';
-        
-        Cliente cli = new Cliente();
-        
-    
-       
-    
-        
-     //  cli.getListagemClientes().add(cli);
-         
-        System.out.println(cli.getListagemClientes());
+   Cliente cli=new Cliente();
+   cli.recuperar();
     }
 }

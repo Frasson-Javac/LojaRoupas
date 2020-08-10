@@ -24,7 +24,7 @@ public abstract class arquivo {
     
     
     public arquivo(){
-        
+       
     }
 
     public arquivo(FileWriter fw, PrintWriter pw, BufferedReader br, FileReader fr) {

@@ -8,6 +8,7 @@ package VIEW;
 import Model.Usuario;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.FileDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -77,7 +78,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btn_cadastrarclientes = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ConsultarCliente = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         jMenu_Usuario = new javax.swing.JMenu();
@@ -95,7 +96,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu_PedidoCompra = new javax.swing.JMenu();
         jMenuItem_PedidoCompra_Cadastrar = new javax.swing.JMenuItem();
         jMenuItem_PedidoCompra_Consultar = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        JMenu_item_PedidoCompra_Listar = new javax.swing.JMenuItem();
         jMenuItem_PedidoCompra_Alterar = new javax.swing.JMenuItem();
         jMenuItem_PedidoCompra_Excluir = new javax.swing.JMenuItem();
         jMenu_Estoque = new javax.swing.JMenu();
@@ -212,6 +213,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_cadastrarForn.setForeground(new java.awt.Color(255, 255, 255));
         btn_cadastrarForn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fornecedor.png"))); // NOI18N
         btn_cadastrarForn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_cadastrarForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastrarFornActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Cadastrar Fornecedor");
@@ -221,6 +227,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_ConsultarFornecedor.setForeground(new java.awt.Color(255, 255, 255));
         btn_ConsultarFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ceo.png"))); // NOI18N
         btn_ConsultarFornecedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_ConsultarFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ConsultarFornecedorActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Consultar Fornecedor");
@@ -230,6 +241,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_CadastrarPedido.setForeground(new java.awt.Color(255, 255, 255));
         btn_CadastrarPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/comprar.png"))); // NOI18N
         btn_CadastrarPedido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_CadastrarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastrarPedidoActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Cadastrar Pedido ");
@@ -253,18 +269,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_ListarPedido.setForeground(new java.awt.Color(255, 255, 255));
         btn_ListarPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ordem.png"))); // NOI18N
         btn_ListarPedido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_ListarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ListarPedidoActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Cadastrar Cliente");
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btn_cadastrarclientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cliente.png"))); // NOI18N
+        btn_cadastrarclientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastrarclientesActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Listar Pedidos");
         jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/procurar.png"))); // NOI18N
+        ConsultarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/procurar.png"))); // NOI18N
+        ConsultarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarClienteActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("Consultar Cliente");
@@ -309,7 +340,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .add(18, 18, 18)
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jLabel10)
-                    .add(jButton1))
+                    .add(ConsultarCliente))
                 .addContainerGap(721, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -318,7 +349,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .add(jPanel3Layout.createSequentialGroup()
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(btn_CadastrarUsuario)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton1))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, ConsultarCliente))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel2)
@@ -486,15 +517,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu_PedidoCompra.add(jMenuItem_PedidoCompra_Consultar);
 
-        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lista-de-tarefas-36.png"))); // NOI18N
-        jMenuItem2.setText("Listar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        JMenu_item_PedidoCompra_Listar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        JMenu_item_PedidoCompra_Listar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lista-de-tarefas-36.png"))); // NOI18N
+        JMenu_item_PedidoCompra_Listar.setText("Listar");
+        JMenu_item_PedidoCompra_Listar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                JMenu_item_PedidoCompra_ListarActionPerformed(evt);
             }
         });
-        jMenu_PedidoCompra.add(jMenuItem2);
+        jMenu_PedidoCompra.add(JMenu_item_PedidoCompra_Listar);
 
         jMenuItem_PedidoCompra_Alterar.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jMenuItem_PedidoCompra_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-editar-conta-36.png"))); // NOI18N
@@ -661,8 +692,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_PedidoCompra_ExcluirActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
-        // TODO add your handling code here:
-
+     // TODO add your handling code here:
+     TelaPrincipal tel=new TelaPrincipal();
+   
+   
+     if(Sair.isFocusable()){
+      
+  
+     
+     this.dispose();  
+     }
 
     }//GEN-LAST:event_SairActionPerformed
 
@@ -752,10 +791,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         InternalframeCentralizado.gerarcental(new PedidoCompraView(), desktopPrincipal);
     }//GEN-LAST:event_jMenuItem_PedidoCompra_CadastrarActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void JMenu_item_PedidoCompra_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenu_item_PedidoCompra_ListarActionPerformed
         // TODO add your handling code here:
         InternalframeCentralizado.gerarcental(new ListarPedidosCompra(), desktopPrincipal);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_JMenu_item_PedidoCompra_ListarActionPerformed
 
     private void jMenu_Estoque_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_Estoque_consultarActionPerformed
         // TODO add your handling code here:
@@ -774,6 +813,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btn_ConsultarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultarPedidoActionPerformed
         // TODO add your handling code here:
+        jMenuItem_PedidoCompra_ConsultarActionPerformed(evt);
     }//GEN-LAST:event_btn_ConsultarPedidoActionPerformed
 
     private void btn_CadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarUsuarioActionPerformed
@@ -791,6 +831,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
            InternalframeCentralizado.gerarcental(new ConsultarCliente(), desktopPrincipal);
     }//GEN-LAST:event_jMenuItem_Cliente_ConsultarActionPerformed
+
+    private void btn_cadastrarFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarFornActionPerformed
+        // TODO add your handling code here:
+        jMenuItem_Fornecedor_CadastrarActionPerformed(evt);
+    }//GEN-LAST:event_btn_cadastrarFornActionPerformed
+
+    private void btn_ConsultarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultarFornecedorActionPerformed
+        // TODO add your handling code here:
+        jMenuItem_Fornecedor_ConsultarActionPerformed(evt);
+      
+    }//GEN-LAST:event_btn_ConsultarFornecedorActionPerformed
+
+    private void btn_CadastrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarPedidoActionPerformed
+        // TODO add your handling code here:
+         jMenuItem_PedidoCompra_CadastrarActionPerformed(evt);
+      
+    }//GEN-LAST:event_btn_CadastrarPedidoActionPerformed
+
+    private void btn_ListarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ListarPedidoActionPerformed
+        // TODO add your handling code here:
+        JMenu_item_PedidoCompra_ListarActionPerformed(evt);
+        
+       
+    }//GEN-LAST:event_btn_ListarPedidoActionPerformed
+
+    private void btn_cadastrarclientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarclientesActionPerformed
+        // TODO add your handling code here:
+        jMenuItem_Cliente_CadastrarActionPerformed(evt);
+        
+    }//GEN-LAST:event_btn_cadastrarclientesActionPerformed
+
+    private void ConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarClienteActionPerformed
+        // TODO add your handling code here:
+        jMenuItem_Cliente_ConsultarActionPerformed(evt);
+       
+    }//GEN-LAST:event_ConsultarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -828,6 +904,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ConsultarCliente;
+    public javax.swing.JMenuItem JMenu_item_PedidoCompra_Listar;
     private javax.swing.JMenuBar Menu;
     private javax.swing.JMenu Sair;
     private javax.swing.JButton btn_CadastrarPedido;
@@ -839,7 +917,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_cadastrarForn;
     private javax.swing.JButton btn_cadastrarclientes;
     public static javax.swing.JDesktopPane desktopPrincipal;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -853,20 +930,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem_Ajuda_Sobre;
     private javax.swing.JMenuItem jMenuItem_Cliente_Alterar;
-    private javax.swing.JMenuItem jMenuItem_Cliente_Cadastrar;
-    private javax.swing.JMenuItem jMenuItem_Cliente_Consultar;
+    public javax.swing.JMenuItem jMenuItem_Cliente_Cadastrar;
+    public javax.swing.JMenuItem jMenuItem_Cliente_Consultar;
     private javax.swing.JMenuItem jMenuItem_Cliente_Excluir;
-    private javax.swing.JMenuItem jMenuItem_Fornecedor_Alterar;
-    private javax.swing.JMenuItem jMenuItem_Fornecedor_Cadastrar;
-    private javax.swing.JMenuItem jMenuItem_Fornecedor_Consultar;
-    private javax.swing.JMenuItem jMenuItem_Fornecedor_Excluir;
-    private javax.swing.JMenuItem jMenuItem_PedidoCompra_Alterar;
-    private javax.swing.JMenuItem jMenuItem_PedidoCompra_Cadastrar;
-    private javax.swing.JMenuItem jMenuItem_PedidoCompra_Consultar;
-    private javax.swing.JMenuItem jMenuItem_PedidoCompra_Excluir;
+    public javax.swing.JMenuItem jMenuItem_Fornecedor_Alterar;
+    public javax.swing.JMenuItem jMenuItem_Fornecedor_Cadastrar;
+    public javax.swing.JMenuItem jMenuItem_Fornecedor_Consultar;
+    public javax.swing.JMenuItem jMenuItem_Fornecedor_Excluir;
+    public javax.swing.JMenuItem jMenuItem_PedidoCompra_Alterar;
+    public javax.swing.JMenuItem jMenuItem_PedidoCompra_Cadastrar;
+    public javax.swing.JMenuItem jMenuItem_PedidoCompra_Consultar;
+    public javax.swing.JMenuItem jMenuItem_PedidoCompra_Excluir;
     private javax.swing.JMenuItem jMenuItem_Usuario_AlterarSenha;
     private javax.swing.JMenuItem jMenuItem_Usuario_Cadastrar;
     private javax.swing.JMenuItem jMenuItem_Vendas_Alterar;
@@ -877,8 +953,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu_Cliente;
     private javax.swing.JMenu jMenu_Estoque;
     private javax.swing.JMenuItem jMenu_Estoque_consultar;
-    private javax.swing.JMenuItem jMenu_Fornecedo_Listar;
-    private javax.swing.JMenu jMenu_Fornecedor;
+    public javax.swing.JMenuItem jMenu_Fornecedo_Listar;
+    public javax.swing.JMenu jMenu_Fornecedor;
     private javax.swing.JMenu jMenu_PedidoCompra;
     private javax.swing.JMenu jMenu_Usuario;
     private javax.swing.JMenuItem jMenu_Usuario_Excluir;

@@ -6,19 +6,25 @@
 package VIEW;
 
 import Model.Cliente;
+import java.awt.Color;
+import java.awt.Cursor;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author vinic
  */
 public class ConsultarCliente extends javax.swing.JInternalFrame {
-    Cliente cliente=new Cliente();
+
+    Cliente cliente = new Cliente();
+    DefaultTableModel dtn = new DefaultTableModel();
 
     /**
      * Creates new form ConsultarCliente
      */
     public ConsultarCliente() {
         initComponents();
+        DefaultTableModel dtn = (DefaultTableModel) TableClientes.getModel();
     }
 
     /**
@@ -39,8 +45,8 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
         txt_Endereco = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtPesquisa = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        listCliente = new java.awt.List();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TableClientes = new javax.swing.JTable();
 
         campoformatado_cpf.setBackground(new java.awt.Color(255, 255, 204));
         try {
@@ -73,6 +79,7 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
 
         txt_Endereco.setBackground(new java.awt.Color(255, 255, 204));
 
+        setClosable(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -96,50 +103,58 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
         jLabel1.setText("Pesquisar");
 
         txtPesquisa.setBackground(new java.awt.Color(255, 255, 204));
-
-        jButton1.setText("IR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        txtPesquisa.setText("Digite o nome do Cliente");
+        txtPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPesquisaMouseClicked(evt);
             }
         });
+        txtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPesquisaKeyPressed(evt);
+            }
+        });
+
+        TableClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Sexo", "Data de Nascimento", "CPF/CNPJ", "Endereço", "Email", "Telefone"
+            }
+        ));
+        jScrollPane1.setViewportView(TableClientes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(txtPesquisa))
-                    .addComponent(listCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 813, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(jButton1)
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(50, 50, 50)
-                .addComponent(listCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                    .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
         // TODO add your handling code here:
@@ -147,24 +162,66 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
-        for (int i=0;i<cliente.getListagemClientes().size();i++){
-            
-        listCliente.add(cliente.getListagemClientes().get(i).getNome()+cliente.getListagemClientes().get(i).getCpf());
-            System.out.println(cliente.getListagemClientes().toString());
+        txtPesquisa.setForeground(Color.gray);
+        txtPesquisa.setFocusable(false);
+
+        dtn = (DefaultTableModel) TableClientes.getModel();
+
+        for (int i = 0; i < cliente.getListagemClientes().size(); i++) {
+
+            String[] Dados = {cliente.getListagemClientes().get(i).getNome(), String.valueOf(cliente.getListagemClientes().get(i).getSexo()),
+                cliente.getListagemClientes().get(i).getNascimento(), cliente.getListagemClientes().get(i).getCpf(), cliente.getListagemClientes().get(i).getEndereco(),
+                cliente.getListagemClientes().get(i).getEmail(),
+                cliente.getListagemClientes().get(i).getTelefone()
+
+            };
+
+            dtn.addRow(Dados);
         }
     }//GEN-LAST:event_formInternalFrameOpened
+
+    private void txtPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyPressed
+        // TODO add your handling code here:
+        
+        
+        dtn.setRowCount(0);
+        String quantidadeletras = txtPesquisa.getText();
+        int quat = quantidadeletras.length();
+
+        for (int i = 0; i < cliente.getListagemClientes().size(); i++) {
+            String list = cliente.getListagemClientes().get(i).getNome().substring(0, quat);
+
+            if (quantidadeletras.equalsIgnoreCase(list)) {
+
+                String[] Dados = {cliente.getListagemClientes().get(i).getNome(), String.valueOf(cliente.getListagemClientes().get(i).getSexo()),
+                    cliente.getListagemClientes().get(i).getNascimento(), cliente.getListagemClientes().get(i).getCpf(), cliente.getListagemClientes().get(i).getEndereco(),
+                    cliente.getListagemClientes().get(i).getEmail(),
+                    cliente.getListagemClientes().get(i).getTelefone()
+
+                };
+
+                dtn.addRow(Dados);
+            }
+        }
+    }//GEN-LAST:event_txtPesquisaKeyPressed
+
+    private void txtPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPesquisaMouseClicked
+        // TODO add your handling code here:
+        txtPesquisa.setFocusable(true);
+        txtPesquisa.setText("");
+    }//GEN-LAST:event_txtPesquisaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField CampoFormatado_Telefone;
+    private javax.swing.JTable TableClientes;
     private javax.swing.JFormattedTextField campoformatado_cpf;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbltipodocumento;
-    private java.awt.List listCliente;
     private javax.swing.JTextField txtPesquisa;
     private javax.swing.JTextField txt_Endereco;
     private javax.swing.JTextField txt_email;

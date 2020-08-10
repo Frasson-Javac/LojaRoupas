@@ -27,7 +27,7 @@ Lista de Tarefas
 - [ ] Criar a Alteração do Pedido de Compra
 - [ ] Criar a Exclussão do Pedido de Compra
 - [x] Criar o Cadastro de Cliente
-- [ ] Criar a consulta de Cliente *__Em Andamento_*
+- [X] Criar a consulta de Cliente 
 
 
 

@@ -5,15 +5,10 @@
  */
 package VIEW;
 
-import Model.Usuario;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import Model.Fornecedor;
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.MaskFormatter;
+import Model.Usuario;
+import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,6 +17,8 @@ import javax.swing.text.MaskFormatter;
 public class ConsultarFornecedor extends javax.swing.JInternalFrame {
 
     static int contador = 0;
+     Fornecedor forn = new Fornecedor();
+     DefaultTableModel dtn=new DefaultTableModel();
 
     /**
      * Creates new form ConsultarUsuario
@@ -39,63 +36,32 @@ public class ConsultarFornecedor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnpesquisar = new javax.swing.JButton();
-        campoformatado = new javax.swing.JFormattedTextField();
-        lbltelefone = new javax.swing.JTextField();
-        lblnome = new javax.swing.JTextField();
-        lblemail = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        Label_cnpj = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        comboBoxDocumento = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablePesquisarFornecedor = new javax.swing.JTable();
+        txt_Pesquisa = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setTitle("Pesquisar Fornecedor");
-
-        btnpesquisar.setText("Pesquisar");
-        btnpesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpesquisarActionPerformed(evt);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
         });
-
-        campoformatado.setBackground(new java.awt.Color(255, 255, 204));
-        try {
-            campoformatado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        lbltelefone.setEditable(false);
-        lbltelefone.setBackground(new java.awt.Color(255, 255, 204));
-
-        lblnome.setEditable(false);
-        lblnome.setBackground(new java.awt.Color(255, 255, 204));
-        lblnome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblnomeActionPerformed(evt);
-            }
-        });
-
-        lblemail.setEditable(false);
-        lblemail.setBackground(new java.awt.Color(255, 255, 204));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
-        jLabel2.setText("Nome da Empesa");
-
-        Label_cnpj.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
-        Label_cnpj.setText("CNPJ");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
-        jLabel4.setText("Telefone");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
-        jLabel5.setText("Email");
 
         jLabel21.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel21.setText("Pesquisar Fornecedor");
@@ -106,7 +72,7 @@ public class ConsultarFornecedor extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel21)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(740, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,20 +82,27 @@ public class ConsultarFornecedor extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        comboBoxDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "CPF", "CNPJ" }));
-        comboBoxDocumento.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                comboBoxDocumentoItemStateChanged(evt);
-            }
-        });
-        comboBoxDocumento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxDocumentoActionPerformed(evt);
-            }
-        });
+        tablePesquisarFornecedor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
-        jLabel6.setText("Tipo de Documento");
+            },
+            new String [] {
+                "Nome da Empresa", "CPF/CNPJ", "Telefone", "Email", "Endereço "
+            }
+        ));
+        jScrollPane1.setViewportView(tablePesquisarFornecedor);
+
+        txt_Pesquisa.setText("Digite o nome ou CPF do Fornecedor");
+        txt_Pesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_PesquisaMouseClicked(evt);
+            }
+        });
+        txt_Pesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_PesquisaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,148 +110,71 @@ public class ConsultarFornecedor extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblnome)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabel4)
-                            .addGap(336, 336, 336))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(comboBoxDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(29, 29, 29)
-                            .addComponent(Label_cnpj)
-                            .addGap(18, 18, 18)
-                            .addComponent(campoformatado, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(19, 19, 19)
-                            .addComponent(btnpesquisar)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lbltelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_Pesquisa)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 916, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoformatado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnpesquisar)
-                    .addComponent(jLabel6)
-                    .addComponent(comboBoxDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Label_cnpj))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblnome, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(lbltelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28))
+                .addGap(29, 29, 29)
+                .addComponent(txt_Pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
-
-        Fornecedor forn = new Fornecedor();
-        String combodoc=(String)comboBoxDocumento.getSelectedItem();
+        dtn=(DefaultTableModel)tablePesquisarFornecedor.getModel();
+        dtn.setRowCount(0);
+        txt_Pesquisa.setForeground(Color.gray);
+        txt_Pesquisa.setBackground(new Color(255,255,204));
+        txt_Pesquisa.setFocusable(false);
         
-        if(combodoc!="Selecione"){
-        
-
-        contador=pesquisa(campoformatado.getText());
-       
-        
-        int i = contador;
-        if (i != -1) {
-
-            String nome_empres = forn.getFornecedor().get(i).getNome_da_empresa();
-            
-            String telefone = forn.getFornecedor().get(i).getTelefone();
-            String email = forn.getFornecedor().get(i).getEmail();
-
-            lblnome.setText(nome_empres);
-            
-            lbltelefone.setText(telefone);
-            lblemail.setText(email);
-
-            campoformatado.setText("");
-            comboBoxDocumento.setSelectedIndex(0);
-
-        } else {
-            campoformatado.setText("");
-            lblnome.setText("");
-            
-            lbltelefone.setText("");
-            lblemail.setText("");
-             comboBoxDocumento.setSelectedIndex(0);
-            JOptionPane.showMessageDialog(null, "Não Exite usuário com esse CNPJ" + campoformatado.getText());
-        }
-        }else{
-            JOptionPane.showMessageDialog(null, "Favor selecionar um Tipo de Documento");
-        }
-
-    }//GEN-LAST:event_btnpesquisarActionPerformed
-
-    private void lblnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblnomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblnomeActionPerformed
-
-    private void comboBoxDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDocumentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBoxDocumentoActionPerformed
-
-    private void comboBoxDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxDocumentoItemStateChanged
-        // TODO add your handling code here:
-        String comboDocumento=(String)comboBoxDocumento.getSelectedItem();
-         String documento_Campo_Format = campoformatado.getText();
-
-        if (comboDocumento.equals("CPF")) {
-
-            try {
-                MaskFormatter mskdocumento = new MaskFormatter("###.###.###-##");
-                 Label_cnpj.setText("CPF");
-                campoformatado.setFormatterFactory(new DefaultFormatterFactory(mskdocumento));
-               
-
+        for(int i=0;i<forn.getFornecedor().size();i++){
+             dtn.addRow(new String[]{forn.getFornecedor().get(i).getNome_da_empresa(),forn.getFornecedor().get(i).getCnpj(),forn.getFornecedor().get(i).getTelefone(),
+                 forn.getFornecedor().get(i).getEmail(),forn.getFornecedor().get(i).getEndereco()
                 
+            });
+        }
+    }//GEN-LAST:event_formInternalFrameOpened
 
-            } catch (Exception ex) {
+    private void txt_PesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_PesquisaMouseClicked
+        // TODO add your handling code here:
+        txt_Pesquisa.setFocusable(true);
+        txt_Pesquisa.setText("");
+        
+    }//GEN-LAST:event_txt_PesquisaMouseClicked
 
-            }
-
-        } else {
-            try {
-                MaskFormatter mskdocumento = new MaskFormatter("##.###.###/####-##");
-                Label_cnpj.setText("CNPJ");
-                campoformatado.setFormatterFactory(new DefaultFormatterFactory(mskdocumento));
+    private void txt_PesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_PesquisaKeyPressed
+        // TODO add your handling code here:
+        dtn=(DefaultTableModel)tablePesquisarFornecedor.getModel();
+        String pesquisa=txt_Pesquisa.getText();
+        int quant=pesquisa.length();
+        dtn.setRowCount(0);
+        
+        for(int i=0;i<forn.getFornecedor().size();i++){
+            String list=forn.getFornecedor().get(i).getNome_da_empresa().substring(0,quant);
+            String list2=forn.getFornecedor().get(i).getCnpj().substring(0,quant);
+            
+            if(pesquisa.equalsIgnoreCase(list)||pesquisa.equalsIgnoreCase(list2)){
+                dtn.addRow(new String[]{forn.getFornecedor().get(i).getNome_da_empresa(),forn.getFornecedor().get(i).getCnpj(),forn.getFornecedor().get(i).getTelefone(),
+                 forn.getFornecedor().get(i).getEmail(),forn.getFornecedor().get(i).getEndereco()
                 
-
-            } catch (Exception ex) {
-
+            });
+                
             }
         }
-
-    }//GEN-LAST:event_comboBoxDocumentoItemStateChanged
+    }//GEN-LAST:event_txt_PesquisaKeyPressed
     public int pesquisa(String pram) {
-        Fornecedor forn = new Fornecedor();
+       
 
        
       
@@ -297,18 +193,10 @@ public class ConsultarFornecedor extends javax.swing.JInternalFrame {
         return -1;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Label_cnpj;
-    private javax.swing.JButton btnpesquisar;
-    private javax.swing.JFormattedTextField campoformatado;
-    private javax.swing.JComboBox<String> comboBoxDocumento;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField lblemail;
-    private javax.swing.JTextField lblnome;
-    private javax.swing.JTextField lbltelefone;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablePesquisarFornecedor;
+    private javax.swing.JTextField txt_Pesquisa;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,11 +20,9 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
 
     Login log = new Login();
     Fornecedor Fornecedor = new Fornecedor();
-     GerarIntenalFrameCentralizado gerar=new GerarIntenalFrameCentralizado();
-   // TelaPrincipal telaPrinc=new TelaPrincipal();
-    TELEFONE tel=new TELEFONE();
-  
-    
+    GerarIntenalFrameCentralizado gerar = new GerarIntenalFrameCentralizado();
+    // TelaPrincipal telaPrinc=new TelaPrincipal();
+    TELEFONE tel = new TELEFONE();
 
     /**
      * Creates new form cadastrausuaruio
@@ -256,24 +254,22 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
     private void btn_salvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCadastroActionPerformed
         // TODO add your handling code here:
         String telefone = null;
-        DefaultTableModel dtn=(DefaultTableModel)TableFornecedores.getModel();
-         
-            telefone=tel.CampoFormatado_Telefone.getText();
-            String nome=Jtxt_nome_Empresa.getText();
-        
+        DefaultTableModel dtn = (DefaultTableModel) TableFornecedores.getModel();
+
+        telefone = tel.CampoFormatado_Telefone.getText();
+        String nome = Jtxt_nome_Empresa.getText();
+
         Fornecedor.cadatrarfonnecedor(nome, jFormattedCNPJ.getText(), telefone, jText_Email_Fornecedor.getText(), txt_endereco_fornecedor.getText());
         JOptionPane.showMessageDialog(null, "Dados salvos com sucesso! ");
-        
-        dtn.addRow(new String []{
+
+        dtn.addRow(new String[]{
             Jtxt_nome_Empresa.getText(), jFormattedCNPJ.getText(), telefone, jText_Email_Fornecedor.getText(), txt_endereco_fornecedor.getText()});
         Jtxt_nome_Empresa.setText("");
         tel.CampoFormatado_Celular.setText("");
+        tel.CampoFormatado_Telefone.setText("");
         jText_Email_Fornecedor.setText("");
         jFormattedCNPJ.setText("");
         txt_endereco_fornecedor.setText("");
-        
-        
-    
 
 
     }//GEN-LAST:event_btn_salvarCadastroActionPerformed
@@ -289,65 +285,53 @@ public class CadastarFornecedor extends javax.swing.JInternalFrame {
 
     private void RatioFixoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RatioFixoFocusGained
         // TODO add your handling code here:
-        
-       
-        
+
+
     }//GEN-LAST:event_RatioFixoFocusGained
 
     private void RatioFixoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RatioFixoFocusLost
         // TODO add your handling code here:
-        
-         
-        
+
+
     }//GEN-LAST:event_RatioFixoFocusLost
 
     private void RatioCelularFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RatioCelularFocusGained
         // TODO add your handling code here:
-       
-       
-        
+
+
     }//GEN-LAST:event_RatioCelularFocusGained
 
     private void RatioCelularFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RatioCelularFocusLost
         // TODO add your handling code here:
-        
-           
-        
+
+
     }//GEN-LAST:event_RatioCelularFocusLost
 
     private void RatioFixoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RatioFixoMouseClicked
-       
-     
-         
-             
-        if(RatioFixo.isSelected()){
+
         RatioFixo.setSelected(true);
-      
-        tel.CampoFormatado_Telefone.setVisible(true);
-        tel.CampoFormatado_Celular.setVisible(false);
-       
-        gerar.gerarcental(tel, TelaPrincipal.desktopPrincipal);
-         //   tel.setVisible(true);
-              
-               
         RatioCelular.setSelected(false);
-           
-        
+        if (RatioFixo.isSelected()) {
+
+            tel.CampoFormatado_Telefone.setVisible(true);
+            tel.CampoFormatado_Celular.setVisible(false);
+
+            gerar.gerarcental(tel, TelaPrincipal.desktopPrincipal);
+            //   tel.setVisible(true);
+
         }
     }//GEN-LAST:event_RatioFixoMouseClicked
 
     private void RatioCelularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RatioCelularMouseClicked
         // TODO add your handling code here:
-          
-        if(RatioCelular.isSelected()){
-        RatioCelular.setSelected(true);
         tel.CampoFormatado_Celular.setVisible(true);
-         tel.CampoFormatado_Telefone.setVisible(false);
-       
-        gerar.gerarcental(tel, TelaPrincipal.desktopPrincipal);
-         RatioFixo.setSelected(false);
-         
-             
+        tel.CampoFormatado_Telefone.setVisible(false);
+        RatioCelular.setSelected(true);
+        if (RatioCelular.isSelected()) {
+
+            gerar.gerarcental(tel, TelaPrincipal.desktopPrincipal);
+            RatioFixo.setSelected(false);
+
         }
     }//GEN-LAST:event_RatioCelularMouseClicked
 

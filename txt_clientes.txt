@@ -1,2 +1,1 @@
-vinicius;144.654.827-95;m;01/12/2011;rua sebastião;@gmail.com;(27) 98807-3571
-Nicole Ferreira jardins;144.872.236-99;f;15/05/200;nicol.2019_nicole@gmail.com;Rua praia da Costa;(27) 88338-5555
+Vinicius Frassson;144.654.827-95;m;01/12/2000;(27) 99721-8560;Emauel@gmail.com;Rua arara

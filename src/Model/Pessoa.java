@@ -27,25 +27,17 @@ public abstract class Pessoa extends arquivo {
         
     }
 
-    public Pessoa(String email, String endereco, String telefone) {
+    public Pessoa( String telefone,String email, String endereco) {
+        this.telefone = telefone;
         this.email = email;
         this.endereco = endereco;
-        this.telefone = telefone;
+       
     }
     
     
     
     
-    public Pessoa(String email, String endereco, String telefone, FileWriter fw, PrintWriter pw, BufferedReader br, FileReader fr) {
-        super(fw, pw, br, fr);
-        this.email = email;
-        this.endereco = endereco;
-        this.telefone = telefone;
-    }
-
-    public Pessoa( FileWriter fw, PrintWriter pw, BufferedReader br, FileReader fr) {
-        super(fw, pw, br,fr);
-    }
+   
 
     
     
@@ -76,16 +68,17 @@ public abstract class Pessoa extends arquivo {
 
     @Override
     public String toString() {
-        
         String s="";
-        return s+=this.email+";"+
-                this.endereco+";"+
-                this.telefone;
+     s= 
+             this.getTelefone()+";"
+             +this.getEmail()+";"
+             +this.getEndereco();
+
+   
+    
+    
+    return s;
     }
-    
-    
-    
-    
     
     
     

@@ -5,12 +5,16 @@
  */
 package VIEW;
 
+import Model.Fornecedor;
+
 /**
  *
  * @author vinic
  */
 public class TELEFONE extends javax.swing.JInternalFrame {
 static String numeroTel=null;
+//CadastrarCliente cadastraCliente=new CadastrarCliente();
+    
   
     /**
      * Creates new form TELEFONE
@@ -144,8 +148,8 @@ static String numeroTel=null;
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
-        CadastrarCliente.JRatioTipoFixo.setEnabled(false);
-             CadastrarCliente.JRatioTipoMovel.setEnabled(false);
+       // cadastraCliente.JRatioTipoFixo.setEnabled(false);
+           //  cadastraCliente.JRatioTipoMovel.setEnabled(false);
             
     }//GEN-LAST:event_formInternalFrameOpened
 
@@ -153,8 +157,8 @@ static String numeroTel=null;
         // TODO add your handling code here:
           
           
-             CadastrarCliente.JRatioTipoFixo.setEnabled(true);
-             CadastrarCliente.JRatioTipoMovel.setEnabled(true);
+            // cadastraCliente.JRatioTipoFixo.setEnabled(true);
+           //  cadastraCliente.JRatioTipoMovel.setEnabled(true);
     }//GEN-LAST:event_formInternalFrameClosed
 
 

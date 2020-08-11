@@ -40,7 +40,7 @@ public class Fornecedor extends Pessoa {
 
     
     public Fornecedor(String nome, String cnpj, String telefone, String email,String endereco) {
-        super(email,endereco,telefone);
+        super(telefone,email,endereco);
         this.nome_da_empresa = nome;
         this.cnpj = cnpj;
       
@@ -96,7 +96,8 @@ public class Fornecedor extends Pessoa {
                 String []vector=linha.split(";");
                 String nome_Empresa=vector[0];
                 String cnpj=vector[1];
-                String telefone=vector[2];
+                
+                 String telefone=vector[2];
                 String email=vector[3];
                 String endereco=vector[4];
                 
@@ -107,8 +108,8 @@ public class Fornecedor extends Pessoa {
                 
                 
             }
-            br.close();
-            fr.close();
+            System.out.println(fornecedor.toString());
+           
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
             

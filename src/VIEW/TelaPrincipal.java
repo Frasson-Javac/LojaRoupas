@@ -788,7 +788,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem_PedidoCompra_CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_PedidoCompra_CadastrarActionPerformed
         // TODO add your handling code here:
-        InternalframeCentralizado.gerarcental(new PedidoCompraView(), desktopPrincipal);
+        InternalframeCentralizado.gerarcental(new CadastrarPedidoCompra(), desktopPrincipal);
     }//GEN-LAST:event_jMenuItem_PedidoCompra_CadastrarActionPerformed
 
     private void JMenu_item_PedidoCompra_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenu_item_PedidoCompra_ListarActionPerformed

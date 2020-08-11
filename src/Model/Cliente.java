@@ -35,7 +35,7 @@ public class Cliente extends Pessoa{
     }
 
     public Cliente(String cpf, String nome, char sexo, String email, String endereco, String telefone, String data) {
-        super(email, endereco, telefone);
+        super(telefone, email, endereco);
         this.cpf = cpf;
         this.nome = nome;
         this.sexo = sexo;
@@ -148,10 +148,11 @@ public class Cliente extends Pessoa{
                String cpfs=dados[1];
                         char sexo=dados[2].charAt(0);
                         String nascimentos=dados[3];
-                       String email=dados[4];
-                String emdreco=dados[5];
-                        String telefone=dados[6];
-                        Cliente cliente=new Cliente(cpfs, nome, sexo, email, emdreco, telefone, email);
+                         String telefone=dados[4];
+                       String email=dados[5];
+                String endereco=dados[6];
+                       
+                        Cliente cliente=new Cliente(cpfs, nome, sexo, email, endereco, telefone, email);
                         listagemClientes.add(cliente);
                         
                         

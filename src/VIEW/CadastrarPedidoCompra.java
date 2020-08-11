@@ -16,14 +16,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author vinic
  */
-public class PedidoCompraView extends javax.swing.JInternalFrame {
+public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
     static float soma=0;
    
 
     /**
      * Creates new form PedidoCompraView
      */
-    public PedidoCompraView() {
+    public CadastrarPedidoCompra() {
         initComponents();
 
     }
@@ -516,11 +516,11 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> Jcombo_Genero;
+    public javax.swing.JComboBox<String> Jcombo_Genero;
     private javax.swing.JButton btbCancelar;
     private javax.swing.JButton btn_salvar;
     private javax.swing.JTextArea jArea_Descricao;
-    private javax.swing.JComboBox<String> jCombo_Tamnho;
+    public javax.swing.JComboBox<String> jCombo_Tamnho;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -541,7 +541,7 @@ public class PedidoCompraView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JComboBox<String> jcombo_Forn;
+    public javax.swing.JComboBox<String> jcombo_Forn;
     private javax.swing.JFormattedTextField lbl_valueunit;
     private javax.swing.JTextField txt_Produto;
     private javax.swing.JTextField txt_Quantidade;

@@ -5,6 +5,7 @@
  */
 package VIEW;
 
+import Model.Fornecedor;
 import Model.PedidoCompra;
 import java.awt.event.ItemListener;
 import java.util.Vector;
@@ -20,6 +21,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
 
     PedidoCompra pedidocompra = new PedidoCompra();
     CadastrarPedidoCompra cadastrarPedidoCompra=new CadastrarPedidoCompra();
+    Fornecedor forn=new Fornecedor();
   
     
     static String value = "";
@@ -59,6 +61,8 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         fornecedorList = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -168,7 +172,6 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         });
 
         GeneroList.setBackground(new java.awt.Color(255, 255, 204));
-        GeneroList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         GeneroList.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 239, 239)));
 
         jLabel2.setText("Tamanho");
@@ -177,11 +180,14 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         jLabel1.setToolTipText("");
 
         fornecedorList.setBackground(new java.awt.Color(255, 255, 204));
-        fornecedorList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         fornecedorList.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 239, 239)));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel6.setText("ESTOQUE T-DRESS ");
+
+        jButton3.setText("Atualizar");
+
+        jButton4.setText("Fornecedor");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -204,6 +210,10 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(fornecedorList, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -217,8 +227,10 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(tamanhoList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(fornecedorList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                    .addComponent(fornecedorList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addGap(31, 31, 31)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -265,6 +277,22 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         this.tamanhoList.addItem(cadastrarPedidoCompra.jCombo_Tamnho.getItemAt(i));
         
         }
+     
+         
+     for(int i=0;i<cadastrarPedidoCompra.Jcombo_Genero.getItemCount();i++){
+        
+        this.GeneroList.addItem(cadastrarPedidoCompra.Jcombo_Genero.getItemAt(i));
+        
+        }
+     
+         
+     for(int i=0;i<forn.getFornecedor().size();i++){
+        
+        this.fornecedorList.addItem(forn.getFornecedor().get(i).getNome_da_empresa());
+        
+        }
+     
+     
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void tamanhoListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamanhoListActionPerformed
@@ -277,6 +305,8 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> fornecedorList;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
@@ -291,6 +321,6 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JComboBox<String> tamanhoList;
+    public javax.swing.JComboBox<String> tamanhoList;
     // End of variables declaration//GEN-END:variables
 }

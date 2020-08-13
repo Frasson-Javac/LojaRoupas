@@ -7,8 +7,7 @@ package VIEW;
 
 import Model.Usuario;
 import java.awt.Color;
-import javafx.scene.Cursor;
-import javax.swing.JFrame;
+import java.awt.event.FocusAdapter;
 import javax.swing.JOptionPane;
 
 /**
@@ -322,11 +321,13 @@ public class Login extends javax.swing.JFrame {
         btn_limpratxtentrarsistema.setContentAreaFilled(false);
        // btn_limpratxtentrarsistema.setOpaque(true);
         btn_limpratxtentrarsistema.setBackground(Color.WHITE);
+        
     }//GEN-LAST:event_formWindowOpened
-
+ 
     private void btn_entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarsistemaActionPerformed
         // TODO add your handling code here:
-
+       
+             
         String senha = new String(jtxt_senha_entrarsistema.getPassword());
         String entrar = usuario.verificarus(jtxt_loginentarsistema.getText().trim(), senha.trim());
         String verificauser=perfil(jtxt_loginentarsistema.getText());
@@ -342,8 +343,16 @@ public class Login extends javax.swing.JFrame {
 
             jtxt_loginentarsistema.setText("");
             jtxt_senha_entrarsistema.setText("");
+            jtxt_loginentarsistema.setCursor(java.awt.Cursor.getDefaultCursor());
+            jtxt_senha_entrarsistema.setFocusable(true);
             JOptionPane.showMessageDialog(null, "Usúario Incorreto !!!");
+            btn_entrarsistema.setFocusable(false);
+             jtxt_loginentarsistema.setFocusable(true);
+             jtxt_senha_entrarsistema.setFocusable(false);
         }
+        
+       btn_entrarsistema.setFocusable(true);
+        jtxt_senha_entrarsistema.setFocusable(true);
     }//GEN-LAST:event_btn_entrarsistemaActionPerformed
 
     private void btn_limpratxtentrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpratxtentrarsistemaActionPerformed
@@ -360,6 +369,8 @@ public class Login extends javax.swing.JFrame {
 
     private void jtxt_senha_entrarsistemaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_senha_entrarsistemaKeyReleased
             // TODO add your handling code here:
+             jtxt_loginentarsistema.setFocusable(true);
+             jtxt_senha_entrarsistema.setFocusable(true);
              if(evt.getKeyCode()==evt.VK_ENTER){
             String senha = new String(jtxt_senha_entrarsistema.getPassword());
         String entrar = usuario.verificarus(jtxt_loginentarsistema.getText().trim(), senha.trim());
@@ -376,9 +387,13 @@ public class Login extends javax.swing.JFrame {
 
             jtxt_loginentarsistema.setText("");
             jtxt_senha_entrarsistema.setText("");
-            JOptionPane.showMessageDialog(null, "\n       Usúario Incorreto    "+"\n" +"  Aperte ESC para sair da Mensagem  !");
+            JOptionPane.showMessageDialog(null, "\n       Usúario Incorreto!");
+            jtxt_senha_entrarsistema.setFocusable(false);
+            jtxt_loginentarsistema.setFocusable(true);
         }
              }
+              jtxt_loginentarsistema.setFocusable(true);
+             jtxt_senha_entrarsistema.setFocusable(true);
             
     }//GEN-LAST:event_jtxt_senha_entrarsistemaKeyReleased
 

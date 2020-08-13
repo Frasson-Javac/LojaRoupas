@@ -109,6 +109,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Produto"));
 
         txt_nomeProduto.setBackground(new java.awt.Color(255, 255, 204));
+        txt_nomeProduto.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         txt_nomeProduto.setText("Digite o nome do Produto");
         txt_nomeProduto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 247, 247)));
         txt_nomeProduto.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -137,6 +138,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         jFormattedTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(254, 222, 222), new java.awt.Color(0, 0, 0)));
         jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         jFormattedTextField1.setText("0000");
+        jFormattedTextField1.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jFormattedTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jFormattedTextField1FocusGained(evt);
@@ -262,7 +264,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
                         .addComponent(btn_Atualizar)
                         .addGap(18, 18, 18)
                         .addComponent(btn_CadastrarFornecedor)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,8 +284,9 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        TableEstoque.setBackground(new java.awt.Color(243, 234, 234));
         TableEstoque.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(0, 0, 0)));
-        TableEstoque.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        TableEstoque.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         TableEstoque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -304,6 +307,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         TableEstoque.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         TableEstoque.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TableEstoque.setFocusable(false);
+        TableEstoque.setGridColor(new java.awt.Color(254, 245, 245));
         jScrollPane1.setViewportView(TableEstoque);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -312,18 +316,19 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -442,6 +447,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
  dtn.setRowCount(0);
 
         String produtodigitado = txt_nomeProduto.getText();
+        txt_nomeProduto.setForeground(Color.RED);
         int quant = produtodigitado.length();
 
         for (int i = 0; i < pedidocompra.getPedidos().size(); i++) {
@@ -491,6 +497,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         String var=(String)tamanhoList.getSelectedItem();
+        
  
          if(tamanhoList.getSelectedItem()!="Selecione"){
             dtn.setRowCount(0);

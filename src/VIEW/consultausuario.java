@@ -7,6 +7,7 @@ package VIEW;
 
 import Model.Usuario;
 import java.awt.Color;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -181,6 +182,7 @@ public class consultausuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
        NomePesquisar.setForeground(Color.gray);
         DefaultTableModel dtn=(DefaultTableModel)TabelaPesquisarUsuarios.getModel();
+       
         
      
         for(int i=0;i<user.getUsers().size();i++){

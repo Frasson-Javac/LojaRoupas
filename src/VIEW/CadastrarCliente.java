@@ -127,7 +127,9 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jLabel1.setText("Nome");
 
         txt_nomeCliente.setBackground(new java.awt.Color(255, 255, 204));
+        txt_nomeCliente.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         txt_nomeCliente.setText("Digite o nome do Cliente");
+        txt_nomeCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), null, new java.awt.Color(254, 234, 234), new java.awt.Color(255, 255, 255)));
         txt_nomeCliente.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_nomeClienteFocusGained(evt);
@@ -143,6 +145,8 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jLabel7.setText("Endereço");
 
         txt_Endereco.setBackground(new java.awt.Color(255, 255, 204));
+        txt_Endereco.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
+        txt_Endereco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(255, 206, 206)));
         txt_Endereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_EnderecoActionPerformed(evt);
@@ -178,7 +182,9 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Documento"));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
+        comboBox_TipoDocumento.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         comboBox_TipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "CPF", "CNPJ" }));
+        comboBox_TipoDocumento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 199, 199)));
         comboBox_TipoDocumento.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboBox_TipoDocumentoItemStateChanged(evt);
@@ -199,12 +205,14 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jPanel2.add(comboBox_TipoDocumento, gridBagConstraints);
 
         campoformatadoCnpj.setBackground(new java.awt.Color(255, 255, 204));
+        campoformatadoCnpj.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 224, 224)));
         try {
             campoformatadoCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         campoformatadoCnpj.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoformatadoCnpj.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
@@ -224,12 +232,14 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jPanel2.add(lbltipodocumento, gridBagConstraints);
 
         campoformatado_cpf.setBackground(new java.awt.Color(255, 255, 204));
+        campoformatado_cpf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 232, 232)));
         try {
             campoformatado_cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         campoformatado_cpf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoformatado_cpf.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         campoformatado_cpf.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 campoformatado_cpfMouseClicked(evt);
@@ -249,7 +259,9 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jLabel6.setText("Email");
 
         txt_email.setBackground(new java.awt.Color(255, 255, 204));
+        txt_email.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         txt_email.setText("example@gmail.com");
+        txt_email.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(253, 209, 209)));
         txt_email.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_emailFocusGained(evt);
@@ -319,6 +331,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         gridBagConstraints.insets = new java.awt.Insets(18, 12, 44, 0);
         jPanel4.add(jRadioButton2, gridBagConstraints);
 
+        pesquisarTabelaClientes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         pesquisarTabelaClientes.setText("Pesquisar Cliente");
         pesquisarTabelaClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -361,6 +374,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         JRatioTipoMovel.setBackground(new java.awt.Color(255, 255, 255));
         JRatioTipoMovel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         JRatioTipoMovel.setText("Celular");
+        JRatioTipoMovel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(252, 203, 203)));
         JRatioTipoMovel.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 JRatioTipoMovelFocusGained(evt);
@@ -382,11 +396,13 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         gridBagConstraints.insets = new java.awt.Insets(18, 6, 37, 86);
         jPanel3.add(JRatioTipoMovel, gridBagConstraints);
 
-        dia.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        dia.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia" }));
+        dia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 213, 213)));
 
-        mes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        mes.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "mês", "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro" }));
+        mes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 213, 213)));
         mes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 mesItemStateChanged(evt);
@@ -398,8 +414,9 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        ano.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        ano.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         ano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ano" }));
+        ano.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 213, 213)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -434,17 +451,17 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(txt_nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
+                                    .addComponent(txt_nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(pesquisarTabelaClientes)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
                                     .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -462,8 +479,8 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                     .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -471,12 +488,12 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(txt_email, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txt_Endereco)
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cadastrarCliente)
                     .addComponent(btn_limparCampos))

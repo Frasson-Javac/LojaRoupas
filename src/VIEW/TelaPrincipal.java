@@ -56,10 +56,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem15 = new javax.swing.JMenuItem();
         jPanel2 = new javax.swing.JPanel();
         desktopPrincipal = new javax.swing.JDesktopPane();
-        jPanel1 = new javax.swing.JPanel();
-        lbl_hora = new javax.swing.JLabel();
-        lbl_data1 = new javax.swing.JLabel();
-        lbl_user = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btn_CadastrarUsuario = new javax.swing.JButton();
@@ -80,6 +76,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         ConsultarCliente = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lbl_hora = new javax.swing.JLabel();
+        lbl_data1 = new javax.swing.JLabel();
+        lbl_user = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         jMenu_Usuario = new javax.swing.JMenu();
         jMenuItem_Usuario_Cadastrar = new javax.swing.JMenuItem();
@@ -140,45 +140,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        desktopPrincipal.setBackground(new java.awt.Color(242, 242, 255));
+        desktopPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         desktopPrincipal.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         desktopPrincipal.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${size.height}"), desktopPrincipal, org.jdesktop.beansbinding.BeanProperty.create("minimumSize"));
         bindingGroup.addBinding(binding);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        lbl_hora.setFont(new java.awt.Font("News701 BT", 0, 17)); // NOI18N
-        lbl_hora.setForeground(new java.awt.Color(0, 0, 153));
-
-        lbl_data1.setFont(new java.awt.Font("News701 BT", 0, 17)); // NOI18N
-        lbl_data1.setForeground(new java.awt.Color(0, 0, 153));
-
-        lbl_user.setFont(new java.awt.Font("News701 BT", 0, 17)); // NOI18N
-        lbl_user.setForeground(new java.awt.Color(0, 0, 153));
-
-        org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(lbl_user, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 246, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(lbl_data1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 114, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
-                .add(lbl_hora, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 115, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(lbl_user, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(lbl_data1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 41, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(lbl_hora, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -341,7 +308,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jLabel10)
                     .add(ConsultarCliente))
-                .addContainerGap(721, Short.MAX_VALUE))
+                .addContainerGap(1349, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -374,24 +341,72 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .add(btn_CadastrarPedido, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(btn_ListarPedido, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(btn_cadastrarclientes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
-                .addContainerGap(609, Short.MAX_VALUE))
+                .addContainerGap(617, Short.MAX_VALUE))
         );
 
-        desktopPrincipal.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jPanel1.setBackground(new java.awt.Color(212, 211, 211));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null, new java.awt.Color(0, 0, 0), new java.awt.Color(153, 153, 153)));
+
+        lbl_hora.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
+        lbl_hora.setForeground(new java.awt.Color(0, 0, 153));
+        lbl_hora.setText("Atualizando...");
+        lbl_hora.setToolTipText("");
+        lbl_hora.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lbl_data1.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
+        lbl_data1.setForeground(new java.awt.Color(0, 0, 153));
+        lbl_data1.setText("11");
+        lbl_data1.setToolTipText("");
+        lbl_data1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lbl_data1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lbl_user.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
+        lbl_user.setForeground(new java.awt.Color(0, 0, 153));
+        lbl_user.setText("a");
+        lbl_user.setToolTipText("");
+        lbl_user.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(lbl_user, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 268, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(lbl_data1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 114, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(lbl_hora, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 115, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanel1Layout.createSequentialGroup()
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, lbl_data1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, lbl_user, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
+                        .add(0, 0, Short.MAX_VALUE))
+                    .add(lbl_hora, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         desktopPrincipal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPrincipal.setLayer(jPanel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPrincipal.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         org.jdesktop.layout.GroupLayout desktopPrincipalLayout = new org.jdesktop.layout.GroupLayout(desktopPrincipal);
         desktopPrincipal.setLayout(desktopPrincipalLayout);
         desktopPrincipalLayout.setHorizontalGroup(
             desktopPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(desktopPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .add(desktopPrincipalLayout.createSequentialGroup()
-                .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jLabel1)
+                .add(desktopPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(desktopPrincipalLayout.createSequentialGroup()
+                        .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabel1)))
                 .add(0, 0, Short.MAX_VALUE))
         );
         desktopPrincipalLayout.setVerticalGroup(
@@ -400,8 +415,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .add(desktopPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 705, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, Short.MAX_VALUE)
-                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 40, Short.MAX_VALUE)
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 34, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
 
         jMenu_Usuario.setText("Usuario");

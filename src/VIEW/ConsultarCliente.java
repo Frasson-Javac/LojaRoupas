@@ -120,9 +120,17 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nome", "Sexo", "Data de Nascimento", "CPF/CNPJ", "Endereço", "Email", "Telefone"
+                "Nome", "Sexo", "Data de Nascimento", "CPF/CNPJ", "Telefone", "Email", "Endereço"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(TableClientes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,21 +166,24 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
 
     private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
         // TODO add your handling code here:
+        formInternalFrameOpened(evt);
     }//GEN-LAST:event_formInternalFrameClosed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
         txtPesquisa.setForeground(Color.gray);
         txtPesquisa.setFocusable(false);
+        System.out.println(cliente.getListagemClientes());
 
         dtn = (DefaultTableModel) TableClientes.getModel();
 
         for (int i = 0; i < cliente.getListagemClientes().size(); i++) {
 
             String[] Dados = {cliente.getListagemClientes().get(i).getNome(), String.valueOf(cliente.getListagemClientes().get(i).getSexo()),
-                cliente.getListagemClientes().get(i).getNascimento(), cliente.getListagemClientes().get(i).getCpf(), cliente.getListagemClientes().get(i).getEndereco(),
-                cliente.getListagemClientes().get(i).getEmail(),
-                cliente.getListagemClientes().get(i).getTelefone()
+                cliente.getListagemClientes().get(i).getNascimento(), cliente.getListagemClientes().get(i).getCpf(),cliente.getListagemClientes().get(i).getTelefone() ,
+                cliente.getListagemClientes().get(i).getEmail(),cliente.getListagemClientes().get(i).getEndereco(),
+                
+                
 
             };
 

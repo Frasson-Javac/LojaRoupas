@@ -9,11 +9,13 @@ import Model.Cliente;
 import Model.utilitarios;
 import java.awt.Color;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JDesktopPane;
+import javafx.util.converter.LocalDateStringConverter;
+import javafx.util.converter.LocalDateTimeStringConverter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.DefaultFormatterFactory;
@@ -27,12 +29,12 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     Cliente cliente = new Cliente();
     static char sexo = 0;
-    static String documento =null;
-   
-    TELEFONE tel=new TELEFONE();
-    GerarIntenalFrameCentralizado gerar=new GerarIntenalFrameCentralizado();
-    ConsultarCliente consultarClientes=new ConsultarCliente();
-    
+    static String documento = null;
+    static String nascimento="";
+
+    TELEFONE tel = new TELEFONE();
+    GerarIntenalFrameCentralizado gerar = new GerarIntenalFrameCentralizado();
+    ConsultarCliente consultarClientes = new ConsultarCliente();
 
     /**
      * Creates new form CadastrarCliente
@@ -68,7 +70,6 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         txt_email = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txt_data = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -76,6 +77,9 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         JRatioTipoFixo = new javax.swing.JRadioButton();
         JRatioTipoMovel = new javax.swing.JRadioButton();
+        dia = new javax.swing.JComboBox<>();
+        mes = new javax.swing.JComboBox<>();
+        ano = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(247, 247, 247));
         setClosable(true);
@@ -263,20 +267,6 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Data de Nascimento");
 
-        txt_data.setBackground(new java.awt.Color(255, 255, 204));
-        txt_data.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_data.setText("01/12/2011");
-        txt_data.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_dataFocusGained(evt);
-            }
-        });
-        txt_data.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_dataKeyPressed(evt);
-            }
-        });
-
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo"));
         jPanel4.setLayout(new java.awt.GridBagLayout());
@@ -392,6 +382,25 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         gridBagConstraints.insets = new java.awt.Insets(18, 6, 37, 86);
         jPanel3.add(JRatioTipoMovel, gridBagConstraints);
 
+        dia.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia" }));
+
+        mes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "mês", "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro" }));
+        mes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                mesItemStateChanged(evt);
+            }
+        });
+        mes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mesActionPerformed(evt);
+            }
+        });
+
+        ano.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        ano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ano" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -399,43 +408,44 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pesquisarTabelaClientes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_data, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_limparCampos)
-                        .addGap(38, 38, 38)
-                        .addComponent(btn_cadastrarCliente))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_limparCampos)
                             .addGap(18, 18, 18)
-                            .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txt_Endereco))
+                            .addComponent(btn_cadastrarCliente))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 18, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txt_Endereco))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(txt_nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(pesquisarTabelaClientes)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,28 +457,30 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                     .addComponent(txt_nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pesquisarTabelaClientes)
                     .addComponent(jLabel3)
-                    .addComponent(txt_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 5, Short.MAX_VALUE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
                     .addComponent(txt_email, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txt_Endereco)
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cadastrarCliente)
                     .addComponent(btn_limparCampos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -478,9 +490,11 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     private void btn_cadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarClienteActionPerformed
         // TODO add your handling code here:
-        
+
         char sex = 0;
+        nascimento=(String)dia.getSelectedItem()+" de "+mes.getSelectedItem()+" de "+ano.getSelectedItem();
         
+        System.out.println(nascimento);
 
         int campos = camposObrigatorios();
         if (campos == 1) {
@@ -493,35 +507,28 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                 sex = 'f';
 
             }
-           
-            
-           
-           
-            
-            
-            if (comboBox_TipoDocumento.getSelectedItem().equals("CPF")){
-                
-                 documento=(String)campoformatado_cpf.getText();
-                
-            } else if(comboBox_TipoDocumento.getSelectedItem().equals("CNPJ")){
-                       documento=(String)campoformatadoCnpj.getText();
+
+            if (comboBox_TipoDocumento.getSelectedItem().equals("CPF")) {
+
+                documento = (String) campoformatado_cpf.getText();
+
+            } else if (comboBox_TipoDocumento.getSelectedItem().equals("CNPJ")) {
+                documento = (String) campoformatadoCnpj.getText();
             }
 
-            cliente.cadastrarcliente(txt_nomeCliente.getText(),documento , txt_email.getText(), tel.numeroTel, txt_Endereco.getText(), sex,txt_data.getText());
+            cliente.cadastrarcliente(txt_nomeCliente.getText(), documento, txt_email.getText(), tel.numeroTel, txt_Endereco.getText(), sex, nascimento);
 
-            String[] dados = {txt_nomeCliente.getText(), documento, tel.numeroTel ,txt_email.getText()};
+            String[] dados = {txt_nomeCliente.getText(), documento, tel.numeroTel, txt_email.getText()};
 
             DefaultTableModel dtn = (DefaultTableModel) jtable_clientes.getModel();
 
             dtn.addRow(dados);
             limparCampos();
             JOptionPane.showMessageDialog(null, "Cliente Salvo com Sucesso !!!");
-            
-        
-       
-        }else{
+
+        } else {
             JOptionPane.showMessageDialog(null, "Favor preencher todos os Campos !!!");
-            
+
         }
 
 
@@ -612,35 +619,25 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
     private void comboBox_TipoDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBox_TipoDocumentoItemStateChanged
         // TODO add your handling code here:// verificar a logica aqui , comflito na seleçaõ campo ficando em branco 
         utilitarios util = new utilitarios();
-        
-        
-      comboBox_TipoDocumento.setEnabled(true);
-      campoformatado_cpf.setText("");
-         
-                  
-                  
-            
-         if (comboBox_TipoDocumento.getSelectedItem().equals("CPF")) {
-          lbltipodocumento.setText("CPF");
-          lbltipodocumento.setVisible(true);
-         
+
+        comboBox_TipoDocumento.setEnabled(true);
+        campoformatado_cpf.setText("");
+
+        if (comboBox_TipoDocumento.getSelectedItem().equals("CPF")) {
+            lbltipodocumento.setText("CPF");
+            lbltipodocumento.setVisible(true);
+
             campoformatado_cpf.setVisible(true);
             campoformatadoCnpj.setVisible(false);
-               comboBox_TipoDocumento.setEnabled(false);
+            comboBox_TipoDocumento.setEnabled(false);
 
-         } else if(comboBox_TipoDocumento.getSelectedItem().equals("CNPJ")){
+        } else if (comboBox_TipoDocumento.getSelectedItem().equals("CNPJ")) {
             lbltipodocumento.setText("CNPJ");
-             campoformatado_cpf.setVisible(false);
-             campoformatadoCnpj.setVisible(true);
-             comboBox_TipoDocumento.setEnabled(false);
-           
+            campoformatado_cpf.setVisible(false);
+            campoformatadoCnpj.setVisible(true);
+            comboBox_TipoDocumento.setEnabled(false);
 
-         }
-            
-           
-        
-
-  
+        }
 
 
     }//GEN-LAST:event_comboBox_TipoDocumentoItemStateChanged
@@ -651,26 +648,35 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
-        
+       
+         Date dt = new Date();
+
+        final int ano = LocalDateTime.now().getYear();
+        int anos = 1970;
+
+        for (int i = ano; i >= anos; i--) {
+            this.ano.addItem(String.valueOf(i));
+        }
+
         campoformatadoCnpj.setVisible(false);
-         txt_email.setForeground(Color.gray);
-         txt_nomeCliente.setForeground(Color.gray);
-         txt_data.setForeground(Color.gray);
-         
-         lbltipodocumento.setVisible(false);
-          campoformatado_cpf.setVisible(false);
+        txt_email.setForeground(Color.gray);
+        txt_nomeCliente.setForeground(Color.gray);
+        //  txt_data.setForeground(Color.gray);
+
+        lbltipodocumento.setVisible(false);
+        campoformatado_cpf.setVisible(false);
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void txt_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusGained
         // TODO add your handling code here:
-       txt_email.setForeground(Color.black);
-       txt_email.setText("");
-       
+        txt_email.setForeground(Color.black);
+        txt_email.setText("");
+
     }//GEN-LAST:event_txt_emailFocusGained
 
     private void txt_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusLost
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_txt_emailFocusLost
 
     private void txt_EnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_EnderecoActionPerformed
@@ -679,14 +685,12 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     private void txt_emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_emailKeyPressed
         // TODO add your handling code here:
-      
-           
-        
-       
+
+
     }//GEN-LAST:event_txt_emailKeyPressed
 
     private void JRatioTipoFixoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JRatioTipoFixoItemStateChanged
-       
+
     }//GEN-LAST:event_JRatioTipoFixoItemStateChanged
 
     private void JRatioTipoFixoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JRatioTipoFixoFocusGained
@@ -698,109 +702,57 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JRatioTipoMovelFocusGained
 
     private void JRatioTipoFixoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JRatioTipoFixoFocusLost
-          
+
     }//GEN-LAST:event_JRatioTipoFixoFocusLost
 
     private void JRatioTipoMovelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JRatioTipoMovelFocusLost
-     
+
     }//GEN-LAST:event_JRatioTipoMovelFocusLost
 
     private void JRatioTipoFixoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JRatioTipoFixoMouseClicked
         // TODO add your handling code here:
-          JRatioTipoMovel.setSelected(false);
-          
-        if(JRatioTipoFixo.isSelected()){
-        JRatioTipoFixo.setSelected(true);
-         JRatioTipoMovel.setSelected(false);
-         tel.CampoFormatado_Telefone.setVisible(true);
-         tel.CampoFormatado_Celular.setVisible(false);
-             gerar.gerarcentalPaineis(tel,  TelaPrincipal.desktopPrincipal);
-          
-        
-          
-         
-          
-          
-      }
+        JRatioTipoMovel.setSelected(false);
+
+        if (JRatioTipoFixo.isSelected()) {
+            JRatioTipoFixo.setSelected(true);
+            JRatioTipoMovel.setSelected(false);
+            tel.CampoFormatado_Telefone.setVisible(true);
+            tel.CampoFormatado_Celular.setVisible(false);
+            gerar.gerarcentalPaineis(tel, TelaPrincipal.desktopPrincipal);
+
+        }
     }//GEN-LAST:event_JRatioTipoFixoMouseClicked
 
     private void JRatioTipoMovelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JRatioTipoMovelMouseClicked
         // TODO add your handling code here:
-         JRatioTipoFixo.setSelected(false);
-        
-        if(JRatioTipoMovel.isSelected()){
-         JRatioTipoMovel.setSelected(true);
-          JRatioTipoFixo.setSelected(false);
-         tel.CampoFormatado_Celular.setVisible(true);
-          tel.CampoFormatado_Telefone.setVisible(false);
-          gerar.gerarcentalPaineis(tel,  TelaPrincipal.desktopPrincipal);
-        
-        
-             
-         
-        
-          
-          
-      }
-    }//GEN-LAST:event_JRatioTipoMovelMouseClicked
+        JRatioTipoFixo.setSelected(false);
 
-    private void txt_dataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dataKeyPressed
-        // TODO add your handling code here:
-      /*  txt_data.setText("");
-        String tam=txt_data.getText();
-        int tamanho=tam.length();
-         String subs=tam;
-        if(evt.getKeyCode()!=evt.VK_BACK_SPACE){
-        
-        for(int i=0;i<=6;i++){// a data tem 10 caracteres
-           if(tam!="01/12/2011"){
-                       subs.substring(0,tamanho);
-            System.out.println(subs);
-           }
-           txt_data.setText(subs.substring(0)+subs.substring(1)+"/"+subs.substring(2)+"/"+subs.substring(3)+subs.substring(4)+subs.substring(5)+subs.substring(6));
-*//*  while(tam.length()>=0){
-        txt_data.setText(" 1/12/2011");
-        txt_data.setText("  / 2/2011");
-        txt_data.setText("  / /2011");
-        txt_data.setText("  / / 011");
-        txt_data.setText("  / /  11");
-        txt_data.setText("  / /   1");
-        txt_data.setText("  / /   ");
-        } 
-           
+        if (JRatioTipoMovel.isSelected()) {
+            JRatioTipoMovel.setSelected(true);
+            JRatioTipoFixo.setSelected(false);
+            tel.CampoFormatado_Celular.setVisible(true);
+            tel.CampoFormatado_Telefone.setVisible(false);
+            gerar.gerarcentalPaineis(tel, TelaPrincipal.desktopPrincipal);
+
         }
-        */ 
-
-          
-           
-            
-        
-      
-    }//GEN-LAST:event_txt_dataKeyPressed
+    }//GEN-LAST:event_JRatioTipoMovelMouseClicked
 
     private void txt_nomeClienteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomeClienteFocusGained
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_txt_nomeClienteFocusGained
 
     private void txt_nomeClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nomeClienteMouseClicked
         // TODO add your handling code here:
-         txt_nomeCliente.setForeground(Color.BLACK);
+        txt_nomeCliente.setForeground(Color.BLACK);
         txt_nomeCliente.setText("");
     }//GEN-LAST:event_txt_nomeClienteMouseClicked
 
-    private void txt_dataFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dataFocusGained
-        // TODO add your handling code here:
-        txt_data.setForeground(Color.black);
-        txt_data.setText("");
-    }//GEN-LAST:event_txt_dataFocusGained
-
     private void campoformatado_cpfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoformatado_cpfMouseClicked
         // TODO add your handling code here:
-        if(comboBox_TipoDocumento.getSelectedItem().equals("Selecione")) {
+        if (comboBox_TipoDocumento.getSelectedItem().equals("Selecione")) {
             JOptionPane.showMessageDialog(null, "Selecione o Tipo de Documento");
-            
-            
+
         }
     }//GEN-LAST:event_campoformatado_cpfMouseClicked
 
@@ -809,6 +761,67 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         gerar.gerarcental(consultarClientes, TelaPrincipal.desktopPrincipal);
         consultarClientes.setVisible(true);
     }//GEN-LAST:event_pesquisarTabelaClientesActionPerformed
+
+    private void mesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesActionPerformed
+    public int mes() {
+        int dias = 0;
+        if (mes.getSelectedItem().equals("abril") || mes.getSelectedItem().equals("junho") || mes.getSelectedItem().equals("setembro")
+                || mes.getSelectedItem().equals("novembro")) {
+            
+        
+
+            return dias = 30;
+
+        }else if(mes.getSelectedItem().equals("janeiro")||mes.getSelectedItem().equals("março")||mes.getSelectedItem().equals("maio")
+                    ||mes.getSelectedItem().equals("julho")||mes.getSelectedItem().equals("agosto")||mes.getSelectedItem().equals("outubro")||mes.getSelectedItem().equals("dezembro")){
+                dias =31;
+                    return dias; 
+                    }
+        
+        
+        
+        else if (mes.getSelectedItem().equals("fevereiro")) {
+            int dta = LocalDateTime.now().getYear();
+            if ((dta % 4 == 0 && dta % 100 != 0) || (dta % 400 == 0)) {
+                dias = 29;
+                return dias;
+            } else {
+                dias = 28;
+                return dias;
+            }
+
+        }
+        return dias;
+    }
+    
+    
+    public void  gerardias( int d){
+       
+        int dias = 0;
+        dia.removeAllItems();
+        dia.addItem("Dia");
+
+        for (int i = 1; i <= d; i++) {
+            dias = i;
+            dia.addItem(String.valueOf(dias));
+        }
+
+       
+    }
+    private void mesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_mesItemStateChanged
+        // TODO add your handling code here:
+
+        final int dias=mes();
+        gerardias(dias);
+        
+       
+        
+         
+        
+        
+    }//GEN-LAST:event_mesItemStateChanged
     public void limparCampos() {
 
         txt_nomeCliente.setText("");
@@ -816,11 +829,14 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         txt_email.setText("");
         //   campoformatado_cpf.setText("");
         lbltipodocumento.setText("CPF");
-     //   CampoFormatado_Telefone.setText("");
+        //   CampoFormatado_Telefone.setText("");
         comboBox_TipoDocumento.setSelectedIndex(0);
         comboBox_TipoDocumento.setEnabled(true);
         campoformatadoCnpj.setText("");
         campoformatado_cpf.setText("");
+        dia.setSelectedIndex(0);
+        mes.setSelectedIndex(0);
+         ano.setSelectedIndex(0);
 
         if (jRadioButton1.isSelected()) {
             jRadioButton1.setSelected(false);
@@ -835,7 +851,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
     public int camposObrigatorios() {
 
         // falta colocar o padão do cnpj no if
-        if (txt_nomeCliente.getText() != "" && txt_Endereco.getText() != "" && txt_email.getText() != ""  && comboBox_TipoDocumento.getSelectedItem() != "Selecione") {
+        if (txt_nomeCliente.getText() != "" && txt_Endereco.getText() != "" && txt_email.getText() != "" && comboBox_TipoDocumento.getSelectedItem() != "Selecione") {
 
             return 1;// se retorar 1 foi preenchido todos os campos
         }
@@ -846,11 +862,13 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JRadioButton JRatioTipoFixo;
     public static javax.swing.JRadioButton JRatioTipoMovel;
+    private javax.swing.JComboBox<String> ano;
     private javax.swing.JButton btn_cadastrarCliente;
     private javax.swing.JButton btn_limparCampos;
     private javax.swing.JFormattedTextField campoformatadoCnpj;
     private javax.swing.JFormattedTextField campoformatado_cpf;
     private javax.swing.JComboBox<String> comboBox_TipoDocumento;
+    private javax.swing.JComboBox<String> dia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
@@ -865,9 +883,9 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtable_clientes;
     private javax.swing.JLabel lbltipodocumento;
+    private javax.swing.JComboBox<String> mes;
     private javax.swing.JButton pesquisarTabelaClientes;
     private javax.swing.JTextField txt_Endereco;
-    private javax.swing.JTextField txt_data;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_nomeCliente;
     // End of variables declaration//GEN-END:variables

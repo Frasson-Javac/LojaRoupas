@@ -47,7 +47,6 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         txt_nomeProduto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        btn_Pesquisar = new javax.swing.JButton();
         btn_CadastrarPedido = new javax.swing.JButton();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -57,7 +56,6 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         fornecedorList = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        btn_Atualizar = new javax.swing.JButton();
         btn_CadastrarFornecedor = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableEstoque = new javax.swing.JTable();
@@ -130,9 +128,13 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Produto");
 
-        btn_Pesquisar.setText("Pesquisar");
-
-        btn_CadastrarPedido.setText("Cadastrar");
+        btn_CadastrarPedido.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
+        btn_CadastrarPedido.setText("Cadastrar Produto");
+        btn_CadastrarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastrarPedidoActionPerformed(evt);
+            }
+        });
 
         jFormattedTextField1.setBackground(new java.awt.Color(255, 255, 204));
         jFormattedTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(254, 222, 222), new java.awt.Color(0, 0, 0)));
@@ -169,16 +171,14 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextField1)
+                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(31, 31, 31)
                 .addComponent(txt_nomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_Pesquisar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(60, 60, 60)
                 .addComponent(btn_CadastrarPedido)
-                .addContainerGap())
+                .addGap(45, 45, 45))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +188,6 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
                     .addComponent(txt_nomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
-                    .addComponent(btn_Pesquisar)
                     .addComponent(btn_CadastrarPedido)
                     .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -197,6 +196,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         jLabel3.setText("Fornecedores");
 
         tamanhoList.setBackground(new java.awt.Color(255, 255, 204));
+        tamanhoList.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         tamanhoList.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 239, 239)));
         tamanhoList.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -210,6 +210,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         });
 
         GeneroList.setBackground(new java.awt.Color(255, 255, 204));
+        GeneroList.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         GeneroList.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 239, 239)));
         GeneroList.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -223,6 +224,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         jLabel1.setToolTipText("");
 
         fornecedorList.setBackground(new java.awt.Color(255, 255, 204));
+        fornecedorList.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         fornecedorList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         fornecedorList.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(254, 239, 239)));
         fornecedorList.addItemListener(new java.awt.event.ItemListener() {
@@ -234,37 +236,42 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel6.setText("ESTOQUE T-DRESS ");
 
-        btn_Atualizar.setText("Atualizar");
-
-        btn_CadastrarFornecedor.setText("Fornecedor");
+        btn_CadastrarFornecedor.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
+        btn_CadastrarFornecedor.setText("Cadastrar Fornecedor");
+        btn_CadastrarFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastrarFornecedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(GeneroList, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(tamanhoList, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(fornecedorList, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(btn_Atualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_CadastrarFornecedor)))
-                .addContainerGap(165, Short.MAX_VALUE))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(GeneroList, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(tamanhoList, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fornecedorList, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(btn_CadastrarFornecedor)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +285,6 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
                     .addComponent(tamanhoList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(fornecedorList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Atualizar)
                     .addComponent(btn_CadastrarFornecedor))
                 .addGap(31, 31, 31)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -327,7 +333,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -338,6 +344,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         // TODO add your handling code h
         
         txt_nomeProduto.setForeground(Color.gray);
+        
         jFormattedTextField1.setForeground(Color.gray);
         this.dtn = (DefaultTableModel) TableEstoque.getModel();
         dtn.setRowCount(0);
@@ -448,13 +455,17 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
 
         String produtodigitado = txt_nomeProduto.getText();
         txt_nomeProduto.setForeground(Color.RED);
+      
         int quant = produtodigitado.length();
 
-        for (int i = 0; i < pedidocompra.getPedidos().size(); i++) {
 
+        for (int i = 0; i < pedidocompra.getPedidos().size(); i++) {
+              
+                 
+               
+                 
             if (pedidocompra.getPedidos().get(i).getNome_Produto().length() >= produtodigitado.length()) {
                 String caracter = pedidocompra.getPedidos().get(i).getNome_Produto().substring(0, quant);
-               
 
                 if (produtodigitado.equalsIgnoreCase(caracter)) {
                     dtn.addRow(new String[]{String.valueOf(pedidocompra.getPedidos().get(i).getCodPedido()), pedidocompra.getPedidos().get(i).getNome_Produto(),
@@ -465,6 +476,7 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
 
                 }
             }
+              
         }
     }//GEN-LAST:event_txt_nomeProdutoKeyReleased
 
@@ -543,14 +555,24 @@ public class ConsultarPedidoCompra extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_fornecedorListItemStateChanged
 
+    private void btn_CadastrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarPedidoActionPerformed
+        // TODO add your handling code here:
+        GerarIntenalFrameCentralizado gerar=new GerarIntenalFrameCentralizado();
+        gerar.gerarcental(cadastrarPedidoCompra, TelaPrincipal.desktopPrincipal);
+    }//GEN-LAST:event_btn_CadastrarPedidoActionPerformed
+
+    private void btn_CadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarFornecedorActionPerformed
+        // TODO add your handling code here:
+        GerarIntenalFrameCentralizado gerar=new GerarIntenalFrameCentralizado();
+        gerar.gerarcental(new CadastarFornecedor(), TelaPrincipal.desktopPrincipal);
+    }//GEN-LAST:event_btn_CadastrarFornecedorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> GeneroList;
     private javax.swing.JTable TableEstoque;
-    private javax.swing.JButton btn_Atualizar;
     private javax.swing.JButton btn_CadastrarFornecedor;
     private javax.swing.JButton btn_CadastrarPedido;
-    private javax.swing.JButton btn_Pesquisar;
     private javax.swing.JComboBox<String> fornecedorList;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;

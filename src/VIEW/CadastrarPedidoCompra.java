@@ -68,6 +68,7 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
         lbl_valueunit = new javax.swing.JFormattedTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -278,6 +279,13 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton1.setText("Cosultar Estoque");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -336,6 +344,8 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
                                         .addGap(90, 90, 90)
                                         .addComponent(txt_Subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addGap(18, 18, 18)
                                         .addComponent(btbCancelar)
                                         .addGap(31, 31, 31)
                                         .addComponent(btn_salvar))))))
@@ -383,7 +393,8 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_salvar)
-                    .addComponent(btbCancelar))
+                    .addComponent(btbCancelar)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -399,7 +410,7 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
         PedidoCompra pd = new PedidoCompra();
        
 
-        String tam = (String) jCombo_Tamnho.getSelectedItem();// combo box dos tamnhos dos uniformes
+        String tam = (String) jCombo_Tamnho.getSelectedItem();// combo box dos tamnhos das roupas
         String gen = (String) Jcombo_Genero.getSelectedItem();// combo box dos generos m/f
         int qtde = Integer.parseInt(txt_Quantidade.getText());//quantidade de uniformes
         String fornecedor = (String) jcombo_Forn.getSelectedItem();
@@ -439,6 +450,7 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         PedidoCompra pd = new PedidoCompra();
         txt_cod.setText(pd.obter_codigo());
+        txt_cod.setEnabled(false);
 
         Fornecedor forn = new Fornecedor();
 
@@ -469,38 +481,27 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
 
     private void lbl_valueunitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_valueunitMouseClicked
         // TODO add your handling code here:
-        if(lbl_valueunit.getText().equals("0.00")){
-        lbl_valueunit.setText("");
-            
-        }
+       
     }//GEN-LAST:event_lbl_valueunitMouseClicked
 
     private void txt_ProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ProdutoFocusLost
         // TODO add your handling code here:
-        if(txt_Produto.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "\nPreenchimento Obrigatório do Campo produto");
-        }
+        
     }//GEN-LAST:event_txt_ProdutoFocusLost
 
     private void txt_QuantidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_QuantidadeFocusLost
         // TODO add your handling code here:
-         if(txt_Quantidade.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "\nPreenchimento Obrigatório do campo Quantidade");
-        }
+        
     }//GEN-LAST:event_txt_QuantidadeFocusLost
 
     private void Jcombo_GeneroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Jcombo_GeneroFocusLost
         // TODO add your handling code here:
-         if(Jcombo_Genero.getSelectedItem().equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "\nPreenchimento Obrigatório do campo Gênero");
-        }
+         
     }//GEN-LAST:event_Jcombo_GeneroFocusLost
 
     private void jcombo_FornFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jcombo_FornFocusLost
         // TODO add your handling code here:
-         if(jcombo_Forn.getSelectedItem().equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "\nPreenchimento Obrigatório do campo Fornecedor");
-        }
+        
     }//GEN-LAST:event_jcombo_FornFocusLost
 
     private void jCombo_TamnhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombo_TamnhoActionPerformed
@@ -509,10 +510,15 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
 
     private void jCombo_TamnhoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jCombo_TamnhoFocusLost
         // TODO add your handling code here:
-        if(jCombo_Tamnho.getSelectedItem().equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "\nPreenchimento Obrigatório do campo Tamanho");
-        }
+        
     }//GEN-LAST:event_jCombo_TamnhoFocusLost
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ConsultarPedidoCompra consultarpedido=new ConsultarPedidoCompra();
+        GerarIntenalFrameCentralizado gerar=new GerarIntenalFrameCentralizado();
+        gerar.gerarcental(consultarpedido, TelaPrincipal.desktopPrincipal);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -520,6 +526,7 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
     private javax.swing.JButton btbCancelar;
     private javax.swing.JButton btn_salvar;
     private javax.swing.JTextArea jArea_Descricao;
+    private javax.swing.JButton jButton1;
     public javax.swing.JComboBox<String> jCombo_Tamnho;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

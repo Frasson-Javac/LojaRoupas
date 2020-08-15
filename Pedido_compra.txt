@@ -5,3 +5,6 @@ Cod;nomeProduto;Descricao;tamanho;genero;quantidade;valor unitario;Valor total;N
 4;cueca;;40;Masculino;12;21.0;2.52;Americanas Ltda;25/07/2020;16:35:10
 5;Camiseta;;P;Masculino;20;17.0;340.0;Americanas Ltda;06/08/2020;21:01:40
 6;Pijama;;P;Feminino;2;77.0;154.0;Maria Olinda;12/08/2020;21:05:35
+7;;;Selecione;Selecione;2;41.25;82.4;Selecione;14/08/2020;19:08:51
+8;;;Selecione;Selecione;2;47.0;94.0;Selecione;14/08/2020;19:31:15
+9;;;Selecione;Selecione;12;2.0;24.0;Selecione;14/08/2020;19:45:41

@@ -135,7 +135,7 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txt_ValorTotal" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <Component id="txt_subtotal" min="-2" pref="115" max="-2" attributes="0"/>
                                           <Component id="lbl_valueunit" min="-2" pref="115" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -158,7 +158,7 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                                      <Component id="txt_Subtotal" min="-2" pref="113" max="-2" attributes="0"/>
+                                      <Component id="txt_total" min="-2" pref="113" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
@@ -215,9 +215,9 @@
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txt_ValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_subtotal" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txt_Subtotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_total" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -449,7 +449,7 @@
         <Property name="text" type="java.lang.String" value="Valor Total"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="txt_ValorTotal">
+    <Component class="javax.swing.JFormattedTextField" name="txt_subtotal">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -468,7 +468,7 @@
         <Property name="text" type="java.lang.String" value="SubTotal  R$"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="txt_Subtotal">
+    <Component class="javax.swing.JFormattedTextField" name="txt_total">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -562,9 +562,11 @@
         <Property name="text" type="java.lang.String" value="0.00"/>
       </Properties>
       <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="lbl_valueunitFocusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="lbl_valueunitFocusLost"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_valueunitMouseClicked"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="lbl_valueunitKeyPressed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="lbl_valueunitKeyReleased"/>
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel8">

@@ -22,7 +22,7 @@ public class TDRESS {
      */
     public static void main(String[] args) {
   
-        local();
+        Locale.setDefault(Locale.ROOT);
        
     
         try {
@@ -35,11 +35,6 @@ public class TDRESS {
       login.setVisible(true);
     }
     
-    public static void local(){
     
-        Locale local =new Locale("pt","BRAZIL");
-        DecimalFormatSymbols real=new DecimalFormatSymbols(local);
-       DecimalFormat df=new DecimalFormat("¤ ###,###,##0.00",real);
-    }
     
 }

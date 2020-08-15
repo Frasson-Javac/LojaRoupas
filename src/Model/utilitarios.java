@@ -7,14 +7,10 @@ package Model;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.text.ParseException;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -41,24 +37,19 @@ public class utilitarios {
         return s;
 
     }
-
-    public   String convertnumero(float numero) {
+    
+    
+      public static void main(String[] args) {
+     double numero=1247.00;
         
       
-        try{
-        Locale brazil=new Locale("pt", "BR");
-        DecimalFormatSymbols real=new DecimalFormatSymbols(brazil);
-        DecimalFormat df=new DecimalFormat("###,###,###,##0.00",real);
- 
-        String s = df.format(numero);
-        return s;
-
-    }catch(NumberFormatException ex){
-            JOptionPane.showMessageDialog(null, ex);
-    }
-        return "";
     }
     
+    
+  
+    
+    
+   
   
     
    

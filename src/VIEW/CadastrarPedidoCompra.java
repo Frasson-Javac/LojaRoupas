@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
     static float soma=0;
+    utilitarios util=new utilitarios();
    
 
     /**
@@ -60,9 +61,9 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        txt_ValorTotal = new javax.swing.JFormattedTextField();
+        txt_subtotal = new javax.swing.JFormattedTextField();
         jLabel13 = new javax.swing.JLabel();
-        txt_Subtotal = new javax.swing.JFormattedTextField();
+        txt_total = new javax.swing.JFormattedTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPedidoCompra = new javax.swing.JTable();
         lbl_valueunit = new javax.swing.JFormattedTextField();
@@ -219,16 +220,16 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Valor Total");
 
-        txt_ValorTotal.setEditable(false);
-        txt_ValorTotal.setBackground(new java.awt.Color(255, 255, 204));
-        txt_ValorTotal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        txt_subtotal.setEditable(false);
+        txt_subtotal.setBackground(new java.awt.Color(255, 255, 204));
+        txt_subtotal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("SubTotal  R$");
 
-        txt_Subtotal.setEditable(false);
-        txt_Subtotal.setBackground(new java.awt.Color(255, 255, 204));
-        txt_Subtotal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        txt_total.setEditable(false);
+        txt_total.setBackground(new java.awt.Color(255, 255, 204));
+        txt_total.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
 
         jPedidoCompra.setBackground(new java.awt.Color(255, 255, 204));
         jPedidoCompra.setModel(new javax.swing.table.DefaultTableModel(
@@ -244,6 +245,9 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
         lbl_valueunit.setBackground(new java.awt.Color(255, 255, 204));
         lbl_valueunit.setText("0.00");
         lbl_valueunit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                lbl_valueunitFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 lbl_valueunitFocusLost(evt);
             }
@@ -256,6 +260,9 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
         lbl_valueunit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 lbl_valueunitKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lbl_valueunitKeyReleased(evt);
             }
         });
 
@@ -325,7 +332,7 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel13))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txt_ValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lbl_valueunit, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,7 +349,7 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
                                                 .addComponent(Jcombo_Genero, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGap(90, 90, 90)
-                                        .addComponent(txt_Subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jButton1)
                                         .addGap(18, 18, 18)
@@ -385,9 +392,9 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
-                            .addComponent(txt_ValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13)
-                            .addComponent(txt_Subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
@@ -415,12 +422,12 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
         int qtde = Integer.parseInt(txt_Quantidade.getText());//quantidade de uniformes
         String fornecedor = (String) jcombo_Forn.getSelectedItem();
         PedidoCompra pedido = new PedidoCompra(Integer.parseInt(txt_cod.getText()), txt_Produto.getText(), jArea_Descricao.getText(), tam, gen,
-        qtde,  Float.parseFloat(lbl_valueunit.getText().replace(",", ".")), Float.parseFloat( txt_ValorTotal.getText().replace(",", ".")), 
+        qtde,  Float.parseFloat(lbl_valueunit.getText().replace(",", ".")), Float.parseFloat( txt_subtotal.getText().replace(",", ".")), 
         jcombo_Forn.getSelectedItem().toString());
         pedido.gravar(pedido);
 
         String[] dados = {txt_cod.getText(), txt_Produto.getText(), tam, gen, jArea_Descricao.getText(), fornecedor,
-            txt_Quantidade.getText(),"R$ "+ lbl_valueunit.getText().replace(".", ","),"R$ " +txt_ValorTotal.getText()};
+            txt_Quantidade.getText(),"R$ "+ txt_total.getText().replace(".", ",")};
 
         DefaultTableModel dtn = (DefaultTableModel) jPedidoCompra.getModel();
         dtn.addRow(dados);
@@ -429,11 +436,11 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
         txt_Quantidade.setText("");
        
 
-         soma =soma+Float.parseFloat(txt_ValorTotal.getText().replace(",", "."));
+         soma =soma+Float.parseFloat(txt_subtotal.getText().replace(",", "."));
         lbl_valueunit.setText("0.00");
        
-        txt_Subtotal.setText(""+soma);
-        txt_ValorTotal.setText("0,00");
+        txt_subtotal.setText(""+soma);
+        txt_total.setText("0,00");
         jArea_Descricao.setText("");
         Jcombo_Genero.setSelectedIndex(0);
         jCombo_Tamnho.setSelectedIndex(0);
@@ -466,22 +473,22 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
 
     private void lbl_valueunitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_valueunitFocusLost
         // TODO add your handling code here:
-        utilitarios util=new utilitarios();
-        
-        util.convertnumero(Float.parseFloat(lbl_valueunit.getText()));
-        float calc = Float.parseFloat(lbl_valueunit.getText())* Float.parseFloat(txt_Quantidade.getText());
-        
-        txt_ValorTotal.setText(""+util.convertnumero(calc));
+      
     }//GEN-LAST:event_lbl_valueunitFocusLost
 
     private void lbl_valueunitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbl_valueunitKeyPressed
-        // TODO add your handling code here:
+        // TODO add your handling code here: utilitarios util=new utilitarios();
+        
+        
+     
+      
+    
         
     }//GEN-LAST:event_lbl_valueunitKeyPressed
 
     private void lbl_valueunitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_valueunitMouseClicked
         // TODO add your handling code here:
-       
+        
     }//GEN-LAST:event_lbl_valueunitMouseClicked
 
     private void txt_ProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ProdutoFocusLost
@@ -520,6 +527,29 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
         gerar.gerarcental(consultarpedido, TelaPrincipal.desktopPrincipal);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void lbl_valueunitFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_valueunitFocusGained
+        // TODO add your handling code here:
+        lbl_valueunit.setText("");
+    }//GEN-LAST:event_lbl_valueunitFocusGained
+
+    private void lbl_valueunitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbl_valueunitKeyReleased
+        // TODO add your handling code here:
+         
+          
+        
+                                             
+          float valorunit=Float.parseFloat(lbl_valueunit.getText().replace(".", ","));
+        int qtd=Integer.parseInt(txt_Quantidade.getText());
+        float total=qtd*valorunit;
+       
+        
+        txt_total.setText( String.valueOf(total));
+             txt_subtotal.setText(txt_total.getText());
+        
+            
+        
+    }//GEN-LAST:event_lbl_valueunitKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> Jcombo_Genero;
@@ -552,8 +582,8 @@ public class CadastrarPedidoCompra extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField lbl_valueunit;
     private javax.swing.JTextField txt_Produto;
     private javax.swing.JTextField txt_Quantidade;
-    private javax.swing.JFormattedTextField txt_Subtotal;
-    private javax.swing.JFormattedTextField txt_ValorTotal;
     private javax.swing.JTextField txt_cod;
+    private javax.swing.JFormattedTextField txt_subtotal;
+    private javax.swing.JFormattedTextField txt_total;
     // End of variables declaration//GEN-END:variables
 }
